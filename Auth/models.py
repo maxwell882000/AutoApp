@@ -33,6 +33,12 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 #     def __str__(self):
 #         return self.email
    
+class SelectedUnits(models.Model):
+    speedUnit       = models.CharField(max_length= 50,default=0)
+    distanseUnit    = models.CharField(max_length = 50,default= 0)
+    fuelConsumption = models.CharField(max_length = 50,default=0)
+    volume          = models.CharField(max_length = 50)  
+    
 class TransportDetail(models.Model):
     nameOfTransport = models.CharField(max_length = 50)
     marka           = models.CharField(max_length = 20)
@@ -45,12 +51,13 @@ class TransportDetail(models.Model):
     secondTank      = models.BooleanField(default=True)
     kilometerGas    = models.IntegerField(default = 0)
     numberGas       = models.IntegerField(default = 0)
+    volume          = models.IntegerField(default=0)
 
 class UserTransport(models.Model):
     emailOrPhone = models.CharField(max_length = 200 , unique = True)
     provider     = models.CharField(max_length = 30)
     cards        = models.ForeignKey(TransportDetail, related_name = 'cards' ,on_delete =models.CASCADE, blank= True, null= True)
-    
+    units        = models.ForeignKey(SelectedUnits, related_name = 'units' ,on_delete =models.CASCADE, blank= True, null= True)
     def __str__(self):
         return self.emailOrPhone
 # Create your models here.

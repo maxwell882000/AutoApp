@@ -1,4 +1,4 @@
-from .models import UserTransport,TransportDetail
+from .models import UserTransport,TransportDetail ,SelectedUnits
 from rest_framework import serializers , status
 from django.contrib import auth
 from rest_framework.exceptions import AuthenticationFailed
@@ -29,7 +29,25 @@ class AccountSerializer(serializers.ModelSerializer):
                 )
                 newAccount.save()
             return ({
-                    "emailOrPhone":  "123"    
+                    "emailOrPhone":  newAccount.emailOrPhone    
+                    }, status.HTTP_200_OK)
+                    
+        def validate_register(self,attrs):
+            emailOrPhone = attrs.get('emailOrPhone')
+            provider     = attrs.get('provider')
+            accounts = UserTransport.objects.all()
+            if accounts.filter(emailOrPhone = emailOrPhone).exists():
+                return ({
+                    "error" : "Аккаунт с такими данными уже существует"
+                },status.HTTP_404_NOT_FOUND)
+            else:
+                user = UserTransport.objects.create(
+                    emailOrPhone = emailOrPhone,
+                    provider = provider,
+                )
+                user.save()
+                return({
+                    "emailOrPhone":  user.emailOrPhone    
                     }, status.HTTP_200_OK)
 
 
@@ -42,6 +60,7 @@ class RegisterOrLoginSocial(serializers.ModelSerializer):
     def validate(self, attrs):
         
         return attrs
+
 class AccountLogInSerializer(serializers.ModelSerializer):
     class Meta:
          model = UserTransport
@@ -60,11 +79,15 @@ class TransportDetailSerializer(serializers.ModelSerializer):
         fields =('id','nameOfTransport','marka','model',
                 'yearOfMade','yearOfPurchase','firstTank','kilometerPetrol',
                 'numberPetrol','secondTank','kilometerGas','numberGas')
-        
+class TransportUnitsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SelectedUnits
+        fields = ('id','speedUnit','distanseUnit','fuelConsumption','volume')
+
 class AccountCardsSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserTransport
-        fields = ['id', 'emailOrPhone','provider','cards']
+        fields = ['id', 'emailOrPhone','provider','cards','units']
         depth = 1
         # if new.exists():
         #     print("ssadsasd",new.id)
