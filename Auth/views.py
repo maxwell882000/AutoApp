@@ -63,6 +63,7 @@ oauth.register(
         'scope': 'openid email profile'
     }
 )
+
 oauth.register(
     name='facebook',
     overwrite=True,
@@ -95,7 +96,18 @@ def authGoogle(request):
     token = oauth.google.authorize_access_token(request)
     user = oauth.google.parse_id_token(request, token)
     request.session['user'] = user
-    return redirect("http://127.0.0.1:8000/social_auth/google")
+    account = {
+        'emailOrPhone': user['email'],
+        'provider': 'google',
+    }
+    account_user = AccountSerializer(account)
+    validation = account_user.validate(account_user.data)
+    direction = "/authorized/select_unit"
+    if validation[0]['status'] == 1:
+        direction = "/authorized"
+    print("{} + {}".format(validation,direction))
+    redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}?emailOrPhone={}&apn=com.autoapp.application&amv=0&afl=google.com".format(direction,validation[0]['emailOrPhone'])
+    return redirect(redirection)
 
 
 def logout(request):
