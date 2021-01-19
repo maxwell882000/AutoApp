@@ -14,22 +14,24 @@ class AccountSerializer(serializers.ModelSerializer):
             accounts     = UserTransport.objects.all()
             if accounts.filter(emailOrPhone = emailOrPhone).exists():
                 prov = accounts.get(emailOrPhone = emailOrPhone)
-                if prov.provider == provider:
-                     return ({
-                    "emailOrPhone":  prov.emailOrPhone    
+                return ({
+                    "emailOrPhone":  prov.emailOrPhone,
+                    "status": 1    
                     }, status.HTTP_200_OK)
-                else: 
-                    return({
-                    "Error" :  "Your registered through other provider"
-                    }, status.HTTP_400_BAD_REQUEST)
             else:
-                newAccount = UserTransport.objects.create(
+                if provider == 'phone' or provider == 'email':
+                    return ({
+                        "error " : "Account not created"
+                    }, status.HTTP_400_BAD_REQUEST)
+                else:
+                    newAccount = UserTransport.objects.create(
                         emailOrPhone = emailOrPhone,
                         provider     = provider,
-                )
-                newAccount.save()
+                    )
+                    newAccount.save()
             return ({
-                    "emailOrPhone":  newAccount.emailOrPhone    
+                    "emailOrPhone":  newAccount.emailOrPhone,
+                    "status": 0    
                     }, status.HTTP_200_OK)
                     
         def validate_register(self,attrs):
@@ -38,7 +40,7 @@ class AccountSerializer(serializers.ModelSerializer):
             accounts = UserTransport.objects.all()
             if accounts.filter(emailOrPhone = emailOrPhone).exists():
                 return ({
-                    "error" : "Аккаунт с такими данными уже существует"
+                    "error" : "Account created"
                 },status.HTTP_404_NOT_FOUND)
             else:
                 user = UserTransport.objects.create(
