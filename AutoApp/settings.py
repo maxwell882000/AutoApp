@@ -25,7 +25,7 @@ SECRET_KEY = 't-#d-pe&d2v+s_n+vntjm+eu32s$kwg!io%@@zs05kad_b0&x8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['autoapp.elite-house.uz']
 
 
 # Application definition
