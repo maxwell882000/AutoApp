@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from rest_framework import status
-from .models import UserTransport, TransportDetail, SelectedUnits
+from .models import UserTransport, TransportDetail, SelectedUnits ,MarkaRegister
 from .serializers import(AccountSerializer,
                          AccountLogInSerializer,
                          AccountCardsSerializer,
                          TransportDetailSerializer,
-                         TransportUnitsSerializer)
+                         TransportUnitsSerializer,
+                         MarkaSerializer)
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from authlib.integrations.django_client import OAuth, DjangoRemoteApp
@@ -102,7 +103,7 @@ def authGoogle(request):
     }
     account_user = AccountSerializer(account)
     validation = account_user.validate(account_user.data)
-    direction = "/authorized/select_unit"
+    direction = "/select_unit"
     if validation[0]['status'] == 1:
         direction = "/authorized"
     print("{} + {}".format(validation,direction))
@@ -156,7 +157,11 @@ class TransportUnits(APIView):
         user.save()
         return Response(data)
 
-
+class MarkaRegisterViews(APIView):
+    def get(self,request,*args,**kwargs):
+        data = MarkaRegister.objects.all()
+        serialized = MarkaSerializer(data , many =True)
+        return Response(serialized.data)
 class TransportViews(APIView):
     def get(self, request, *args, **kwargs):
         if not kwargs:

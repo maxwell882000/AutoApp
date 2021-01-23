@@ -1,38 +1,52 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.urls import reverse
 
+class UserManager(BaseUserManager):
 
-# class UserManager(BaseUserManager):
+    def create_user(self, username, password=None, **kwargs):
+        user = self.model(username=username, **kwargs)
+        user.set_password(password)
+        user.save()
+        return user
+    def create_superuser(self, username, password, **kwargs):
+        user = self.model(username=username, is_staff=True, is_superuser=True, **kwargs)
+        user.set_password(password)
+        user.save()
+        return user
+class UserName(AbstractBaseUser):
+    username =  models.CharField(
+    unique = True,
+    max_length=254)
+    is_verified = models.BooleanField(default = False)
+    is_active = models.BooleanField(default = True)
+    is_admin  = models.BooleanField(default = False)
 
-#     def create_user(self,emailOrPhone , auth_provider):
-#         user = self
-#         user.emailOrPhone= emailOrPhone
-#         password = "123Asd$@31"
-#         user.set_password(password)
-#         user.save(using =self._db)
-#         return user
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = []
 
-# AUTH_PROVIDERS = {'facebook': 'facebook', 'google': 'google',
-#                    'email': 'email', 'phone' : 'phone'}
-# class User(AbstractBaseUser):
-#     emailOrPhone =  models.CharField(verbose_name = 'email or phone',
-#     unique = True,
-#     max_length=254)
-#     is_verified = models.BooleanField(default = False)
-#     is_active = models.BooleanField(default = True)
-#     is_admin  = models.BooleanField(default = False)
-#     auth_provider = models.CharField(
-#         max_length=255, blank=False,
-#         null=False, default=AUTH_PROVIDERS.get('email'))
+    objects = UserManager()
 
-#     USERNAME_FIELD = 'emailOrPhone'
-#     REQUIRED_FIELDS = []
+    def __str__(self):
+        return self.email
 
-#     objects = UserManager()
+class ModelRegister(models.Model):
+    name_of_model = models.CharField(max_length = 50)
 
-#     def __str__(self):
-#         return self.email
-   
+    def __str__(self):
+        return self.name_of_model
+
+class MarkaRegister(models.Model):
+    name_of_marka = models.CharField(max_length= 50, default = 0)
+    model = models.ManyToManyField(ModelRegister)
+    
+    def get_absolute_url(self):
+        """Returns the url to access a particular author instance."""
+        return reverse('author-detail', args=[str(self.id)])
+    
+    def __str__(self):
+        return self.name_of_marka
+
 class SelectedUnits(models.Model):
     speedUnit       = models.CharField(max_length= 50,default=0)
     distanseUnit    = models.CharField(max_length = 50,default= 0)

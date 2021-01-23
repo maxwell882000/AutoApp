@@ -1,4 +1,4 @@
-from .models import UserTransport,TransportDetail ,SelectedUnits
+from .models import UserTransport,TransportDetail ,SelectedUnits,MarkaRegister
 from rest_framework import serializers , status
 from django.contrib import auth
 from rest_framework.exceptions import AuthenticationFailed
@@ -85,7 +85,11 @@ class TransportUnitsSerializer(serializers.ModelSerializer):
     class Meta:
         model = SelectedUnits
         fields = ('id','speedUnit','distanseUnit','fuelConsumption','volume')
-
+class MarkaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MarkaRegister
+        fields = ('__all__')
+        depth = 1
 class AccountCardsSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserTransport
