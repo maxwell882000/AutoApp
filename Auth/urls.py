@@ -3,7 +3,7 @@ from django.conf.urls import url
 from .views import (RegisterOrLoginUsersViews,
                     TransportViews,AccountRegister,
                     loginFacebook, loginGoogle,
-                    authFacebook, authGoogle, TransportUnits)
+                    authFacebook, authGoogle, TransportUnits, MarkaRegisterViews)
 from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
@@ -16,5 +16,6 @@ urlpatterns = [
     path('loginGoogle/', loginGoogle),
     path('authfacebook/', authFacebook, name='authfacebook'),
     path('authgoogle/', authGoogle, name='authgoogle'),
+    path ('marka/', MarkaRegisterViews.as_view()),
 
 ]
