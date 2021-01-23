@@ -192,7 +192,8 @@ class TransportViews(APIView):
             secondTankType=data['secondTankType'],
             secondTankVolume = data['secondTankVolume']
         )
-        user.cards = detail
+
+        user.cards.add(detail)
         print(user)
         user.save()
         return Response(data)

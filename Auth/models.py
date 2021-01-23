@@ -62,13 +62,13 @@ class TransportDetail(models.Model):
     numberOfTank    = models.IntegerField(default=0)
     firstTankType   = models.CharField(max_length = 30)
     firstTankVolume = models.IntegerField(default = 0)
-    secondTankType  = models.CharField(max_length = 30)
-    secondTankVolume= models.IntegerField(default = 0)
+    secondTankType  = models.CharField(max_length = 30,blank= True, null=True)
+    secondTankVolume= models.IntegerField(default = 0, blank= True, null=True)
 
 class UserTransport(models.Model):
     emailOrPhone = models.CharField(max_length = 200 , unique = True)
     provider     = models.CharField(max_length = 30)
-    cards        = models.ForeignKey(TransportDetail, related_name = 'cards' ,on_delete =models.CASCADE, blank= True, null= True)
+    cards        = models.ManyToManyField(TransportDetail)
     units        = models.ForeignKey(SelectedUnits, related_name = 'units' ,on_delete =models.CASCADE, blank= True, null= True)
     def __str__(self):
         return self.emailOrPhone
