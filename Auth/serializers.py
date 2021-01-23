@@ -78,9 +78,7 @@ class AccountLogInSerializer(serializers.ModelSerializer):
 class TransportDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = TransportDetail
-        fields =('id','nameOfTransport','marka','model',
-                'yearOfMade','yearOfPurchase','firstTank','kilometerPetrol',
-                'numberPetrol','secondTank','kilometerGas','numberGas')
+        fields =('__all__')
 class TransportUnitsSerializer(serializers.ModelSerializer):
     class Meta:
         model = SelectedUnits

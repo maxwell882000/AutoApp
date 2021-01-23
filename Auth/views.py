@@ -139,7 +139,6 @@ class AccountRegister(APIView):
 
 
 class TransportUnits(APIView):
-
     def put(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
         data = request.data
@@ -162,6 +161,7 @@ class MarkaRegisterViews(APIView):
         data = MarkaRegister.objects.all()
         serialized = MarkaSerializer(data , many =True)
         return Response(serialized.data)
+
 class TransportViews(APIView):
     def get(self, request, *args, **kwargs):
         if not kwargs:
@@ -186,10 +186,11 @@ class TransportViews(APIView):
             model=data['model'],
             yearOfMade=data['yearOfMade'],
             yearOfPurchase=data['yearOfPurchase'],
-            kilometerPetrol=data['kilometerPetrol'],
-            numberPetrol=data['numberPetrol'],
-            kilometerGas=data['kilometerGas'],
-            numberGas=data['numberGas'],
+            numberOfTank=data['numberOfTank'],
+            firstTankType=data['firstTankType'],
+            firstTankVolume=data['firstTankVolume'],
+            secondTankType=data['secondTankType'],
+            secondTankVolume = data['secondTankVolume']
         )
         user.cards = detail
         print(user)

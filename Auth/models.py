@@ -59,13 +59,11 @@ class TransportDetail(models.Model):
     model           = models.CharField(max_length = 30)
     yearOfMade      = models.CharField(max_length = 4)
     yearOfPurchase  = models.CharField(max_length = 4)
-    firstTank       = models.BooleanField( default=True)
-    kilometerPetrol = models.IntegerField(default = 0)
-    numberPetrol    = models.IntegerField(default = 0)
-    secondTank      = models.BooleanField(default=True)
-    kilometerGas    = models.IntegerField(default = 0)
-    numberGas       = models.IntegerField(default = 0)
-    volume          = models.IntegerField(default=0)
+    numberOfTank    = models.IntegerField(default=0)
+    firstTankType   = models.CharField(max_length = 30)
+    firstTankVolume = models.IntegerField(default = 0)
+    secondTankType  = models.CharField(max_length = 30)
+    secondTankVolume= models.IntegerField(default = 0)
 
 class UserTransport(models.Model):
     emailOrPhone = models.CharField(max_length = 200 , unique = True)
