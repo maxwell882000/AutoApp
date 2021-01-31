@@ -908,3 +908,127 @@ Not Found: /
 Not Found: /favicon.ico
 Not Found: /
 Not Found: /favicon.ico
+[2021-01-23 13:49:11 +0000] [2885] [INFO] Worker exiting (pid: 2885)
+[2021-01-23 13:49:11 +0000] [2878] [INFO] Handling signal: term
+[2021-01-23 13:49:11 +0000] [2878] [INFO] Shutting down: Master
+[2021-01-23 13:49:12 +0000] [16736] [INFO] Starting gunicorn 20.0.4
+[2021-01-23 13:49:12 +0000] [16736] [INFO] Listening at: http://127.0.0.1:33333 (16736)
+[2021-01-23 13:49:12 +0000] [16736] [INFO] Using worker: sync
+[2021-01-23 13:49:12 +0000] [16745] [INFO] Booting worker with pid: 16745
+Method Not Allowed: /transport/null/
+Method Not Allowed: /transport/nccbbch@yh.hy/
+Method Not Allowed: /transport/aaa@a.j/
+Not Found: /wp-login.php
+Not Found: /robots.txt
+[2021-01-24 04:00:01 +0000] [16736] [INFO] Handling signal: term
+[2021-01-24 04:00:01 +0000] [16745] [INFO] Worker exiting (pid: 16745)
+[2021-01-24 04:00:03 +0000] [16736] [INFO] Shutting down: Master
+[2021-01-24 04:00:26 +0000] [13031] [INFO] Starting gunicorn 20.0.4
+[2021-01-24 04:00:26 +0000] [13031] [INFO] Listening at: http://127.0.0.1:33333 (13031)
+[2021-01-24 04:00:26 +0000] [13031] [INFO] Using worker: sync
+[2021-01-24 04:00:26 +0000] [13162] [INFO] Booting worker with pid: 13162
+[2021-01-25 04:00:01 +0000] [13162] [INFO] Worker exiting (pid: 13162)
+[2021-01-25 04:00:01 +0000] [13031] [INFO] Handling signal: term
+[2021-01-25 04:00:02 +0000] [13031] [INFO] Shutting down: Master
+[2021-01-25 04:00:27 +0000] [31037] [INFO] Starting gunicorn 20.0.4
+[2021-01-25 04:00:27 +0000] [31037] [INFO] Listening at: http://127.0.0.1:33333 (31037)
+[2021-01-25 04:00:27 +0000] [31037] [INFO] Using worker: sync
+[2021-01-25 04:00:27 +0000] [31184] [INFO] Booting worker with pid: 31184
+Not Found: /favicon.ico
+[2021-01-26 04:00:02 +0000] [31037] [INFO] Handling signal: term
+[2021-01-26 04:00:02 +0000] [31184] [INFO] Worker exiting (pid: 31184)
+[2021-01-26 04:00:03 +0000] [31037] [INFO] Shutting down: Master
+[2021-01-26 04:00:27 +0000] [18181] [INFO] Starting gunicorn 20.0.4
+[2021-01-26 04:00:27 +0000] [18181] [INFO] Listening at: http://127.0.0.1:33333 (18181)
+[2021-01-26 04:00:27 +0000] [18181] [INFO] Using worker: sync
+[2021-01-26 04:00:27 +0000] [18320] [INFO] Booting worker with pid: 18320
+Internal Server Error: /units/null/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 143, in put
+    user = UserTransport.objects.get(emailOrPhone=pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.UserTransport.DoesNotExist: UserTransport matching query does not exist.
+Internal Server Error: /units/null/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 143, in put
+    user = UserTransport.objects.get(emailOrPhone=pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.UserTransport.DoesNotExist: UserTransport matching query does not exist.
+[2021-01-27 04:00:01 +0000] [18181] [INFO] Handling signal: term
+[2021-01-27 04:00:01 +0000] [18320] [INFO] Worker exiting (pid: 18320)
+[2021-01-27 04:00:02 +0000] [18181] [INFO] Shutting down: Master
+[2021-01-27 04:00:25 +0000] [8811] [INFO] Starting gunicorn 20.0.4
+[2021-01-27 04:00:25 +0000] [8811] [INFO] Listening at: http://127.0.0.1:33333 (8811)
+[2021-01-27 04:00:25 +0000] [8811] [INFO] Using worker: sync
+[2021-01-27 04:00:25 +0000] [8950] [INFO] Booting worker with pid: 8950
+[2021-01-28 04:00:02 +0000] [8950] [INFO] Worker exiting (pid: 8950)
+[2021-01-28 04:00:02 +0000] [8811] [INFO] Handling signal: term
+[2021-01-28 04:00:03 +0000] [8811] [INFO] Shutting down: Master
+[2021-01-28 04:00:27 +0000] [28754] [INFO] Starting gunicorn 20.0.4
+[2021-01-28 04:00:27 +0000] [28754] [INFO] Listening at: http://127.0.0.1:33333 (28754)
+[2021-01-28 04:00:27 +0000] [28754] [INFO] Using worker: sync
+[2021-01-28 04:00:27 +0000] [28902] [INFO] Booting worker with pid: 28902
+Not Found: /
+[2021-01-29 04:00:01 +0000] [28902] [INFO] Worker exiting (pid: 28902)
+[2021-01-29 04:00:01 +0000] [28754] [INFO] Handling signal: term
+[2021-01-29 04:00:01 +0000] [28754] [INFO] Shutting down: Master
+[2021-01-29 04:00:27 +0000] [24417] [INFO] Starting gunicorn 20.0.4
+[2021-01-29 04:00:27 +0000] [24417] [INFO] Listening at: http://127.0.0.1:33333 (24417)
+[2021-01-29 04:00:27 +0000] [24417] [INFO] Using worker: sync
+[2021-01-29 04:00:27 +0000] [24548] [INFO] Booting worker with pid: 24548
+Not Found: /
+Not Found: /wp-login.php
+Not Found: /wp-login.php
+Not Found: /
+[2021-01-30 04:00:01 +0000] [24548] [INFO] Worker exiting (pid: 24548)
+[2021-01-30 04:00:01 +0000] [24417] [INFO] Handling signal: term
+[2021-01-30 04:00:01 +0000] [24417] [INFO] Shutting down: Master
+[2021-01-30 04:00:26 +0000] [12900] [INFO] Starting gunicorn 20.0.4
+[2021-01-30 04:00:26 +0000] [12900] [INFO] Listening at: http://127.0.0.1:33333 (12900)
+[2021-01-30 04:00:26 +0000] [12900] [INFO] Using worker: sync
+[2021-01-30 04:00:26 +0000] [13032] [INFO] Booting worker with pid: 13032
+[2021-01-31 04:00:02 +0000] [12900] [INFO] Handling signal: term
+[2021-01-31 04:00:02 +0000] [13032] [INFO] Worker exiting (pid: 13032)
+[2021-01-31 04:00:03 +0000] [12900] [INFO] Shutting down: Master
+[2021-01-31 04:00:28 +0000] [30561] [INFO] Starting gunicorn 20.0.4
+[2021-01-31 04:00:28 +0000] [30561] [INFO] Listening at: http://127.0.0.1:33333 (30561)
+[2021-01-31 04:00:28 +0000] [30561] [INFO] Using worker: sync
+[2021-01-31 04:00:28 +0000] [30708] [INFO] Booting worker with pid: 30708
