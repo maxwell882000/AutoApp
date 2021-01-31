@@ -186,6 +186,7 @@ class TransportViews(APIView):
             model=data['model'],
             yearOfMade=data['yearOfMade'],
             yearOfPurchase=data['yearOfPurchase'],
+            number = data['number'],
             numberOfTank=data['numberOfTank'],
             firstTankType=data['firstTankType'],
             firstTankVolume=data['firstTankVolume'],

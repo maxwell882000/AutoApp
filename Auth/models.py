@@ -59,6 +59,7 @@ class TransportDetail(models.Model):
     model           = models.CharField(max_length = 30)
     yearOfMade      = models.CharField(max_length = 4)
     yearOfPurchase  = models.CharField(max_length = 4)
+    number          = models.CharField(max_length = 30)
     numberOfTank    = models.IntegerField(default=0)
     firstTankType   = models.CharField(max_length = 30)
     firstTankVolume = models.IntegerField(default = 0)
