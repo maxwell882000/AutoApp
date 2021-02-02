@@ -72,7 +72,6 @@ class AccountSerializer(serializers.ModelSerializer):
                 prov = accounts.get(emailOrPhone = emailOrPhone)
                 return ({
                     "emailOrPhone":  prov.emailOrPhone,
-                    "date":prov.date,
                     "status": 1    
                     }, status.HTTP_200_OK)
             else:
@@ -107,7 +106,6 @@ class AccountSerializer(serializers.ModelSerializer):
                 user.save()
                 return({
                     "emailOrPhone":  user.emailOrPhone,
-                    "date":user.date 
                     }, status.HTTP_200_OK)
 
 
