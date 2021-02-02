@@ -9,3 +9,6 @@ hdhdh@maill.co
 ({'emailOrPhone': 'valieva.diana0503@gmail.com', 'status': 0}, 200) + /select_unit
 ({'emailOrPhone': 'ulamurodov724@gmail.com', 'status': 0}, 200) + /select_unit
 +998916663322
+({'emailOrPhone': 'shaxa882@gmail.com', 'status': 0}, 200) + /select_unit
+({'emailOrPhone': 'shaxa882@gmail.com', 'status': 1}, 200) + /authorized
+({'emailOrPhone': '1910251.shokhzod.murodov@gmail.com', 'status': 0}, 200) + /select_unit
