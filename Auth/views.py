@@ -148,7 +148,6 @@ class AccountRegister(APIView):
         valid = user.validate_register(user.data)
         return Response(valid)
 
-
 class TransportUnits(APIView):
     def put(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
@@ -166,6 +165,11 @@ class TransportUnits(APIView):
         user.units = units
         user.save()
         return Response(data)
+    def delete(self, request, pk , formate = None):
+        user = UserTransport.objects.filter(id = pk)
+        user.delete()
+        return Response({"status":"deleted"})
+        
 class RecomendationViews(APIView):
 
     def get(self ,request,*args, **kwargs):
