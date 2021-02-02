@@ -194,11 +194,12 @@ class TransportViews(APIView):
         if not kwargs:
             user = UserTransport.objects.all()
             serializer = AccountCardsSerializer(user, many=True)
+            return Response(serializer.data)
         else:
             user = UserTransport.objects.get(emailOrPhone=kwargs['pk'])
             units = TransportUnitsSerializer(user.units)
             detail = TransportDetailSerializer(user.cards)
-        return Response({"cards":detail.data, "date": user.date ,"units":units.data})
+            return Response({"cards":detail.data, "date": user.date ,"units":units.data})
 
     def post(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
