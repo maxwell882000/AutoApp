@@ -118,7 +118,7 @@ def authGoogle(request):
     if validation[0]['status'] == 1:
         direction = "/authorized"
     print("{} + {}".format(validation,direction))
-    redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}?emailOrPhone={}&date={}&apn=com.autoapp.application&amv=0&afl=google.com".format(direction,validation[0]['emailOrPhone'],validation[0]['date'])
+    redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}?emailOrPhone={}&apn=com.autoapp.application&amv=0&afl=google.com".format(direction,validation[0]['emailOrPhone'])
     return redirect(redirection)
 
 
