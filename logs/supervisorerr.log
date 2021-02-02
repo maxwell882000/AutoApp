@@ -1105,3 +1105,21 @@ django.db.utils.OperationalError: no such table: Auth_usertransport
 [2021-02-02 04:00:26 +0000] [32673] [INFO] Listening at: http://127.0.0.1:33333 (32673)
 [2021-02-02 04:00:26 +0000] [32673] [INFO] Using worker: sync
 [2021-02-02 04:00:26 +0000] [340] [INFO] Booting worker with pid: 340
+[2021-02-02 10:38:29 +0000] [340] [INFO] Worker exiting (pid: 340)
+[2021-02-02 10:38:29 +0000] [32673] [INFO] Handling signal: term
+[2021-02-02 10:38:30 +0000] [32673] [INFO] Shutting down: Master
+[2021-02-02 10:38:31 +0000] [13571] [INFO] Starting gunicorn 20.0.4
+[2021-02-02 10:38:31 +0000] [13571] [INFO] Listening at: http://127.0.0.1:33333 (13571)
+[2021-02-02 10:38:31 +0000] [13571] [INFO] Using worker: sync
+[2021-02-02 10:38:31 +0000] [13578] [INFO] Booting worker with pid: 13578
+Internal Server Error: /authgoogle/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 121, in authGoogle
+    redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}?emailOrPhone={}&date={}&apn=com.autoapp.application&amv=0&afl=google.com".format(direction,validation[0]['emailOrPhone'],validation[0]['date'])
+KeyError: 'date'
+Not Found: /favicon.ico
+Not Found: /favicon.ico
