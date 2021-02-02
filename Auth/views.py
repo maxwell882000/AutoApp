@@ -1,18 +1,29 @@
 from django.shortcuts import render, redirect
 from rest_framework import status
-from .models import UserTransport, TransportDetail, SelectedUnits ,MarkaRegister
-from .serializers import(AccountSerializer,
+from django.http import HttpResponse
+from django.core.files import File
+from rest_framework.decorators import api_view
+from .models import (UserTransport, TransportDetail, 
+                    SelectedUnits ,MarkaRegister, Attach,
+                    ImagesForAttached,Card,
+                    Cards,ModelRegister,
+                    RecommendedChange,Expense,Expenses)
+from .serializers import(AccountSerializer,SingleRecomendationSerializer,
                          AccountLogInSerializer,
                          AccountCardsSerializer,
                          TransportDetailSerializer,
                          TransportUnitsSerializer,
-                         MarkaSerializer)
+                         MarkaSerializer,CardSerializer,
+                         AttachSerializer,ImagesForAttachedSerializer,
+                         CardsSerializer,ExpenseSerializer)
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from authlib.integrations.django_client import OAuth, DjangoRemoteApp
 from django.urls import reverse
 from ._core import map_profile_fields
-
+from rest_framework.parsers import MultiPartParser, FormParser ,FileUploadParser , JSONParser
+from .renderers import JPEGRenderer,PNGRenderer
+from django.conf import settings 
 USERINFO_FIELDS = ['id', 'name', 'first_name', 'middle_name',
                    'last_name', 'email', 'website', 'gender', 'locale']
 
@@ -107,7 +118,7 @@ def authGoogle(request):
     if validation[0]['status'] == 1:
         direction = "/authorized"
     print("{} + {}".format(validation,direction))
-    redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}?emailOrPhone={}&apn=com.autoapp.application&amv=0&afl=google.com".format(direction,validation[0]['emailOrPhone'])
+    redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}?emailOrPhone={}&date={}&apn=com.autoapp.application&amv=0&afl=google.com".format(direction,validation[0]['emailOrPhone'],validation[0]['date'])
     return redirect(redirection)
 
 
@@ -155,6 +166,22 @@ class TransportUnits(APIView):
         user.units = units
         user.save()
         return Response(data)
+class RecomendationViews(APIView):
+
+    def get(self ,request,*args, **kwargs):
+        data = ModelRegister.objects.get(id = kwargs['pk'])
+        f = open(data.image_above.path, 'rb')
+        filename = data.image_above.name
+        response = HttpResponse(f.read())
+        response['Content-Disposition'] = "attachment; filename=%s" % filename
+        return response
+
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        marka = MarkaRegister.objects.get(name_of_marka = data['name_of_marka'])
+        model = marka.model.get(name_of_model = data['name_of_model'])
+        serializer = SingleRecomendationSerializer(model.recomendations,many = True)
+        return Response({'id_model': model.id, 'recomendations': serializer.data, 'text_above': model.text_above})
 
 class MarkaRegisterViews(APIView):
     def get(self,request,*args,**kwargs):
@@ -168,18 +195,15 @@ class TransportViews(APIView):
             user = UserTransport.objects.all()
             serializer = AccountCardsSerializer(user, many=True)
         else:
-            print(kwargs)
             user = UserTransport.objects.get(emailOrPhone=kwargs['pk'])
-            print(user)
-            serializer = AccountCardsSerializer(user)
-        return Response(serializer.data)
+            units = TransportUnitsSerializer(user.units)
+            detail = TransportDetailSerializer(user.cards)
+        return Response({"cards":detail.data, "date": user.date ,"units":units.data})
 
-    def put(self, request, pk, format=None):
+    def post(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
         data = request.data
-        serializer = TransportDetailSerializer(data=data)
-        serializer.is_valid()
-        data = serializer.validated_data
+        expenses = Expenses.objects.create()
         detail = TransportDetail.objects.create(
             nameOfTransport=data['nameOfTransport'],
             marka=data['marka'],
@@ -191,10 +215,187 @@ class TransportViews(APIView):
             firstTankType=data['firstTankType'],
             firstTankVolume=data['firstTankVolume'],
             secondTankType=data['secondTankType'],
-            secondTankVolume = data['secondTankVolume']
+            secondTankVolume = data['secondTankVolume'],
+            run             = data['run'],
+            initial_run      = data['run'],
+            expenses = expenses
         )
-
-        user.cards.add(detail)
+        if 'tech_passport' in data:
+            detail.tech_passport = data['tech_passport']
+        detail.save()
+        user.cards= detail
         print(user)
         user.save()
         return Response(data)
+    def put (self, request, pk, format =None):
+        detail =  TransportDetail.objects.get(id = pk)
+        data = request.data
+        if 'run' in data:
+            detail.run = data['run']
+        if 'tech_passport' in data:
+            detail.tech_passport = data['tech_passport']
+        if 'nameOfTransport' in data:
+            detail.nameOfTransport = data['nameOfTransport']
+        if 'number' in data:
+            detail.number = data['number']
+        serializer = TransportDetailSerializer(detail)
+        return Response(serializer.data)
+
+class AttachedImageViews(APIView):
+    parser_classes = (MultiPartParser,FormParser)
+    def get(self,request, format = None):
+        data = ImagesForAttached.objects.all()
+        serializer = ImagesForAttachedSerializer(data , many = True)
+        return Response(serializer.data)
+    
+    def post(self,request, format = None):
+        data = request.data
+        serializer = ImagesForAttachedSerializer(data = data)
+        serializer.is_valid()
+        serializer.save()
+        return Response({'id':serializer.data.get('id')})
+    def delete(self,request,pk, format = None):
+        image = ImagesForAttached.objects.filter(pk = pk)
+        image.delete()
+        return Response({"status":"deleted"})
+
+from datetime import datetime
+
+class ExpenseViews(APIView):
+    def get(self,request,*args,**kwargs):
+        expenses = Expense.objects.all()
+        serializer = ExpenseSerializer(expenses,many = True)
+        return Response(serializer.data)
+    def post(self,request,*args,**kwargs):
+        data = request.data
+        serializer = ExpenseSerializer(data = data)
+        serializer.is_valid()
+        serializer.save()
+        return Response({'id':serializer.data.get('id')})
+    def delete(self,reuqest,pk,format = None):
+        expense = Expense.objects.filter(pk = pk)
+        expense.delete()
+        return Response({"status":"deleted"})
+
+class CardsViews(APIView):
+
+    def get(self,request , *args, **kwargs):
+        if not kwargs:
+            data = Cards.objects.all()
+            serializer = CardsSerializer(data , many= True)
+            return Response(serializer.data)
+
+        data = Cards.objects.get(id = kwargs['pk'])
+        serializer = CardSerializer(data.card, many = True)
+        return Response(serializer.data)
+
+
+    def post(self, request,*args, **kwargs):
+        array = []
+        data = request.data 
+        attach = Attach.objects.create()
+        change = RecommendedChange.objects.create()
+        
+        if 'run' in data:
+            change.run = data['run']
+        else:
+            change.time = data['time']
+        change.save()
+        if 'images_list' in data:
+            for i in data['images_list']:
+                array.append(ImagesForAttached.objects.get(id = int(i)))
+            
+            attach.image.set(array)
+        if 'location' in data:
+            attach.location = data['location']
+        attach.save()
+        card = Card.objects.create(
+            name_of_card = data['name_of_card'],
+            comments = data['comments'],
+            date = data['date'],
+            attach = attach,
+            change = change
+        )
+        if 'pk' in kwargs:
+            detail = TransportDetail.objects.get(id = kwargs['pk'])
+            cards = Cards.objects.create()
+            
+            cards.card.add(card)
+            cards.save()
+            detail.cards_user = cards
+            detail.save()
+            #serializer = TransportDetailSerializer(detail)
+            return Response({{'status':'changed'}})
+        card.save()
+        cards = Cards.objects.get(id = data['id'])
+        cards.card.add(card)
+        cards.save()
+        # serializer = CardsSerializer(cards)
+        return Response({'status':'changed'})
+
+    def put(self, request , pk, format = None):
+        data = request.data
+        card = Card.objects.get(id = pk)
+        if 'id_attach' in data:
+            attach = Attach.objects.get(id = data['id_attach'])
+            if 'images_list' in data:
+                for i in data['images_list']:
+                    attach.image.add(ImagesForAttached.objects.get(id = int(i)))
+            if 'location' in data:
+                attach.location = data['location']
+            attach.save()
+        if 'name_of_card' in data:
+            card.name_of_card = data['name_of_card']
+        if 'comments' in data:
+            card.comments = data['comments']
+        if 'date' in data:
+            card.date = data['date']
+        change = RecommendedChange.objects.get( id = data['id_change'])
+        if 'run' in data:
+            change.run = data['run']
+            change.time = 0
+        else:
+            change.run = 0
+            change.time = data['time']
+        change.save()
+        if 'expense_list' in data:
+            for i in data['expense_list']:
+                card.expense.add(Expense.objects.get(id = int(i)))
+        card.save()
+        #serializer = CardSerializer(card)
+        return Response({'status':'changed'})
+        
+    def delete(self,request, pk, format = None):
+        card = Card.objects.filter(pk = pk)
+        card.delete()
+        return Response({"status":"deleted"})
+
+
+    
+class DownloadImage(APIView):
+  # download from link 
+    def get(self ,request,*args, **kwargs):
+        data = ImagesForAttached.objects.get(id = kwargs['pk'])
+        f = open(data.image.path, 'rb')
+        filename = data.image.name
+        response = HttpResponse(f.read())
+        response['Content-Disposition'] = "attachment; filename=%s" % filename
+        return response
+
+class GetImage(APIView):
+    renderer_classes = [JPEGRenderer]
+    def get(self, request, *args,**kwargs):
+        data = ImagesForAttached.objects.get(id = kwargs['pk']).image
+        return Response(data, content_type='image/jpg')
+
+# def get_phases(request):
+#     project = request.POST.get('project')
+#     print("Project : %s" % project)
+#     phases = {}
+#     try:
+#         if project:
+#             model = MarkaRegister.objects.get(pk=int(project)).model
+#             phases = {pp.name_of_model:pp.pk for pp in model}
+#     except:
+#         pass
+#     return Response(phases)

@@ -1,10 +1,66 @@
-from .models import UserTransport,TransportDetail ,SelectedUnits,MarkaRegister
+from .models import (UserTransport,TransportDetail,
+                    SelectedUnits, MarkaRegister,
+                    SingleRecomendation,
+                    Cards, Card, Attach,
+                    ImagesForAttached, Expense)
 from rest_framework import serializers , status
 from django.contrib import auth
 from rest_framework.exceptions import AuthenticationFailed
 
+
+class ExpenseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Expense
+        fields = ("__all__")
+class CardsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cards
+        fields = ('__all__')
+        depth = 1 
+class ImagesForAttachedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ImagesForAttached
+        fields = ('__all__')
+class AttachSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Attach
+        fields = ('__all__')
+        
+class CardSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = Card
+            fields = ('__all__') 
+            depth = 1
+        def validate_create(self,attr):
+            print(attr)
+            name = attr.get('name_of_card')
+            # date = attr['date']
+            image = attr.get('image')
+            location = attr.get('location')
+            comments = attr.get('comments')
+            # attached = Attach.objects.create(
+            #     image = image,
+            #     location = location
+            # )
+            print("asadaasdds")
+            # print(attached)
+            # card = Card.objects.create(
+            #     name_of_card = name,
+            #     # date        =  date,
+            #     comments = comments,
+            #     attach = attached
+            # ),
+            return({'card':'asdsad'})
+
+        def validate_modify(self,attr):
+            name = attr['name_of_card']
+            date = attr['date']
+            comments = attr['comments']
+            expense = attr['expense']
+    
+
 class AccountSerializer(serializers.ModelSerializer):
-        class Meta():
+        class Meta:
             model = UserTransport
             fields = ['id','emailOrPhone', 'provider']
         
@@ -16,6 +72,7 @@ class AccountSerializer(serializers.ModelSerializer):
                 prov = accounts.get(emailOrPhone = emailOrPhone)
                 return ({
                     "emailOrPhone":  prov.emailOrPhone,
+                    "date":prov.date,
                     "status": 1    
                     }, status.HTTP_200_OK)
             else:
@@ -49,7 +106,8 @@ class AccountSerializer(serializers.ModelSerializer):
                 )
                 user.save()
                 return({
-                    "emailOrPhone":  user.emailOrPhone    
+                    "emailOrPhone":  user.emailOrPhone,
+                    "date":user.date 
                     }, status.HTTP_200_OK)
 
 
@@ -59,8 +117,7 @@ class RegisterOrLoginSocial(serializers.ModelSerializer):
         model = UserTransport
         fields = ['id','emailOrPhone', 'provider']
 
-    def validate(self, attrs):
-        
+    def validate(self, attrs):   
         return attrs
 
 class AccountLogInSerializer(serializers.ModelSerializer):
@@ -71,14 +128,14 @@ class AccountLogInSerializer(serializers.ModelSerializer):
     def validate_id(self, attrs):
         emailOrPhone = attrs.get('emailOrPhone')
         accounts     = UserTransport.objects.get(emailOrPhone = emailOrPhone)
-        print(accounts)
-
         return attrs
 
 class TransportDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = TransportDetail
         fields =('__all__')
+        depth = 1 
+
 class TransportUnitsSerializer(serializers.ModelSerializer):
     class Meta:
         model = SelectedUnits
@@ -88,10 +145,16 @@ class MarkaSerializer(serializers.ModelSerializer):
         model = MarkaRegister
         fields = ('__all__')
         depth = 1
+
+class SingleRecomendationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SingleRecomendation
+        fields = ('__all__')
+
 class AccountCardsSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserTransport
-        fields = ['id', 'emailOrPhone','provider','cards','units']
+        fields = ('__all__')
         depth = 1
         # if new.exists():
         #     print("ssadsasd",new.id)

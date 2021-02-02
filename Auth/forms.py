@@ -12,3 +12,7 @@ class StyleableCheckboxSelectMultiple(forms.CheckboxSelectMultiple):
         html = super().render(name, value, attrs, choices)
         final_attrs = self.build_attrs(self.ul_attrs)
         return mark_safe(html.replace('<ul', f'<ul {flatatt(final_attrs)}'))
+
+class CategoryChoiceField(forms.ModelChoiceField):
+     def label_from_instance(self, obj):
+         return "Category: {}".format(obj.name_of_model)
