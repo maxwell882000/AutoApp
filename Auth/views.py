@@ -165,11 +165,12 @@ class TransportUnits(APIView):
         user.units = units
         user.save()
         return Response(data)
+        
     def delete(self, request, pk , formate = None):
         user = UserTransport.objects.filter(id = pk)
         user.delete()
         return Response({"status":"deleted"})
-        
+
 class RecomendationViews(APIView):
 
     def get(self ,request,*args, **kwargs):
@@ -330,13 +331,13 @@ class CardsViews(APIView):
             detail.cards_user = cards
             detail.save()
             #serializer = TransportDetailSerializer(detail)
-            return Response({{'status':'changed'}})
+            return Response({"status":"changed"})
         card.save()
         cards = Cards.objects.get(id = data['id'])
         cards.card.add(card)
         cards.save()
         # serializer = CardsSerializer(cards)
-        return Response({'status':'changed'})
+        return Response({"status":"changed"})
 
     def put(self, request , pk, format = None):
         data = request.data
