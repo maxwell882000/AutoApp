@@ -186,7 +186,7 @@ class RecomendationViews(APIView):
         marka = MarkaRegister.objects.get(name_of_marka = data['name_of_marka'])
         model = marka.model.get(name_of_model = data['name_of_model'])
         serializer = SingleRecomendationSerializer(model.recomendations,many = True)
-        return Response({'id_model': model.id, 'recomendations': serializer.data, 'text_above': model.text_above})
+        return Response({'id_model': model.id, 'recomendations': serializer.data, 'text_above': model.text_above, 'image_name': model.image_above.name})
 
 class MarkaRegisterViews(APIView):
     def get(self,request,*args,**kwargs):
