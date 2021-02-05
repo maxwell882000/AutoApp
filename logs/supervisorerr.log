@@ -2787,3 +2787,10 @@ TypeError: get() got an unexpected keyword argument 'pk'
 [2021-02-05 05:40:28 +0000] [3998] [INFO] Listening at: http://127.0.0.1:33333 (3998)
 [2021-02-05 05:40:28 +0000] [3998] [INFO] Using worker: sync
 [2021-02-05 05:40:28 +0000] [4006] [INFO] Booting worker with pid: 4006
+[2021-02-05 06:47:05 +0000] [4006] [INFO] Worker exiting (pid: 4006)
+[2021-02-05 06:47:05 +0000] [3998] [INFO] Handling signal: term
+[2021-02-05 06:47:06 +0000] [3998] [INFO] Shutting down: Master
+[2021-02-05 06:47:07 +0000] [6412] [INFO] Starting gunicorn 20.0.4
+[2021-02-05 06:47:07 +0000] [6412] [INFO] Listening at: http://127.0.0.1:33333 (6412)
+[2021-02-05 06:47:07 +0000] [6412] [INFO] Using worker: sync
+[2021-02-05 06:47:07 +0000] [6420] [INFO] Booting worker with pid: 6420
