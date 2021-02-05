@@ -244,6 +244,7 @@ class TransportViews(APIView):
             detail.nameOfTransport = data['nameOfTransport']
         if 'number' in data:
             detail.number = data['number']
+        detail.save()
         serializer = TransportDetailSerializer(detail)
         return Response(serializer.data)
 
