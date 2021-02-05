@@ -249,7 +249,8 @@ class TransportViews(APIView):
 
 class AttachedImageViews(APIView):
     parser_classes = (MultiPartParser,FormParser)
-    def get(self,request, format = None):
+    def get(self,request,pk,format = None):
+    
         data = ImagesForAttached.objects.all()
         serializer = ImagesForAttachedSerializer(data , many = True)
         return Response(serializer.data)
