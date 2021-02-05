@@ -260,8 +260,9 @@ class AttachedImageViews(APIView):
         serializer.is_valid()
         serializer.save()
         return Response({'id':serializer.data.get('id')})
-    def delete(self,request,pk, format = None):
-        image = ImagesForAttached.objects.filter(pk = pk)
+        
+    def delete(self,request,pk,format = None):
+        image = ImagesForAttached.objects.filter(id = pk)
         image.delete()
         return Response({"status":"deleted"})
 
@@ -279,7 +280,7 @@ class ExpenseViews(APIView):
         serializer.save()
         return Response({'id':serializer.data.get('id')})
     def delete(self,reuqest,pk,format = None):
-        expense = Expense.objects.filter(pk = pk)
+        expense = Expense.objects.filter(id = pk)
         expense.delete()
         return Response({"status":"deleted"})
 
