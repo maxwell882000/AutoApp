@@ -333,13 +333,13 @@ class CardsViews(APIView):
             detail.cards_user = cards
             detail.save()
             #serializer = TransportDetailSerializer(detail)
-            return Response({"status":"changed"})
+            return Response({"id_cards":cards.id,"id_attach":attach.id,"id_change":change.id,"id_card":card.id})
         card.save()
         cards = Cards.objects.get(id = data['id'])
         cards.card.add(card)
         cards.save()
         # serializer = CardsSerializer(cards)
-        return Response({"status":"changed"})
+        return Response({"id_attach":attach.id,"id_change":change.id,"id_card":card.id})
 
     def put(self, request , pk, format = None):
         data = request.data
