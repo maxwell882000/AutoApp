@@ -2794,3 +2794,394 @@ TypeError: get() got an unexpected keyword argument 'pk'
 [2021-02-05 06:47:07 +0000] [6412] [INFO] Listening at: http://127.0.0.1:33333 (6412)
 [2021-02-05 06:47:07 +0000] [6412] [INFO] Using worker: sync
 [2021-02-05 06:47:07 +0000] [6420] [INFO] Booting worker with pid: 6420
+[2021-02-05 07:35:32 +0000] [6420] [INFO] Worker exiting (pid: 6420)
+[2021-02-05 07:35:32 +0000] [6412] [INFO] Handling signal: term
+[2021-02-05 07:35:32 +0000] [6412] [INFO] Shutting down: Master
+[2021-02-05 07:35:33 +0000] [7980] [INFO] Starting gunicorn 20.0.4
+[2021-02-05 07:35:33 +0000] [7980] [INFO] Listening at: http://127.0.0.1:33333 (7980)
+[2021-02-05 07:35:33 +0000] [7980] [INFO] Using worker: sync
+[2021-02-05 07:35:33 +0000] [7987] [INFO] Booting worker with pid: 7987
+Internal Server Error: /recomendations/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 186, in post
+    marka = MarkaRegister.objects.get(name_of_marka = data['name_of_marka'])
+KeyError: 'name_of_marka'
+Internal Server Error: /recomendations/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 186, in post
+    marka = MarkaRegister.objects.get(name_of_marka = data['name_of_marka'])
+KeyError: 'name_of_marka'
+Internal Server Error: /recomendations/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 186, in post
+    marka = MarkaRegister.objects.get(name_of_marka = data['name_of_marka'])
+KeyError: 'name_of_marka'
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 12:48:31.094718) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 12:53:17.274991) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /transport/9/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 204, in get
+    user = UserTransport.objects.get(emailOrPhone=kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.UserTransport.DoesNotExist: UserTransport matching query does not exist.
+Internal Server Error: /transport/9/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 204, in get
+    user = UserTransport.objects.get(emailOrPhone=kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.UserTransport.DoesNotExist: UserTransport matching query does not exist.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 12:56:31.886657) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 13:00:14.218320) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 13:05:02.167318) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 13:05:10.679200) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /recomendations/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 177, in get
+    data = ModelRegister.objects.get(id = kwargs['pk'])
+KeyError: 'pk'
+Internal Server Error: /recomendations/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 177, in get
+    data = ModelRegister.objects.get(id = kwargs['pk'])
+KeyError: 'pk'
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 13:07:24.531056) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 13:13:23.153682) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 13:16:36.312395) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 15:44:55.713173) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 15:47:49.945723) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 15:49:29.739470) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /cards/null/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'null'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 297, in get
+    data = Cards.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 418, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1377, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1776, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'null'.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 16:34:12.539568) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 16:39:32.848122) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 16:52:37.125861) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 16:54:27.698891) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 16:55:29.142937) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 16:56:41.177751) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /cards/images_upload
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: get() missing 1 required positional argument: 'pk'
+Internal Server Error: /cards/images_upload/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'images_upload'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 297, in get
+    data = Cards.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 418, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1377, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1776, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'images_upload'.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-05 16:59:10.691536) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /authgoogle/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 108, in authGoogle
+    token = oauth.google.authorize_access_token(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/authlib/integrations/django_client/integration.py", line 71, in authorize_access_token
+    params = self.retrieve_access_token_params(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/authlib/integrations/base_client/base_app.py", line 145, in retrieve_access_token_params
+    params = self._retrieve_oauth2_access_token_params(request, params)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/authlib/integrations/base_client/base_app.py", line 126, in _retrieve_oauth2_access_token_params
+    raise MismatchingStateError()
+authlib.integrations.base_client.errors.MismatchingStateError: mismatching_state: CSRF Warning! State not equal in request and response.
+Not Found: /favicon.ico
+Internal Server Error: /recomendations/null/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'null'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 177, in get
+    data = ModelRegister.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 418, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1377, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1776, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'null'.
