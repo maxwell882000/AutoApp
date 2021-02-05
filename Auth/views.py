@@ -281,6 +281,17 @@ class ExpenseViews(APIView):
         serializer.is_valid()
         serializer.save()
         return Response({'id':serializer.data.get('id')})
+
+    def put(self,request, *args,**kwargs):
+        data = Expense.objects.filter(id = kwargs['pk'])
+        if 'name' in request.data:
+            data.name = request.data['name']
+        if 'sum' in request.data:
+            data.sum = request.data['sum']
+        if 'amount' in request.data:
+            data.amount = request.data['amount']
+        return Response({"data":"updated"})
+        
     def delete(self,reuqest,pk,format = None):
         expense = Expense.objects.filter(id = pk)
         expense.delete()
@@ -375,9 +386,13 @@ class CardsViews(APIView):
         return Response({'status':'changed'})
         
     def delete(self,request, pk, format = None):
-        card = Card.objects.filter(pk = pk)
+        card = Card.objects.get(id = pk)
+        for instance in card.attach.image.all():
+            instance.delete()
+        for expense in card.expense.all():
+            expense.delete()
         card.delete()
-        return Response({"status":"deleted"})
+        return Response({"delete":"succesful"})
 
 
     
