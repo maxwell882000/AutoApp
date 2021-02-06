@@ -167,7 +167,7 @@ class TransportUnits(APIView):
         return Response(data)
         
     def delete(self, request, pk , formate = None):
-        user = UserTransport.objects.filter(id = pk)
+        user = UserTransport.objects.get(id = pk)
         user.delete()
         return Response({"status":"deleted"})
 
@@ -264,7 +264,7 @@ class AttachedImageViews(APIView):
         return Response({'id':serializer.data.get('id')})
         
     def delete(self,request,pk,format = None):
-        image = ImagesForAttached.objects.filter(id = pk)
+        image = ImagesForAttached.objects.get(id = pk)
         image.delete()
         return Response({"status":"deleted"})
 
@@ -283,17 +283,18 @@ class ExpenseViews(APIView):
         return Response({'id':serializer.data.get('id')})
 
     def put(self,request, *args,**kwargs):
-        data = Expense.objects.filter(id = kwargs['pk'])
+        data = Expense.objects.get(id = kwargs['pk'])
         if 'name' in request.data:
             data.name = request.data['name']
         if 'sum' in request.data:
             data.sum = request.data['sum']
         if 'amount' in request.data:
             data.amount = request.data['amount']
+        data.save()
         return Response({"data":"updated"})
         
     def delete(self,reuqest,pk,format = None):
-        expense = Expense.objects.filter(id = pk)
+        expense = Expense.objects.get(id = pk)
         expense.delete()
         return Response({"status":"deleted"})
 
