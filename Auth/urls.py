@@ -6,7 +6,8 @@ from .views import (RegisterOrLoginUsersViews,
                     authFacebook, authGoogle, 
                     TransportUnits, MarkaRegisterViews,
                     CardsViews , DownloadImage,
-                    AttachedImageViews,RecomendationViews, GetImage, ExpenseViews)
+                    AttachedImageViews,RecomendationViews,
+                     GetImage, ExpenseViews,ExpensesViews)
 from rest_framework_simplejwt import views as jwt_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -31,6 +32,7 @@ urlpatterns = [
     path('expense/<pk>/',ExpenseViews.as_view()),
     path('recomendations/', RecomendationViews.as_view()),
     path('recomendations/<pk>/', RecomendationViews.as_view()),
+    path('updateExpenses/<pk>/', ExpensesViews.as_view())
     # path('get_phases/', get_phases)
     
     # path ('aboverecomedation/')

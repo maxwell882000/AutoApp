@@ -286,6 +286,7 @@ class ExpensesViews(APIView):
         expenses.in_this_month = data['in_this_month']
         expenses.save()
         return Response({"all": expenses.all_time, "month":expenses.in_this_month})
+        
 class ExpenseViews(APIView):
     def get(self,request,*args,**kwargs):
         expenses = Expense.objects.all()
