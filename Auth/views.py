@@ -319,6 +319,7 @@ class CardsViews(APIView):
         
         if 'run' in data:
             change.run = data['run']
+            change.initial_run = data['initial_run']
         else:
             change.time = data['time']
         change.save()
@@ -373,6 +374,7 @@ class CardsViews(APIView):
             card.date = data['date']
         change = RecommendedChange.objects.get( id = data['id_change'])
         if 'run' in data:
+            change.initial_run = data['initial_run']
             change.run = data['run']
             change.time = 0
         else:

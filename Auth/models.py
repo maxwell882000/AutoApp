@@ -44,6 +44,7 @@ class Expenses(models.Model):
     in_this_month = models.IntegerField(default = 0)
     
 class RecommendedChange(models.Model):
+    initial_run = models.FloatField(blank=True,null=True)
     run = models.FloatField(blank = True, null = True)
     time = models.IntegerField(blank = True, null = True) #days
 
