@@ -3626,3 +3626,81 @@ Traceback (most recent call last):
   File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1776, in get_prep_value
     raise e.__class__(
 ValueError: Field 'id' expected a number but got 'null'.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-06 14:59:53.680754) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+[2021-02-06 11:26:16 +0000] [25398] [INFO] Worker exiting (pid: 25398)
+[2021-02-06 11:26:16 +0000] [25391] [INFO] Handling signal: term
+[2021-02-06 11:26:16 +0000] [25391] [INFO] Shutting down: Master
+[2021-02-06 11:26:17 +0000] [1114] [INFO] Starting gunicorn 20.0.4
+[2021-02-06 11:26:17 +0000] [1114] [INFO] Listening at: http://127.0.0.1:33333 (1114)
+[2021-02-06 11:26:17 +0000] [1114] [INFO] Using worker: sync
+[2021-02-06 11:26:17 +0000] [1123] [INFO] Booting worker with pid: 1123
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-06 16:29:02.864976) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Not Found: /favicon.ico
+Internal Server Error: /cards/34/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 309, in get
+    data = Cards.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Cards.DoesNotExist: Cards matching query does not exist.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-06 17:53:14.821718) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-06 17:55:04.421479) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-06 17:55:25.317414) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-06 18:00:06.469333) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-06 18:04:59.439455) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-06 18:06:18.085856) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-06 18:14:49.871402) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-06 18:17:39.286420) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /cards/34/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 360, in put
+    card = Card.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Card.DoesNotExist: Card matching query does not exist.
