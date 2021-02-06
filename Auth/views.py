@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from rest_framework import status
 from django.http import HttpResponse
 from django.core.files import File
+from datetime import datetime,timezone
 from rest_framework.decorators import api_view
 from .models import (UserTransport, TransportDetail, 
                     SelectedUnits ,MarkaRegister, Attach,
@@ -202,6 +203,14 @@ class TransportViews(APIView):
             return Response(serializer.data)
         else:
             user = UserTransport.objects.get(emailOrPhone=kwargs['pk'])
+          
+            now = datetime.now(timezone.utc)
+            delta = now - user.date
+
+            if delta.days > user.cards.expenses.update_month:
+                user.cards.expenses.in_this_month = 0
+                user.cards.expenses.update_month +=30
+                user.cards.expenses.save()
             units = TransportUnitsSerializer(user.units)
             detail = TransportDetailSerializer(user.cards)
             return Response({"cards":detail.data, "date": user.date ,"units":units.data})
@@ -268,8 +277,15 @@ class AttachedImageViews(APIView):
         image.delete()
         return Response({"status":"deleted"})
 
-from datetime import datetime
 
+class ExpensesViews(APIView):
+    def put(self, request, *args,**kwargs):
+        data = request.data
+        expenses = Expenses.objects.get(id = kwargs['pk'])
+        expenses.all_time = data['all_time']
+        expenses.in_this_month = data['in_this_month']
+        expenses.save()
+        return Response({"all": expenses.all_time, "month":expenses.in_this_month})
 class ExpenseViews(APIView):
     def get(self,request,*args,**kwargs):
         expenses = Expense.objects.all()

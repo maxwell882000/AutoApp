@@ -42,6 +42,7 @@ class Attach(models.Model):
 class Expenses(models.Model):
     all_time = models.IntegerField(default = 0)
     in_this_month = models.IntegerField(default = 0)
+    update_month = models.IntegerField(default=30)
     
 class RecommendedChange(models.Model):
     initial_run = models.FloatField(blank=True,null=True)

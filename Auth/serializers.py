@@ -2,12 +2,14 @@ from .models import (UserTransport,TransportDetail,
                     SelectedUnits, MarkaRegister,
                     SingleRecomendation,
                     Cards, Card, Attach,
-                    ImagesForAttached, Expense)
+                    ImagesForAttached, Expense,Expenses)
 from rest_framework import serializers , status
 from django.contrib import auth
 from rest_framework.exceptions import AuthenticationFailed
-
-
+class ExpensesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Expenses
+        fields = ("__all__")
 class ExpenseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Expense
