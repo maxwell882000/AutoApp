@@ -5854,3 +5854,2009 @@ ValueError: Field 'id' expected a number but got 'null'.
 [2021-02-08 04:53:39 +0000] [22598] [INFO] Listening at: http://127.0.0.1:33333 (22598)
 [2021-02-08 04:53:39 +0000] [22598] [INFO] Using worker: sync
 [2021-02-08 04:53:39 +0000] [22605] [INFO] Booting worker with pid: 22605
+[2021-02-08 05:02:35 +0000] [22605] [INFO] Worker exiting (pid: 22605)
+[2021-02-08 05:02:35 +0000] [22598] [INFO] Handling signal: term
+[2021-02-08 05:02:35 +0000] [22598] [INFO] Shutting down: Master
+[2021-02-08 05:02:36 +0000] [22836] [INFO] Starting gunicorn 20.0.4
+[2021-02-08 05:02:36 +0000] [22836] [INFO] Listening at: http://127.0.0.1:33333 (22836)
+[2021-02-08 05:02:36 +0000] [22836] [INFO] Using worker: sync
+[2021-02-08 05:02:36 +0000] [22843] [INFO] Booting worker with pid: 22843
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:03:58.773647) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:06:05.987521) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:09:21.204900) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:11:09.154176) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:11:19.654105) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:11:44.108930) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /updateExpenses/null/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'null'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 285, in put
+    expenses = Expenses.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 418, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1377, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1776, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'null'.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:12:09.388532) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /updateExpenses/null/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'null'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 285, in put
+    expenses = Expenses.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 418, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1377, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1776, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'null'.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:12:56.830772) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /expense/247/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/247/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/247/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 304, in put
+    data = Expense.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /cards/122/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 404, in put
+    card.expense.add(Expense.objects.get(id = int(i)))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /updateExpenses/null/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'null'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 285, in put
+    expenses = Expenses.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 418, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1377, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1776, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'null'.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:18:24.566258) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:21:28.201003) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:24:45.300983) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:40:52.472513) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:41:05.348091) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:43:19.011024) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:43:30.156613) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 10:44:16.857416) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /expense/249/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/255/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /recomendations/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 187, in post
+    marka = MarkaRegister.objects.get(name_of_marka = data['name_of_marka'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.MarkaRegister.DoesNotExist: MarkaRegister matching query does not exist.
+Internal Server Error: /recomendations/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 187, in post
+    marka = MarkaRegister.objects.get(name_of_marka = data['name_of_marka'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.MarkaRegister.DoesNotExist: MarkaRegister matching query does not exist.
+Internal Server Error: /recomendations/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 187, in post
+    marka = MarkaRegister.objects.get(name_of_marka = data['name_of_marka'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.MarkaRegister.DoesNotExist: MarkaRegister matching query does not exist.
+Internal Server Error: /recomendations/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 187, in post
+    marka = MarkaRegister.objects.get(name_of_marka = data['name_of_marka'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.MarkaRegister.DoesNotExist: MarkaRegister matching query does not exist.
+Internal Server Error: /cards/0/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 327, in get
+    data = Cards.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Cards.DoesNotExist: Cards matching query does not exist.
+Internal Server Error: /cards/0/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 327, in get
+    data = Cards.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Cards.DoesNotExist: Cards matching query does not exist.
+Internal Server Error: /cards/0/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 327, in get
+    data = Cards.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Cards.DoesNotExist: Cards matching query does not exist.
+Internal Server Error: /cards/0/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 327, in get
+    data = Cards.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Cards.DoesNotExist: Cards matching query does not exist.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 11:25:15.071755) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /cards/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 370, in post
+    cards = Cards.objects.get(id = data['id'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Cards.DoesNotExist: Cards matching query does not exist.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 11:27:22.290889) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 11:27:26.686716) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /updateExpenses/0/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 285, in put
+    expenses = Expenses.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expenses.DoesNotExist: Expenses matching query does not exist.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 11:27:33.719821) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /updateExpenses/0/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 285, in put
+    expenses = Expenses.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expenses.DoesNotExist: Expenses matching query does not exist.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 11:27:50.825805) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 11:40:26.275385) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /updateExpenses/null/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'null'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 285, in put
+    expenses = Expenses.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 418, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 942, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 962, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 969, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1358, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1377, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1319, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/query.py", line 1165, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 24, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/lookups.py", line 76, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1776, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'id' expected a number but got 'null'.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 11:40:32.611241) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 11:56:36.607313) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 11:58:19.080985) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 11:58:32.501381) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 11:58:45.024245) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /expense/263/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/263/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/269/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/269/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/269/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/275/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/275/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/285/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/285/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/285/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/285/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/285/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/286/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/286/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/286/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/286/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/286/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/286/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/286/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/286/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/289/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/289/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/289/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/290/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/290/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/291/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:08:33.898262) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:08:55.971252) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:09:10.445851) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:09:20.294676) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:11:40.341700) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:11:50.528019) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:12:14.081374) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:12:28.285969) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /cards/113/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 404, in put
+    card.expense.add(Expense.objects.get(id = int(i)))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:20:49.173520) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:21:33.825578) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /expense/413/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/413/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/413/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 304, in put
+    data = Expense.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /cards/113/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 404, in put
+    card.expense.add(Expense.objects.get(id = int(i)))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/413/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:22:23.385413) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:23:10.656350) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:24:35.254677) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:25:04.045814) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:25:12.781223) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:27:33.848801) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:28:51.060308) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:29:14.208324) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /expense/416/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1774, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 311, in put
+    data.save()
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/base.py", line 753, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/base.py", line 790, in save_base
+    updated = self._save_table(
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/base.py", line 872, in _save_table
+    updated = self._do_update(base_qs, using, pk_val, values, update_fields,
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/base.py", line 926, in _do_update
+    return filtered._update(values) > 0
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 803, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1522, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1143, in execute_sql
+    sql, params = self.as_sql()
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1488, in as_sql
+    val = field.get_db_prep_save(val, connection=self.connection)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 823, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 818, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py", line 1776, in get_prep_value
+    raise e.__class__(
+ValueError: Field 'amount' expected a number but got ''.
+Internal Server Error: /cards/113/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 404, in put
+    card.expense.add(Expense.objects.get(id = int(i)))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /cards/113/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 404, in put
+    card.expense.add(Expense.objects.get(id = int(i)))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /cards/113/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 404, in put
+    card.expense.add(Expense.objects.get(id = int(i)))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /cards/113/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 404, in put
+    card.expense.add(Expense.objects.get(id = int(i)))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /cards/113/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 404, in put
+    card.expense.add(Expense.objects.get(id = int(i)))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:35:10.704089) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:35:45.426647) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:35:54.127611) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:35:58.243574) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:36:30.925780) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:40:26.847770) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /expense/421/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /cards/113/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 404, in put
+    card.expense.add(Expense.objects.get(id = int(i)))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/421/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 304, in put
+    data = Expense.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /cards/113/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 404, in put
+    card.expense.add(Expense.objects.get(id = int(i)))
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/421/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 304, in put
+    data = Expense.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:49:38.047427) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /expense/420/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 304, in put
+    data = Expense.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/420/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 304, in put
+    data = Expense.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/420/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 304, in put
+    data = Expense.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/420/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 304, in put
+    data = Expense.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+Internal Server Error: /expense/420/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 304, in put
+    data = Expense.objects.get(id = kwargs['pk'])
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:54:41.111981) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:55:06.785816) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:55:27.353255) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:55:47.410678) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:56:16.786903) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-08 13:58:02.966666) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /expense/431/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 315, in delete
+    expense = Expense.objects.get(id = pk)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
+    raise self.model.DoesNotExist(
+Auth.models.Expense.DoesNotExist: Expense matching query does not exist.
