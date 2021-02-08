@@ -152,7 +152,7 @@ class AccountRegister(APIView):
 class TransportUnits(APIView):
 
     def get(self, request ,*args, **kwargs):
-        data =TransportUnits.objects.all()
+        data =SelectedUnits.objects.all()
         ser = TransportUnitsSerializer(data,many = True)
         return Response(ser.data)
         
@@ -174,10 +174,25 @@ class TransportUnits(APIView):
         return Response(data)
         
     def delete(self, request, pk , formate = None):
-        user = UserTransport.objects.get(id = pk)
+        user = UserTransport.objects.get(emailOrPhone = pk)
+        
+        try:
+            user.units.delete()
+            for card in user.cards.cards_user.card.all():
+                for instance in card.attach.image.all():
+                    instance.delete()
+                for expense in card.expense.all():
+                    expense.delete()
+                card.delete()
+        
+            ser = CardsSerializer(user.cards.cards_user)
+            user.cards.cards_user.delete()
+            user.cards.delete()
+        except AttributeError:
+            print("GOES SOMETHIN WRONG")
         user.delete()
         return Response({"status":"deleted"})
-
+ 
 class RecomendationViews(APIView):
 
     def get(self ,request,*args, **kwargs):
@@ -414,10 +429,16 @@ class CardsViews(APIView):
         
     def delete(self,request, pk, format = None):
         card = Card.objects.get(id = pk)
-        for instance in card.attach.image.all():
-            instance.delete()
-        for expense in card.expense.all():
-            expense.delete()
+        try:
+            for instance in card.attach.image.all():
+                instance.delete()
+            card.attach.delete()
+        except AttributeError:
+            print("Error")
+        if hasattr(card.expense):
+            for expense in card.expense.all():
+                expense.delete()
+            card.expense.delete()
         card.delete()
         return Response({"delete":"succesful"})
 
