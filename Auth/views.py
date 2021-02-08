@@ -150,6 +150,12 @@ class AccountRegister(APIView):
         return Response(valid)
 
 class TransportUnits(APIView):
+
+    def get(self, request ,*args, **kwargs):
+        data =TransportUnits.objects.all()
+        ser = TransportUnitsSerializer(data,many = True)
+        return Response(ser.data)
+        
     def put(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
         data = request.data
@@ -164,7 +170,7 @@ class TransportUnits(APIView):
             volume=data['volume'],
         )
         user.units = units
-        user.save()
+        user.save() 
         return Response(data)
         
     def delete(self, request, pk , formate = None):
