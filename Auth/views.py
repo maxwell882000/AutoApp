@@ -241,8 +241,8 @@ class TransportViews(APIView):
         user.cards= detail
         print(user)
         user.save()
-        return Response(data)
-        
+        return Response({"id":data.id})
+
     def put (self, request, pk, format =None):
         detail =  TransportDetail.objects.get(id = pk)
         data = request.data
