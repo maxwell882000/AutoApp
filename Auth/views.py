@@ -28,8 +28,6 @@ from django.conf import settings
 import time 
 from django.http import JsonResponse
 import base64
-import httpx
-import asyncio
 from .Payme.Application import Application
 import time
 
