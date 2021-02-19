@@ -2,6 +2,18 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.urls import reverse
 from django.utils import timezone
+from payments.models import BasePayment
+
+
+
+
+
+
+
+
+class ClickModel(models.Model):
+    pay  = models.IntegerField(default = 0)
+
 class UserManager(BaseUserManager):
 
     def create_user(self, username, password=None, **kwargs):
@@ -114,21 +126,48 @@ class TransportDetail(models.Model):
     initial_run     = models.FloatField(default = 0)
     tech_passport    = models.CharField(max_length = 30) 
     cards_user      = models.ForeignKey(Cards,related_name = 'cards_user' ,on_delete =models.CASCADE, blank= True, null= True)
-    expenses        = models.ForeignKey(Expenses, related_name = 'expenses' ,on_delete =models.CASCADE, blank= True, null= True )
+    expenses        = models.ForeignKey(Expenses, related_name = 'expenses' ,on_delete =models.CASCADE, blank= True, null= True)
 
 class UserTransport(models.Model):
     emailOrPhone = models.CharField(max_length = 200 , unique = True)
     provider     = models.CharField(max_length = 30)
-    cards        = models.ForeignKey(TransportDetail,related_name = 'cards' ,on_delete =models.CASCADE, blank= True, null= True)
+    cards        = models.ManyToManyField(TransportDetail)
     units        = models.ForeignKey(SelectedUnits, related_name = 'units' ,on_delete =models.CASCADE, blank= True, null= True)
     date         = models.DateTimeField(auto_now_add=True)
-
-
+    pro_account = models.BooleanField(default= False)
+    last_account = models.IntegerField(default=0)
+    ballans      = models.IntegerField(default=0)
+    
     def __str__(self):
         return self.emailOrPhone
 
 
+class Payment(BasePayment):
+     user        = models.ForeignKey(UserTransport,on_delete =models.CASCADE, blank= True, null= True)
+     
+class Adds(models.Model):
+    file = models.FileField(upload_to='admin/adds/',verbose_name="Реклама", max_length=100)
+    links = models.CharField(max_length = 200,verbose_name="Линк для перехода")
 
+class Transactions(models.Model):
+     paycom_transaction_id = models.CharField(max_length =25)
+     paycom_time = models.CharField(max_length= 13)
+     paycom_time_datetime = models.DateField()
+     create_time  =  models.DateField()
+     perform_time = models.DateField()
+     cancel_time  = models.DateField()
+     amount  = models.IntegerField()
+     state = models.IntegerField()
+     reason = models.IntegerField()
+     receivers = models.CharField(max_length = 500)  
+     order_id = models.IntegerField()
+     
 # Create your models here.
 
+class Orders(models.Model):
+      product_ids = models.CharField(max_length = 255)
+      amount      = models.IntegerField() 
+      state       = models.IntegerField()
+      user_id     = models.IntegerField()
+      phoneOrMail = models.CharField(max_length = 15)
 

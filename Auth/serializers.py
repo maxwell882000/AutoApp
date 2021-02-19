@@ -150,6 +150,12 @@ class SingleRecomendationSerializer(serializers.ModelSerializer):
     class Meta:
         model = SingleRecomendation
         fields = ('__all__')
+class ChoiceSerializer(serializers.ModelSerializer):
+      class Meta:
+        model = TransportDetail
+        fields = ("id",'nameOfTransport')
+    
+        
 
 class AccountCardsSerializer(serializers.ModelSerializer):
     class Meta:

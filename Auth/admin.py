@@ -1,11 +1,14 @@
 from django.contrib import admin
 from django.contrib.admin.views.main import ChangeList
-from .models import UserTransport,MarkaRegister,ModelRegister, SingleRecomendation
+from .models import UserTransport,MarkaRegister,ModelRegister, SingleRecomendation ,Payment
 from .forms import StyleableCheckboxSelectMultiple,CategoryChoiceField
 
 admin.site.register(UserTransport)
 admin.site.register(SingleRecomendation)
+class PaymentAdmin(admin.ModelAdmin):
+    pass
 
+admin.site.register(Payment, PaymentAdmin)
 class MarkaAdmin(admin.ModelAdmin):
     fields = ('name_of_marka', 'model')
     filter_horizontal = ['model']

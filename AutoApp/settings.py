@@ -23,10 +23,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 't-#d-pe&d2v+s_n+vntjm+eu32s$kwg!io%@@zs05kad_b0&x8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['autoapp.elite-house.uz','127.0.0.1']
-
+PAYME = {
+    'login': 1234214,
+    'password': 21525,
+}
+PAYMENT_HOST = '127.0.0.1:8000'
+PAYMENT_USES_SSL = False # set the True value if you are using the SSL
+PAYMENT_MODEL = 'Auth.Payment' 
+# payment model format like this :: '<app_name>.<model_name>'
+# add "click" to your variants
+PAYMENT_VARIANTS = {
+    'click' : ('click.ClickProvider', {
+        'merchant_id' : 11111,
+        'merchant_service_id' : 11111,
+        'merchant_user_id' : 11111,
+        'secret_key' : 'AAAAAA'
+    })
+}
 
 # Application definition
 
@@ -35,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'payments',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Auth',
