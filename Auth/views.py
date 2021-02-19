@@ -233,7 +233,6 @@ class TransportUnits(APIView):
     def put(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
         data = request.data
-
         serializer = TransportUnitsSerializer(data=data)
         serializer.is_valid()
         data = serializer.validated_data
@@ -291,7 +290,6 @@ class ChooseShareDetail(APIView):
 class RecomendationViews(APIView):
 
     def get(self ,request,*args, **kwargs):
-
         data = ModelRegister.objects.get(id = kwargs['pk'])
         f = open(data.image_above.path, 'rb')
         filename = data.image_above.name
@@ -300,7 +298,6 @@ class RecomendationViews(APIView):
         return response
 
     def post(self, request, *args, **kwargs):
-
         data = request.data
         marka = MarkaRegister.objects.get(name_of_marka = data['name_of_marka'])
         model = marka.model.get(name_of_model = data['name_of_model'])
