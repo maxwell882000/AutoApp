@@ -37700,3 +37700,172 @@ Traceback (most recent call last):
   File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/query.py", line 429, in get
     raise self.model.DoesNotExist(
 Auth.models.UserTransport.DoesNotExist: UserTransport matching query does not exist.
+[2021-02-19 13:23:26 +0000] [15476] [INFO] Starting gunicorn 20.0.4
+[2021-02-19 13:23:26 +0000] [15476] [INFO] Listening at: http://127.0.0.1:33333 (15476)
+[2021-02-19 13:23:26 +0000] [15476] [INFO] Using worker: sync
+[2021-02-19 13:23:26 +0000] [15483] [INFO] Booting worker with pid: 15483
+Not Found: /favicon.ico
+Not Found: /media/admin/image_2021-01-20_18-15-37_OQLjPiC.png
+Not Found: /media/admin/image_2021-01-20_18-15-37_OQLjPiC.png
+Not Found: /media/admin/image_2021-01-20_18-15-37_OQLjPiC.png
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-19 19:50:11.124326) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-19 20:06:35.768348) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Internal Server Error: /cards/141/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 554, in delete
+    if hasattr(card.expense):
+TypeError: hasattr expected 2 arguments, got 1
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-19 20:30:11.490307) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1367: RuntimeWarning: DateTimeField Card.date received a naive datetime (2021-02-19 20:32:49.836950) while time zone support is active.
+  warnings.warn("DateTimeField %s received a naive datetime (%s)"
+Not Found: /.git/HEAD
+Not Found: /
+Not Found: /
+Not Found: /
+Not Found: /favicon.ico
+Not Found: /
+Internal Server Error: /transport/+998993332211/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 356, in post
+    if user.cards.filter(nameOfTransport = data['nameOfTransport']).exists():
+KeyError: 'nameOfTransport'
+Internal Server Error: /transport/+998993332211/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 356, in post
+    if user.cards.filter(nameOfTransport = data['nameOfTransport']).exists():
+KeyError: 'nameOfTransport'
+Internal Server Error: /transport/+998993332211/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 356, in post
+    if user.cards.filter(nameOfTransport = data['nameOfTransport']).exists():
+KeyError: 'nameOfTransport'
+Internal Server Error: /transport/+998993332211/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 356, in post
+    if user.cards.filter(nameOfTransport = data['nameOfTransport']).exists():
+KeyError: 'nameOfTransport'
+Internal Server Error: /transport/+998993332211/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 356, in post
+    if user.cards.filter(nameOfTransport = data['nameOfTransport']).exists():
+KeyError: 'nameOfTransport'
+Internal Server Error: /transport/+998993332211/
+Traceback (most recent call last):
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/telegrambot/.local/share/virtualenvs/AutoApp-g0zIqH6I/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/telegrambot/AutoApp/Auth/views.py", line 356, in post
+    if user.cards.filter(nameOfTransport = data['nameOfTransport']).exists():
+KeyError: 'nameOfTransport'
