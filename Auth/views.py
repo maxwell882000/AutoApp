@@ -30,7 +30,7 @@ from django.http import JsonResponse
 import base64
 from .Payme.Application import Application
 import time
-
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import JsonResponse
 
 
@@ -270,8 +270,9 @@ class ChooseShareDetail(APIView):
     
     def post(self, request, *args,**kwargs):
         data =   request.data
-        user =   UserTransport.objects.get(emailOrPhone = kwargs['pk'])
+       
         try:
+            user =   UserTransport.objects.get(emailOrPhone = kwargs['pk'])
             shared = UserTransport.objects.get(emailOrPhone = data['emailOrPhone'])
             detail = user.cards.get(id= data['id'])
             if not shared.pro_account:
@@ -288,7 +289,7 @@ class ChooseShareDetail(APIView):
             user.last_account = 0
             user.save()
             return Response(status=status.HTTP_400_BAD_REQUEST)  
-        except UserTransport.DoesNotExist:
+        except ObjectDoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         
 
