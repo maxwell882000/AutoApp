@@ -7,13 +7,13 @@ from rest_framework.decorators import api_view
 from .models import (UserTransport, TransportDetail, 
                     SelectedUnits ,MarkaRegister, Attach,
                     ImagesForAttached,Card,
-                    Cards,ModelRegister,
+                    Cards,ModelRegister,Location,
                     RecommendedChange,Expense,Expenses,ClickModel)
 from .serializers import(AccountSerializer,SingleRecomendationSerializer,
                          AccountLogInSerializer,
                          AccountCardsSerializer,
                          TransportDetailSerializer,
-                         TransportUnitsSerializer,
+                         TransportUnitsSerializer,LocationSerializer,
                          MarkaSerializer,CardSerializer,
                          AttachSerializer,ImagesForAttachedSerializer,
                          CardsSerializer,ExpenseSerializer,ChoiceSerializer)
@@ -271,16 +271,26 @@ class ChooseShareDetail(APIView):
     def post(self, request, *args,**kwargs):
         data =   request.data
         user =   UserTransport.objects.get(emailOrPhone = kwargs['pk'])
-        shared = UserTransport.objects.get(emailOrPhone = data['emailOrPhone'])
-        detail = user.cards.get(id= data['id'])
-        if not shared.pro_account:
-            shared.cards.clear()
-        shared.cards.add(detail)
-        shared.last_account = detail.id
-        shared.save()
-        user.cards.remove(detail)
-        user.save()
-        return Response({"status":200})   
+        try:
+            shared = UserTransport.objects.get(emailOrPhone = data['emailOrPhone'])
+            detail = user.cards.get(id= data['id'])
+            if not shared.pro_account:
+                shared.cards.clear()
+            shared.cards.add(detail)
+            shared.last_account = detail.id
+            shared.save()   
+            user.cards.remove(detail)
+            user.save()
+            user.last_account = user.cards.first().id
+            user.save()
+            return Response(status=status.HTTP_200_OK)   
+        except AttributeError:
+            user.last_account = 0
+            user.save()
+            return Response(status=status.HTTP_400_BAD_REQUEST)  
+        except UserTransport.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        
 
     def get(self, request, *args, **kwargs):
         user = UserTransport.objects.get(emailOrPhone=kwargs['pk'])
@@ -331,13 +341,15 @@ class TransportViews(APIView):
                 "cards": None,
             }
             if user.cards.first() != None:
-                
                 if user.pro_account and 'id_cards' in request.query_params:
                     index = request.query_params.get('id_cards')
                     user.last_account = index
                     user.save()
                 else:
-                    index = user.last_account
+                    if user.last_account == 0:
+                       index = user.cards.first().illd
+                    else:
+                       index = user.last_account
                 cards = user.cards.get(id = index)
                 now = datetime.now(timezone.utc)
                 delta = now - user.date
@@ -453,7 +465,11 @@ class ExpenseViews(APIView):
         expense = Expense.objects.get(id = pk)
         expense.delete()
         return Response({"status":200})
-
+class LocationGetViews(APIView):
+    def get(self,request,*args,**kwargs):
+        location = Location.objects.get(id = kwargs['pk'])
+        serializer = LocationSerializer(location)
+        return Response(serializer.data,status = status.HTTP_200_OK)
 class CardsViews(APIView):
 
     def get(self,request , *args, **kwargs):
@@ -472,7 +488,8 @@ class CardsViews(APIView):
         data = request.data 
         attach = Attach.objects.create()
         change = RecommendedChange.objects.create()
-        
+        location = Location.objects.create()
+       
         if 'run' in data:
             change.run = data['run']
             change.initial_run = data['initial_run']
@@ -485,7 +502,11 @@ class CardsViews(APIView):
             
             attach.image.set(array)
         if 'location' in data:
-            attach.location = data['location']
+            location.latitude = data['location']['latitude']
+            location.longitude = data['location']['longitude']
+            location.comment = data['location']['comment']
+        location.save()
+        attach.location = location
         attach.save()
         card = Card.objects.create(
             name_of_card = data['name_of_card'],
@@ -519,7 +540,9 @@ class CardsViews(APIView):
                 for i in data['images_list']:
                     attach.image.add(ImagesForAttached.objects.get(id = int(i)))
             if 'location' in data:
-                attach.location = data['location']
+                attach.location.latitude = data['location']['latitude']
+                attach.location.longitude = data['location']['longitude']
+                attach.location.comment = data['location']['comment']
             attach.save()
         if 'name_of_card' in data:
             card.name_of_card = data['name_of_card']

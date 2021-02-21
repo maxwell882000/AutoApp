@@ -45,10 +45,13 @@ class UserName(AbstractBaseUser):
 
 class ImagesForAttached(models.Model):
     image = models.ImageField(upload_to = 'images/')
-
+class Location(models.Model):
+    latitude = models.FloatField(default= 0)
+    longitude = models.FloatField(default = 0)
+    comment = models.CharField(max_length = 50, blank = True , null = True)
 class Attach(models.Model):
     image = models.ManyToManyField(ImagesForAttached)
-    location = models.CharField(max_length = 50, blank = True, null = True)
+    location =models.ForeignKey(Location, related_name = 'location' ,on_delete =models.CASCADE, blank= True, null= True)
 
 
 class Expenses(models.Model):

@@ -1,6 +1,6 @@
 from django.urls import path
 from django.conf.urls import url
-from .views import (RegisterOrLoginUsersViews,
+from .views import (RegisterOrLoginUsersViews,LocationGetViews,
                     TransportViews,AccountRegister,
                     loginFacebook, loginGoogle,
                     authFacebook, authGoogle, 
@@ -38,8 +38,8 @@ urlpatterns = [
     path('updateExpenses/<pk>/', ExpensesViews.as_view()),
     path('pay/payme', PaymeView.as_view()),
     path('pay/click', ClickView.as_view()),
-    path('merchant/', MerchantView.as_view())
-   
+    path('merchant/', MerchantView.as_view()),
+    path('location/<pk>/', LocationGetViews.as_view())
     # path('get_phases/', get_phases)
     
     # path ('aboverecomedation/')
