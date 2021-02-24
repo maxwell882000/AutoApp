@@ -1,14 +1,6 @@
 from django.urls import path
 from django.conf.urls import url
-from .views import (RegisterOrLoginUsersViews,LocationGetViews,
-                    TransportViews,AccountRegister,
-                    loginFacebook, loginGoogle,
-                    authFacebook, authGoogle, 
-                    TransportUnits, MarkaRegisterViews,
-                    CardsViews , DownloadImage,
-                    AttachedImageViews,RecomendationViews,
-                    GetImage, ExpenseViews,ExpensesViews,
-                    PaymeView, MerchantView,ClickView,ChooseShareDetail)
+from .views import *
 from rest_framework_simplejwt import views as jwt_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -39,7 +31,9 @@ urlpatterns = [
     path('pay/payme', PaymeView.as_view()),
     path('pay/click', ClickView.as_view()),
     path('merchant/', MerchantView.as_view()),
-    path('location/<pk>/', LocationGetViews.as_view())
+    path('location/<pk>/', LocationGetViews.as_view()),
+    path('adds/<pk>/',AddsView.as_view()),
+     path('adds/',AddsView.as_view()),
     # path('get_phases/', get_phases)
     
     # path ('aboverecomedation/')

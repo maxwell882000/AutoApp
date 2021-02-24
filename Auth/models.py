@@ -87,6 +87,8 @@ class SingleRecomendation(models.Model):
     main_name   = models.CharField(max_length = 70,verbose_name="Название для рекомендации")
     description = models.TextField(verbose_name="Описание рекомендации")
     recomended_probeg = models.FloatField(default=0,verbose_name="Рекомендованный пробег в километрах")
+    class Meta:
+        verbose_name_plural  = 'Рекоммендации'
     def __str__(self):
         return self.main_name
 
@@ -96,13 +98,16 @@ class ModelRegister(models.Model):
     recomendations = models.ManyToManyField(SingleRecomendation,verbose_name="Рекомендации для модели")
     image_above = models.ImageField(upload_to = 'admin/', verbose_name="Фото для модели")
     text_above  = models.TextField( verbose_name="Описание модели")
+    class Meta:
+        verbose_name_plural  = 'Модель'
     def __str__(self):
         return self.name_of_model
 
 class MarkaRegister(models.Model):
     name_of_marka = models.CharField(max_length= 50, default = 0, verbose_name="Название марки")
     model = models.ManyToManyField(ModelRegister)
-    
+    class Meta:
+        verbose_name_plural  = 'Марка'
     def get_absolute_url(self):
         return reverse('author-detail', args=[str(self.id)])
     
@@ -142,18 +147,21 @@ class UserTransport(models.Model):
     pro_account = models.BooleanField(default= False)
     last_account = models.IntegerField(default=0)
     ballans      = models.IntegerField(default=0)
-    
+    class Meta:
+        verbose_name_plural  = 'Аккаунты'
     def __str__(self):
         return self.emailOrPhone
 
 
 class Payment(BasePayment):
      user        = models.ForeignKey(UserTransport,on_delete =models.CASCADE, blank= True, null= True)
-     
+     class Meta:
+            verbose_name_plural  = 'Реклама'
 class Adds(models.Model):
     file = models.FileField(upload_to='admin/adds/',verbose_name="Реклама", max_length=100)
     links = models.CharField(max_length = 200,verbose_name="Линк для перехода")
-
+    class Meta:
+        verbose_name_plural  = 'Реклама'
 class Transactions(models.Model):
      paycom_transaction_id = models.CharField(max_length =25)
      paycom_time = models.CharField(max_length= 13)

@@ -1,22 +1,41 @@
 from django.contrib import admin
+from django.contrib.admin import AdminSite
 from django.contrib.admin.views.main import ChangeList
-from .models import UserTransport,MarkaRegister,ModelRegister, SingleRecomendation ,Payment
+from .models import UserTransport,MarkaRegister,ModelRegister, SingleRecomendation ,Payment, Adds
 from .forms import StyleableCheckboxSelectMultiple,CategoryChoiceField
+from django.contrib.auth.models import Group, User
+AdminSite.site_header = "Auto App"
 
+admin.site.unregister(Group)
+admin.site.unregister(User)
+admin.site.register(Adds)
 admin.site.register(UserTransport)
-admin.site.register(SingleRecomendation)
-class PaymentAdmin(admin.ModelAdmin):
-    pass
+class SingleRecomendationAdmin(admin.ModelAdmin):
+    def get_model_perms(self, request):
+        """
+        Return empty perms dict thus hiding the model from admin index.
+        """
+        return {}
+admin.site.register(SingleRecomendation,SingleRecomendationAdmin)
 
-admin.site.register(Payment, PaymentAdmin)
+# class PaymentAdmin(admin.ModelAdmin):
+#     pass
+
+# admin.site.register(Payment, PaymentAdmin)
 class MarkaAdmin(admin.ModelAdmin):
     fields = ('name_of_marka', 'model')
     filter_horizontal = ['model']
+    
 
 class ModelRecommendationAdmin(admin.ModelAdmin):
     fields = ('name_of_model','recomendations','image_above','text_above')
     filter_horizontal = ['recomendations']
-
+    def get_model_perms(self, request):
+        """
+        Return empty perms dict thus hiding the model from admin index.
+        """
+        return {}
+    
 admin.site.register(MarkaRegister, MarkaAdmin)
 admin.site.register(ModelRegister,ModelRecommendationAdmin)
 

@@ -6,7 +6,7 @@ from datetime import datetime,timezone
 from rest_framework.decorators import api_view
 from .models import (UserTransport, TransportDetail, 
                     SelectedUnits ,MarkaRegister, Attach,
-                    ImagesForAttached,Card,
+                    ImagesForAttached,Card,Adds,
                     Cards,ModelRegister,Location,
                     RecommendedChange,Expense,Expenses,ClickModel)
 from .serializers import(AccountSerializer,SingleRecomendationSerializer,
@@ -297,7 +297,26 @@ class ChooseShareDetail(APIView):
         user = UserTransport.objects.get(emailOrPhone=kwargs['pk'])
         serializer =  ChoiceSerializer(user.cards, many =True)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+class AddsView(APIView):
+    def get(self,request,*args,**kwargs):
+        if 'pk' in kwargs:
+            data = Adds.objects.get(id = kwargs['pk'])
+            filename = data.file.name
+            response = HttpResponse(data.file.read())
+            response['Content-Disposition'] = "attachment; filename=%s" % filename
+            return response
+        else:
+            try:
+                data = Adds.objects.first()
+                response = {
+                    "id" :data.id,
+                    "links":data.links
+                }
+                return Response(response,status=status.HTTP_200_OK)
+            except AttributeError:
+                return Response({"error": "no adds"}, status=status.HTTP_404_NOT_FOUND)
 
+    
 class RecomendationViews(APIView):
 
     def get(self ,request,*args, **kwargs):
