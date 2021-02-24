@@ -524,13 +524,13 @@ class CardsViews(APIView):
             detail.cards_user = cards
             detail.save()
             #serializer = TransportDetailSerializer(detail)
-            return Response({"id_cards":cards.id,"id_attach":attach.id,"id_change":change.id,"id_card":card.id})
+            return Response({"id_cards":cards.id,"id_attach":attach.id,"id_change":change.id,"id_card":card.id, "id_location":location.id},status=status.HTTP_200_OK)
         card.save()
         cards = Cards.objects.get(id = data['id'])
         cards.card.add(card)
         cards.save()
         # serializer = CardsSerializer(cards)
-        return Response({"id_attach":attach.id,"id_change":change.id,"id_card":card.id})
+        return Response({"id_attach":attach.id,"id_change":change.id,"id_card":card.id,"id_location":location.id},status=status.HTTP_200_OK)
 
     def put(self, request , pk, format = None):
         data = request.data
@@ -544,6 +544,7 @@ class CardsViews(APIView):
                 attach.location.latitude = data['location']['latitude']
                 attach.location.longitude = data['location']['longitude']
                 attach.location.comment = data['location']['comment']
+                attach.location.save()
             attach.save()
         if 'name_of_card' in data:
             card.name_of_card = data['name_of_card']
