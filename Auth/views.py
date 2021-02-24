@@ -541,32 +541,39 @@ class CardsViews(APIView):
                 for i in data['images_list']:
                     attach.image.add(ImagesForAttached.objects.get(id = int(i)))
             if 'location' in data:
+                
                 attach.location.latitude = data['location']['latitude']
                 attach.location.longitude = data['location']['longitude']
                 attach.location.comment = data['location']['comment']
                 attach.location.save()
             attach.save()
+            locat = {
+                "latitude": attach.location.latitude,
+                "longitude":attach.location.longitude,
+                "comment":attach.location.comment,
+            }
         if 'name_of_card' in data:
             card.name_of_card = data['name_of_card']
         if 'comments' in data:
             card.comments = data['comments']
         if 'date' in data:
             card.date = data['date']
-        change = RecommendedChange.objects.get( id = data['id_change'])
-        if 'run' in data:
-            change.initial_run = data['initial_run']
-            change.run = data['run']
-            change.time = 0
-        else:
-            change.run = 0
-            change.time = data['time']
-        change.save()
+        if 'id_change' in data:
+            change = RecommendedChange.objects.get( id = data['id_change'])
+            if 'run' in data:
+                change.initial_run = data['initial_run']
+                change.run = data['run']
+                change.time = 0
+            else:
+                change.run = 0
+                change.time = data['time']
+            change.save()
         if 'expense_list' in data:
             for i in data['expense_list']:
                 card.expense.add(Expense.objects.get(id = int(i)))
         card.save()
         #serializer = CardSerializer(card)
-        return Response({'status':200})
+        return Response(locat)
         
     def delete(self,request, pk, format = None):
         card = Card.objects.get(id = pk)
