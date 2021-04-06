@@ -1,38 +1,33 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from rest_framework import status
 from django.http import HttpResponse
-from django.core.files import File
-from datetime import datetime,timezone
-from rest_framework.decorators import api_view
-from .models import (UserTransport, TransportDetail, 
-                    SelectedUnits ,MarkaRegister, Attach,
-                    ImagesForAttached,Card,Adds,
-                    Cards,ModelRegister,Location,
-                    RecommendedChange,Expense,Expenses,ClickModel)
-from .serializers import(AccountSerializer,SingleRecomendationSerializer,
-                         AccountLogInSerializer,
-                         AccountCardsSerializer,
-                         TransportDetailSerializer,
-                         TransportUnitsSerializer,LocationSerializer,
-                         MarkaSerializer,CardSerializer,
-                         AttachSerializer,ImagesForAttachedSerializer,
-                         CardsSerializer,ExpenseSerializer,ChoiceSerializer)
+
+from datetime import datetime, timezone
+
+from .models import (UserTransport, TransportDetail,
+                     SelectedUnits, MarkaRegister, Attach,
+                     ImagesForAttached, Card, Adds,
+                     Cards, ModelRegister, Location,
+                     RecommendedChange, Expense, Expenses)
+from .serializers import (AccountSerializer, SingleRecomendationSerializer,
+                          AccountCardsSerializer,
+                          TransportDetailSerializer,
+                          TransportUnitsSerializer, LocationSerializer,
+                          MarkaSerializer, CardSerializer,
+                          ImagesForAttachedSerializer,
+                          CardsSerializer, ExpenseSerializer, ChoiceSerializer)
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from authlib.integrations.django_client import OAuth, DjangoRemoteApp
 from django.urls import reverse
 from ._core import map_profile_fields
-from rest_framework.parsers import MultiPartParser, FormParser ,FileUploadParser , JSONParser
-from .renderers import JPEGRenderer,PNGRenderer
-from django.conf import settings 
-import time 
-from django.http import JsonResponse
+from rest_framework.parsers import MultiPartParser, FormParser
+from .renderers import JPEGRenderer
+from .Payme_Subscribe_API import Application
 import base64
-from .Payme.Application import Application
-import time
-from django.core.exceptions import ObjectDoesNotExist
-from django.http import JsonResponse
+from .Payme_Merchant_API.Application import Application
 
+from django.core.exceptions import ObjectDoesNotExist
 
 # def api(request):
 #     a = False
@@ -103,6 +98,8 @@ OAUTH_CONFIG = {
 
 class RemoteApp(DjangoRemoteApp):
     OAUTH_APP_CONFIG = OAUTH_CONFIG
+
+
 # facebook_oauth = OAuth()
 # facebook_oauth.register(
 #     name='facebook',
@@ -162,8 +159,9 @@ def authGoogle(request):
     direction = "/select_unit"
     if validation[0]['status'] == 1:
         direction = "/authorized"
-    print("{} + {}".format(validation,direction))
-    redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}?emailOrPhone={}&apn=com.autoapp.application&amv=0&afl=google.com".format(direction,validation[0]['emailOrPhone'])
+    print("{} + {}".format(validation, direction))
+    redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}?emailOrPhone={}&apn=com.autoapp.application&amv=0&afl=google.com".format(
+        direction, validation[0]['emailOrPhone'])
     return redirect(redirection)
 
 
@@ -192,6 +190,8 @@ class AccountRegister(APIView):
         user = AccountSerializer(user)
         valid = user.validate_register(user.data)
         return Response(valid)
+
+
 # import asyncio
 # async def set_after(fut, delay, value):
 #     # Sleep for *delay* seconds.
@@ -221,15 +221,15 @@ class AccountRegister(APIView):
 
 
 class TransportUnits(APIView):
-    
-    def get(self, request ,*args, **kwargs):
+
+    def get(self, request, *args, **kwargs):
         l = []
         l.append({
-            'sss':'sss',
-            'dss':'asdsad'
-        })        
+            'sss': 'sss',
+            'dss': 'asdsad'
+        })
         return Response(l)
-        
+
     def put(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
         data = request.data
@@ -243,64 +243,51 @@ class TransportUnits(APIView):
             volume=data['volume'],
         )
         user.units = units
-        user.save() 
+        user.save()
         return Response(data)
-        
-    def delete(self, request, pk , formate = None):
-        user = UserTransport.objects.get(emailOrPhone = pk)
-        try:
-            user.units.delete()
-            for cards in user.cards.all().cards_user.card.all():
-                for card in cards.cards_user.card.all():
-                    for instance in card.attach.image.all():
-                        instance.delete()
-                    for expense in card.expense.all():
-                        expense.delete()
-                    card.delete()
-                cards.cards_user.delete()
-            ser = CardsSerializer(user.cards.cards_user)
-            user.cards.clear()
-            user.cards.delete()
-        except AttributeError:
-            print("GOES SOMETHIN WRONG")
+
+    def delete(self, request, pk, format=None):
+        user = UserTransport.objects.get(emailOrPhone=pk)
         user.delete()
-        return Response({"status":200})
+        return Response({"status": 200})
+
 
 class ChooseShareDetail(APIView):
-    
-    def post(self, request, *args,**kwargs):
-        data =   request.data
-       
+
+    def post(self, request, *args, **kwargs):
+        data = request.data
+
         try:
-            user =   UserTransport.objects.get(emailOrPhone = kwargs['pk'])
-            shared = UserTransport.objects.get(emailOrPhone = data['emailOrPhone'])
-            detail = user.cards.get(id= data['id'])
+            user = UserTransport.objects.get(emailOrPhone=kwargs['pk'])
+            shared = UserTransport.objects.get(emailOrPhone=data['emailOrPhone'])
+            detail = user.cards.get(id=data['id'])
             if not shared.pro_account:
                 shared.cards.clear()
             shared.cards.add(detail)
-            shared.last_account = detail.id
-            shared.save()   
+            shared.last_account = detail._id
+            shared.save()
             user.cards.remove(detail)
             user.save()
-            user.last_account = user.cards.first().id
+            user.last_account = user.cards.first()._id
             user.save()
-            return Response(status=status.HTTP_200_OK)   
+            return Response(status=status.HTTP_200_OK)
         except AttributeError:
             user.last_account = 0
             user.save()
-            return Response(status=status.HTTP_400_BAD_REQUEST)  
+            return Response(status=status.HTTP_400_BAD_REQUEST)
         except ObjectDoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        
 
     def get(self, request, *args, **kwargs):
         user = UserTransport.objects.get(emailOrPhone=kwargs['pk'])
-        serializer =  ChoiceSerializer(user.cards, many =True)
+        serializer = ChoiceSerializer(user.cards, many=True)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
 class AddsView(APIView):
-    def get(self,request,*args,**kwargs):
+    def get(self, request, *args, **kwargs):
         if 'pk' in kwargs:
-            data = Adds.objects.get(id = kwargs['pk'])
+            data = Adds.objects.get(id=kwargs['pk'])
             filename = data.file.name
             response = HttpResponse(data.file.read())
             response['Content-Disposition'] = "attachment; filename=%s" % filename
@@ -309,18 +296,18 @@ class AddsView(APIView):
             try:
                 data = Adds.objects.first()
                 response = {
-                    "id" :data.id,
-                    "links":data.links
+                    "id": data._id,
+                    "links": data.links
                 }
-                return Response(response,status=status.HTTP_200_OK)
+                return Response(response, status=status.HTTP_200_OK)
             except AttributeError:
                 return Response({"error": "no adds"}, status=status.HTTP_404_NOT_FOUND)
 
-    
+
 class RecomendationViews(APIView):
 
-    def get(self ,request,*args, **kwargs):
-        data = ModelRegister.objects.get(id = kwargs['pk'])
+    def get(self, request, *args, **kwargs):
+        data = ModelRegister.objects.get(id=kwargs['pk'])
         f = open(data.image_above.path, 'rb')
         filename = data.image_above.name
         response = HttpResponse(f.read())
@@ -329,20 +316,23 @@ class RecomendationViews(APIView):
 
     def post(self, request, *args, **kwargs):
         data = request.data
-        marka = MarkaRegister.objects.get(name_of_marka = data['name_of_marka'])
-        model = marka.model.get(name_of_model = data['name_of_model'])
-        serializer = SingleRecomendationSerializer(model.recomendations,many = True)
-        return Response({'id_model': model.id, 'recomendations': serializer.data, 'text_above': model.text_above, 'image_name': model.image_above.name})
+        marka = MarkaRegister.objects.get(name_of_marka=data['name_of_marka'])
+        model = marka.model.get(name_of_model=data['name_of_model'])
+        serializer = SingleRecomendationSerializer(model.recomendations, many=True)
+        return Response({'id_model': model._id, 'recomendations': serializer.data, 'text_above': model.text_above,
+                         'image_name': model.image_above.name})
+
 
 class MarkaRegisterViews(APIView):
 
-    def get(self,request,*args,**kwargs):
+    def get(self, request, *args, **kwargs):
         data = MarkaRegister.objects.all()
-        serialized = MarkaSerializer(data , many =True)
+        serialized = MarkaSerializer(data, many=True)
         return Response(serialized.data)
 
+
 class TransportViews(APIView):
-    
+
     def get(self, request, *args, **kwargs):
         if not kwargs:
             user = UserTransport.objects.all()
@@ -351,13 +341,13 @@ class TransportViews(APIView):
         else:
             print(request.query_params.get('id_cards'))
             print(kwargs)
-            user = UserTransport.objects.get(emailOrPhone = kwargs['pk'])
+            user = UserTransport.objects.get(emailOrPhone=kwargs['pk'])
             units = TransportUnitsSerializer(user.units)
             print(user.pro_account)
             response = {
                 "pro_account": user.pro_account,
-                "date": user.date ,
-                "units":units.data,
+                "date": user.date,
+                "units": units.data,
                 "cards": None,
             }
             if user.cards.first() != None:
@@ -367,26 +357,26 @@ class TransportViews(APIView):
                     user.save()
                 else:
                     if user.last_account == 0:
-                       index = user.cards.first().illd
+                        index = user.cards.first().illd
                     else:
-                       index = user.last_account
-                cards = user.cards.get(id = index)
+                        index = user.last_account
+                cards = user.cards.get(id=index)
                 now = datetime.now(timezone.utc)
                 delta = now - user.date
                 if delta.days > cards.expenses.update_month:
                     cards.expenses.in_this_month = 0
-                    cards.expenses.update_month +=30
+                    cards.expenses.update_month += 30
                     cards.expenses.save()
                 detail = TransportDetailSerializer(cards)
                 response['cards'] = detail.data
             return Response(response)
-            
+
     def post(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
         data = request.data
         if user.pro_account or user.cards.first() == None:
-            if user.cards.filter(nameOfTransport = data['nameOfTransport']).exists():
-                return Response({"error":"Это название уже существует"},status=status.HTTP_400_BAD_REQUEST)
+            if user.cards.filter(nameOfTransport=data['nameOfTransport']).exists():
+                return Response({"error": "Это название уже существует"}, status=status.HTTP_400_BAD_REQUEST)
             expenses = Expenses.objects.create()
             detail = TransportDetail.objects.create(
                 nameOfTransport=data['nameOfTransport'],
@@ -394,27 +384,27 @@ class TransportViews(APIView):
                 model=data['model'],
                 yearOfMade=data['yearOfMade'],
                 yearOfPurchase=data['yearOfPurchase'],
-                number = data['number'],
+                number=data['number'],
                 numberOfTank=data['numberOfTank'],
                 firstTankType=data['firstTankType'],
                 firstTankVolume=data['firstTankVolume'],
                 secondTankType=data['secondTankType'],
-                secondTankVolume = data['secondTankVolume'],
-                run             = data['run'],
-                initial_run      = data['run'],
-                expenses = expenses
+                secondTankVolume=data['secondTankVolume'],
+                run=data['run'],
+                initial_run=data['run'],
+                expenses=expenses
             )
             if 'tech_passport' in data:
                 detail.tech_passport = data['tech_passport']
             user.cards.add(detail)
-            user.last_account = detail.id
+            user.last_account = detail._id
             user.save()
-            return Response({"id":detail.id}, status = status.HTTP_200_OK)
+            return Response({"id": detail._id}, status=status.HTTP_200_OK)
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
-    def put (self, request, pk, format =None):
-        detail =  TransportDetail.objects.get(id = pk)
+    def put(self, request, pk, format=None):
+        detail = TransportDetail.objects.get(id=pk)
         data = request.data
         if 'run' in data:
             detail.run = data['run']
@@ -428,50 +418,57 @@ class TransportViews(APIView):
         serializer = TransportDetailSerializer(detail)
         return Response(serializer.data)
 
+
+from .tasks import add
+
+
 class AttachedImageViews(APIView):
-    parser_classes = (MultiPartParser,FormParser)
-    def get(self,request,pk,format = None):
-    
+    parser_classes = (MultiPartParser, FormParser)
+
+    def get(self, request, pk, format=None):
+        add.delay(3)
         data = ImagesForAttached.objects.all()
-        serializer = ImagesForAttachedSerializer(data , many = True)
+        serializer = ImagesForAttachedSerializer(data, many=True)
         return Response(serializer.data)
-    
-    def post(self,request, format = None):
+
+    def post(self, request, format=None):
         data = request.data
-        serializer = ImagesForAttachedSerializer(data = data)
+        serializer = ImagesForAttachedSerializer(data=data)
         serializer.is_valid()
         serializer.save()
-        return Response({'id':serializer.data.get('id')})
-        
-    def delete(self,request,pk,format = None):
-        image = ImagesForAttached.objects.get(id = pk)
+        return Response({'id': serializer.data.get('id')})
+
+    def delete(self, request, pk, format=None):
+        image = ImagesForAttached.objects.get(id=pk)
         image.delete()
-        return Response({"status":200})
+        return Response({"status": 200})
 
 
 class ExpensesViews(APIView):
-    def put(self, request, *args,**kwargs):
+    def put(self, request, *args, **kwargs):
         data = request.data
-        expenses = Expenses.objects.get(id = kwargs['pk'])
+        expenses = Expenses.objects.get(id=kwargs['pk'])
         expenses.all_time = data['all_time']
         expenses.in_this_month = data['in_this_month']
         expenses.save()
-        return Response({"all": expenses.all_time, "month":expenses.in_this_month})
-        
+        return Response({"all": expenses.all_time, "month": expenses.in_this_month})
+
+
 class ExpenseViews(APIView):
-    def get(self,request,*args,**kwargs):
+    def get(self, request, *args, **kwargs):
         expenses = Expense.objects.all()
-        serializer = ExpenseSerializer(expenses,many = True)
+        serializer = ExpenseSerializer(expenses, many=True)
         return Response(serializer.data)
-    def post(self,request,*args,**kwargs):
+
+    def post(self, request, *args, **kwargs):
         data = request.data
-        serializer = ExpenseSerializer(data = data)
+        serializer = ExpenseSerializer(data=data)
         serializer.is_valid()
         serializer.save()
-        return Response({'id':serializer.data.get('id')})
+        return Response({'id': serializer.data.get('id')})
 
-    def put(self,request, *args,**kwargs):
-        data = Expense.objects.get(id = kwargs['pk'])
+    def put(self, request, *args, **kwargs):
+        data = Expense.objects.get(id=kwargs['pk'])
         if 'name' in request.data:
             data.name = request.data['name']
         if 'sum' in request.data:
@@ -479,47 +476,52 @@ class ExpenseViews(APIView):
         if 'amount' in request.data:
             data.amount = request.data['amount']
         data.save()
-        return Response({"data":"updated"})
-        
-    def delete(self,reuqest,pk,format = None):
-        expense = Expense.objects.get(id = pk)
+        return Response({"data": "updated"})
+
+    def delete(self, reuqest, pk, format=None):
+        expense = Expense.objects.get(id=pk)
         expense.delete()
-        return Response({"status":200})
+        return Response({"status": 200})
+
+
 class LocationGetViews(APIView):
-    def get(self,request,*args,**kwargs):
-        location = Location.objects.get(id = kwargs['pk'])
+    def get(self, request, *args, **kwargs):
+        location = Location.objects.get(id=kwargs['pk'])
         serializer = LocationSerializer(location)
-        return Response(serializer.data,status = status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
 class CardsViews(APIView):
 
-    def get(self,request , *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         if not kwargs:
             data = Cards.objects.all()
-            serializer = CardsSerializer(data , many= True)
+            serializer = CardsSerializer(data, many=True)
             return Response(serializer.data)
 
-        data = Cards.objects.get(id = kwargs['pk'])
-        serializer = CardSerializer(data.card, many = True)
+        data = Cards.objects.get(id=kwargs['pk'])
+        serializer = CardSerializer(data.card, many=True)
         return Response(serializer.data)
 
-
-    def post(self, request,*args, **kwargs):
+    def post(self, request, *args, **kwargs):
         array = []
-        data = request.data 
+        data = request.data
         attach = Attach.objects.create()
         change = RecommendedChange.objects.create()
         location = Location.objects.create()
-       
+
         if 'run' in data:
             change.run = data['run']
             change.initial_run = data['initial_run']
+            change.time = 0
         else:
+            change.run = 0
             change.time = data['time']
         change.save()
         if 'images_list' in data:
             for i in data['images_list']:
-                array.append(ImagesForAttached.objects.get(id = int(i)))
-            
+                array.append(ImagesForAttached.objects.get(id=int(i)))
+
             attach.image.set(array)
         if 'location' in data:
             location.latitude = data['location']['latitude']
@@ -529,38 +531,42 @@ class CardsViews(APIView):
         attach.location = location
         attach.save()
         card = Card.objects.create(
-            name_of_card = data['name_of_card'],
-            comments = data['comments'],
-            date = data['date'],
-            attach = attach,
-            change = change
+            name_of_card=data['name_of_card'],
+            comments=data['comments'],
+            date=data['date'],
+            attach=attach,
+            change=change
         )
         if 'pk' in kwargs:
-            detail = TransportDetail.objects.get(id = kwargs['pk'])
+            detail = TransportDetail.objects.get(id=kwargs['pk'])
             cards = Cards.objects.create()
             cards.card.add(card)
+            cards.storeCard.add(card)
             cards.save()
             detail.cards_user = cards
             detail.save()
-            #serializer = TransportDetailSerializer(detail)
-            return Response({"id_cards":cards.id,"id_attach":attach.id,"id_change":change.id,"id_card":card.id, "id_location":location.id},status=status.HTTP_200_OK)
+            # serializer = TransportDetailSerializer(detail)
+            return Response(
+                {"id_cards": cards._id, "id_attach": attach._id, "id_change": change._id, "id_card": card._id,
+                 "id_location": location._id}, status=status.HTTP_200_OK)
         card.save()
-        cards = Cards.objects.get(id = data['id'])
+        cards = Cards.objects.get(id=data['id'])
         cards.card.add(card)
         cards.save()
         # serializer = CardsSerializer(cards)
-        return Response({"id_attach":attach.id,"id_change":change.id,"id_card":card.id,"id_location":location.id},status=status.HTTP_200_OK)
+        return Response(
+            {"id_attach": attach._id, "id_change": change._id, "id_card": card._id, "id_location": location._id},
+            status=status.HTTP_200_OK)
 
-    def put(self, request , pk, format = None):
+    def put(self, request, pk, format=None):
         data = request.data
-        card = Card.objects.get(id = pk)
+        card = Card.objects.get(id=pk)
         if 'id_attach' in data:
-            attach = Attach.objects.get(id = data['id_attach'])
+            attach = Attach.objects.get(id=data['id_attach'])
             if 'images_list' in data:
                 for i in data['images_list']:
-                    attach.image.add(ImagesForAttached.objects.get(id = int(i)))
+                    attach.image.add(ImagesForAttached.objects.get(id=int(i)))
             if 'location' in data:
-                
                 attach.location.latitude = data['location']['latitude']
                 attach.location.longitude = data['location']['longitude']
                 attach.location.comment = data['location']['comment']
@@ -568,8 +574,8 @@ class CardsViews(APIView):
             attach.save()
             locat = {
                 "latitude": attach.location.latitude,
-                "longitude":attach.location.longitude,
-                "comment":attach.location.comment,
+                "longitude": attach.location.longitude,
+                "comment": attach.location.comment,
             }
         if 'name_of_card' in data:
             card.name_of_card = data['name_of_card']
@@ -578,7 +584,7 @@ class CardsViews(APIView):
         if 'date' in data:
             card.date = data['date']
         if 'id_change' in data:
-            change = RecommendedChange.objects.get( id = data['id_change'])
+            change = RecommendedChange.objects.get(id=data['id_change'])
             if 'run' in data:
                 change.initial_run = data['initial_run']
                 change.run = data['run']
@@ -589,68 +595,64 @@ class CardsViews(APIView):
             change.save()
         if 'expense_list' in data:
             for i in data['expense_list']:
-                card.expense.add(Expense.objects.get(id = int(i)))
+                card.expense.add(Expense.objects.get(id=int(i)))
         card.save()
-        #serializer = CardSerializer(card)
+        # serializer = CardSerializer(card)
         return Response(locat)
-        
-    def delete(self,request, pk, format = None):
-        card = Card.objects.get(id = pk)
-        try:
-            for instance in card.attach.image.all():
-                instance.delete()
-            card.attach.delete()
-        except AttributeError:
-            print("Error")
-        if hasattr(card.expense):
-            for expense in card.expense.all():
-                expense.delete()
-            card.expense.delete()
-        card.delete()
-        return Response({"status":200})
 
-
+    def delete(self, request, pk, format=None):
+        id_cards = request.query_params.get('id_cards')
+        card = Card.objects.get(id=pk)
+        cards = Cards.objects.get(id=id_cards)
+        cards.remove(card)
+        return Response({"status": 200})
 
 
 class DownloadImage(APIView):
-  # download from link 
-    def get(self ,request,*args, **kwargs):
-        data = ImagesForAttached.objects.get(id = kwargs['pk'])
+    # download from link
+    def get(self, request, *args, **kwargs):
+        data = ImagesForAttached.objects.get(id=kwargs['pk'])
         f = open(data.image.path, 'rb')
         filename = data.image.name
         response = HttpResponse(f.read())
         response['Content-Disposition'] = "attachment; filename=%s" % filename
         return response
 
+
 class GetImage(APIView):
     renderer_classes = [JPEGRenderer]
-    def get(self, request, *args,**kwargs):
-        data = ImagesForAttached.objects.get(id = kwargs['pk']).image
+
+    def get(self, request, *args, **kwargs):
+        data = ImagesForAttached.objects.get(id=kwargs['pk']).image
         return Response(data, content_type='image/jpg')
 
+
 class ClickView(APIView):
-    def get(self,request,*args,**kwargs):
+    def get(self, request, *args, **kwargs):
         redirection = ""
         return redirect(redirection)
-    def post(self, request,*args,**kwargs):
-        return redirect("")# redirect to complete 
+
+    def post(self, request, *args, **kwargs):
+        return redirect("")  # redirect to complete
+
+
 class PaymeView(APIView):
-    def get(self,request,*args,**kwargs):
+    def get(self, request, *args, **kwargs):
         encoded = base64.b64encode("m={};a={};ac={}".format())
         return redirect("https://checkout.paycom.uz/{}".format())
-        
-class MerchantView(APIView):
-    def post(self,request,*args,**kwargs):
+
+
+class SubscribeAPI(APIView):
+    def post(self, request, *args, **kwargs):
         app = Application(request)
         return app.run()
-# def get_phases(request):
-#     project = request.POST.get('project')
-#     print("Project : %s" % project)
-#     phases = {}
-#     try:
-#         if project:
-#             model = MarkaRegister.objects.get(pk=int(project)).model
-#             phases = {pp.name_of_model:pp.pk for pp in model}
-#     except:
-#         pass
-#     return Response(phases)
+
+
+from Auth.Paynet.Exception import PaynetException
+
+
+class Test(APIView):
+    def get(self, request, *args, **kwargs):
+        response = PaynetException(PaynetException.ERROR_INSUFFICIENT_FUNDS,
+                                   PaynetException.dict[PaynetException.ERROR_INSUFFICIENT_FUNDS], 'some')
+        return response.send()

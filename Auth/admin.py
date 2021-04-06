@@ -1,22 +1,29 @@
 from django.contrib import admin
 from django.contrib.admin import AdminSite
-from django.contrib.admin.views.main import ChangeList
-from .models import UserTransport,MarkaRegister,ModelRegister, SingleRecomendation ,Payment, Adds
-from .forms import StyleableCheckboxSelectMultiple,CategoryChoiceField
+
+from .models import UserTransport, MarkaRegister, ModelRegister, SingleRecomendation, Adds, AmountProAccount
+
 from django.contrib.auth.models import Group, User
+
 AdminSite.site_header = "Auto App"
 
 admin.site.unregister(Group)
 admin.site.unregister(User)
 admin.site.register(Adds)
 admin.site.register(UserTransport)
+admin.site.register(AmountProAccount)
+
+
 class SingleRecomendationAdmin(admin.ModelAdmin):
     def get_model_perms(self, request):
         """
         Return empty perms dict thus hiding the model from admin index.
         """
         return {}
-admin.site.register(SingleRecomendation,SingleRecomendationAdmin)
+
+
+admin.site.register(SingleRecomendation, SingleRecomendationAdmin)
+
 
 # class PaymentAdmin(admin.ModelAdmin):
 #     pass
@@ -25,25 +32,27 @@ admin.site.register(SingleRecomendation,SingleRecomendationAdmin)
 class MarkaAdmin(admin.ModelAdmin):
     fields = ('name_of_marka', 'model')
     filter_horizontal = ['model']
-    
+
 
 class ModelRecommendationAdmin(admin.ModelAdmin):
-    fields = ('name_of_model','recomendations','image_above','text_above')
+    fields = ('name_of_model', 'recomendations', 'image_above', 'text_above')
     filter_horizontal = ['recomendations']
+
     def get_model_perms(self, request):
         """
         Return empty perms dict thus hiding the model from admin index.
         """
         return {}
-    
+
+
 admin.site.register(MarkaRegister, MarkaAdmin)
-admin.site.register(ModelRegister,ModelRecommendationAdmin)
+admin.site.register(ModelRegister, ModelRecommendationAdmin)
 
 # class AbovePartRecomendationAdmin(admin.ModelAdmin):
 #     fields = ('marka','model','image','text')
 #     my_id_for_formfield = None
 #     def get_form(self, request, obj=None, **kwargs):
-    
+
 #         if obj:
 #             print(obj)
 #             self.my_id_for_formfield = obj.model
@@ -58,12 +67,10 @@ admin.site.register(ModelRegister,ModelRecommendationAdmin)
 #             kwargs["queryset"] = MarkaRegister.objects.filter(model = self_pub_id).model
 #         return super(AbovePartRecomendationAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
-    # def formfield_for_foreignkey(self, db_field, request, **kwargs):
-    #     if db_field.name == 'marka':
-    #         data = MarkaRegister.objects.filter(id = request.selected)
-    #         print(data)
-    #     if db_field.name == 'model':
-    #         return CategoryChoiceField(queryset=ModelRegister.objects.all())
-    #     return super().formfield_for_foreignkey(db_field, request, **kwargs)
-
-
+# def formfield_for_foreignkey(self, db_field, request, **kwargs):
+#     if db_field.name == 'marka':
+#         data = MarkaRegister.objects.filter(id = request.selected)
+#         print(data)
+#     if db_field.name == 'model':
+#         return CategoryChoiceField(queryset=ModelRegister.objects.all())
+#     return super().formfield_for_foreignkey(db_field, request, **kwargs)

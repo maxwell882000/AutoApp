@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="click-integration-django-master">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/click-integration-django-master.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

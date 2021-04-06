@@ -1,0 +1,22 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+ <soapenv:Body>
+ <ns1:PerformTransactionArguments xmlns:ns1="http://uws.provider.com/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:type="ns1:PerformTransactionArguments">
+ <password>pwd</password>
+ <username>user</username>
+ <amount>150000</amount>
+ <parameters>
+ <paramKey>customer_id</paramKey>
+ <paramValue>6324357</paramValue>
+ </parameters>
+ <parameters>
+ <paramKey>pin</paramKey>
+ <paramValue>12345678</paramValue>
+ </parameters>
+ <serviceId>1</serviceId>
+ <transactionId>437</transactionId>
+ <transactionTime>2011-04-26T18:07:22</transactionTime>
+ </ns1:PerformTransactionArguments>
+ </soapenv:Body>
+</soapenv:Envelope>
