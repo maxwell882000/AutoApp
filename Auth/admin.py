@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.contrib.admin import AdminSite
 
-from .models import UserTransport, MarkaRegister, ModelRegister, SingleRecomendation, Adds, AmountProAccount
+from .models import UserTransport, MarkaRegister, ModelRegister, SingleRecomendation, Adds, AmountProAccount, \
+    RecommendCards
 
 from django.contrib.auth.models import Group, User
 
@@ -13,16 +14,18 @@ admin.site.register(Adds)
 admin.site.register(UserTransport)
 admin.site.register(AmountProAccount)
 
+#
+# class SingleRecomendationAdmin(admin.ModelAdmin):
+#     def get_model_perms(self, request):
+#         """
+#         Return empty perms dict thus hiding the model from admin index.
+#         """
+#         return {}
 
-class SingleRecomendationAdmin(admin.ModelAdmin):
-    def get_model_perms(self, request):
-        """
-        Return empty perms dict thus hiding the model from admin index.
-        """
-        return {}
 
+admin.site.register(SingleRecomendation)
 
-admin.site.register(SingleRecomendation, SingleRecomendationAdmin)
+admin.site.register(RecommendCards)
 
 
 # class PaymentAdmin(admin.ModelAdmin):
@@ -35,14 +38,14 @@ class MarkaAdmin(admin.ModelAdmin):
 
 
 class ModelRecommendationAdmin(admin.ModelAdmin):
-    fields = ('name_of_model', 'recomendations', 'image_above', 'text_above')
-    filter_horizontal = ['recomendations']
+    fields = ('name_of_model', 'recomendations', 'recommend_card', 'image_above', 'text_above')
+    filter_horizontal = ['recomendations', 'recommend_card']
 
-    def get_model_perms(self, request):
-        """
-        Return empty perms dict thus hiding the model from admin index.
-        """
-        return {}
+    # def get_model_perms(self, request):
+    #     """
+    #     Return empty perms dict thus hiding the model from admin index.
+    #     """
+    #     return {}
 
 
 admin.site.register(MarkaRegister, MarkaAdmin)

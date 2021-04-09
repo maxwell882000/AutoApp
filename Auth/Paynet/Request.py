@@ -25,16 +25,4 @@ class Request:
         return dictionary
 
 
-print(Request("""
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
- <soapenv:Body>
- <ns1:ChangePasswordArguments xmlns:ns1="http://uws.provider.com/"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ns1:
-ChangePasswordArguments">
- <password>pwd</password>
- <username>user</username>
- <newPassword>newpassword</newPassword>
- </ns1:ChangePasswordArguments>
- </soapenv:Body>
-</soapenv:Envelope>
-""").parse())
+

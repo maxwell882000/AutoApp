@@ -115,6 +115,17 @@ class Cards(models.Model):
         super(Cards, self).delete(*args, **kwargs)
 
 
+class RecommendCards(models.Model):
+    name = models.CharField(default="", max_length=30, verbose_name="Название карточки")
+    recommend_run = models.IntegerField(default=0, verbose_name="Рекоммендованный пробег в километрах")
+
+    class Meta:
+        verbose_name_plural = "Рекоммендованые карточки"
+
+    def __str__(self):
+        return self.name
+
+
 class SingleRecomendation(models.Model):
     main_name = models.CharField(max_length=70, verbose_name="Название для рекомендации")
     description = models.TextField(verbose_name="Описание рекомендации")
@@ -130,6 +141,7 @@ class SingleRecomendation(models.Model):
 class ModelRegister(models.Model):
     name_of_model = models.CharField(max_length=50, verbose_name="Название модели")
     recomendations = models.ManyToManyField(SingleRecomendation, verbose_name="Рекомендации для модели")
+    recommend_card = models.ManyToManyField(RecommendCards, verbose_name="Рекомендованные карточки")
     image_above = models.ImageField(upload_to='admin/', verbose_name="Фото для модели")
     text_above = models.TextField(verbose_name="Описание модели")
 
