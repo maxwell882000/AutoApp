@@ -26,7 +26,7 @@ class Response:
                """.format(method=self.method,
                           code=self.code,
                           message=self.message,
-                          timeStamp=Format.datetime2str(),
+                          timeStamp=Format.current_time(),
                           response=self.response)
 
         return Res(response, content_type="application/soap+xml")

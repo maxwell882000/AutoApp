@@ -278,24 +278,26 @@ class PaymeProPayment(models.Model):
     amount = models.ForeignKey(AmountProAccount, related_name='amount', on_delete=models.CASCADE, blank=True, null=True)
 
 
-class Transaction(models.Model):
-    amount = models.BigIntegerField(default=0)
-    paid_time = models.DateField()
-    transactionId = models.BigIntegerField(default=0)
-
 class PaynetProPayment(models.Model):
     user = models.ForeignKey(UserTransport, related_name='client_paynet', on_delete=models.CASCADE)
     customerId = models.CharField(max_length=12, blank=True, unique=True)
-    check_get = models.ManyToManyField(Transaction)
 
     def save(self, *args, **kwargs):
         if not self.customerId:
             while True:
-                id = uuid.uuid4().hex[:12].upper()
+                id_unique = uuid.uuid4().hex[:12].upper()
                 if not PaynetProPayment.objects.filter(customerId=id).exists():
                     break
-            self.customerId = id
+            self.customerId = id_unique
         super(PaynetProPayment, self).save(*args, **kwargs)
+
+
+class Transaction(models.Model):
+    amount = models.BigIntegerField(default=0)
+    paid_time = models.DateField()
+    transactionId = models.BigIntegerField(default=0)
+    state = models.IntegerField(default=0)
+    customer = models.ForeignKey(PaynetProPayment, related_name='customer', on_delete=models.CASCADE)
 
 
 class Test(models.Model):

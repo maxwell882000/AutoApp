@@ -23,7 +23,8 @@ from django.urls import reverse
 from ._core import map_profile_fields
 from rest_framework.parsers import MultiPartParser, FormParser
 from .renderers import JPEGRenderer
-from .Payme_Subscribe_API import Application
+from .Payme_Subscribe_API.Application import Application as Payme_Application
+from .Paynet.Application import Application as Paynet_Application
 import base64
 from .Payme_Merchant_API.Application import Application
 
@@ -644,15 +645,11 @@ class PaymeView(APIView):
 
 class SubscribeAPI(APIView):
     def post(self, request, *args, **kwargs):
-        app = Application(request)
+        app = Payme_Application(request)
         return app.run()
 
 
-from Auth.Paynet.Exception import PaynetException
-
-
-class Test(APIView):
-    def get(self, request, *args, **kwargs):
-        response = PaynetException(PaynetException.ERROR_INSUFFICIENT_FUNDS,
-                                   PaynetException.dict[PaynetException.ERROR_INSUFFICIENT_FUNDS], 'some')
-        return response.send()
+class PaynetView(APIView):
+    def post(self, request, *args, **kwargs):
+        application = Paynet_Application(request)
+        return application.run()

@@ -51,6 +51,7 @@ PAYNET = {
     'password': "",
     'serviceId': "",
     'providerId': "",
+    'data': "",
 }
 PAYMENT_HOST = '127.0.0.1:8000'
 PAYMENT_USES_SSL = False  # set the True value if you are using the SSL
@@ -69,7 +70,6 @@ PAYMENT_VARIANTS = {
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -89,7 +89,6 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

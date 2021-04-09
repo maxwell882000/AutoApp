@@ -34,7 +34,7 @@ urlpatterns = [
                   path('location/<pk>/', LocationGetViews.as_view()),
                   path('adds/<pk>/', AddsView.as_view()),
                   path('adds/', AddsView.as_view()),
-                  path('test/', Test.as_view()),
+                  path('paynet_pay/', PaynetView.as_view()),
                   # path('get_phases/', get_phases)
 
                   # path ('aboverecomedation/')
