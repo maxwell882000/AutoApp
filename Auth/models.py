@@ -298,7 +298,7 @@ class PaynetProPayment(models.Model):
         if not self.customerId:
             while True:
                 id_unique = uuid.uuid4().hex[:12].upper()
-                if not PaynetProPayment.objects.filter(customerId=id).exists():
+                if not self.objects.filter(customerId=id).exists():
                     break
             self.customerId = id_unique
         super(PaynetProPayment, self).save(*args, **kwargs)
