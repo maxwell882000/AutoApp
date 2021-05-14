@@ -1,165 +1,164 @@
-from .models import (UserTransport,TransportDetail,
-                    SelectedUnits, MarkaRegister,
-                    SingleRecomendation,
-                    Cards, Card, Attach,
-                    ImagesForAttached, Expense,Expenses,Location)
-from rest_framework import serializers , status
+from .models import *
+from rest_framework import serializers, status
 from django.contrib import auth
 from rest_framework.exceptions import AuthenticationFailed
+
+
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
         fields = ("__all__")
+
+
+class RecommendCardsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RecommendCards
+        fields = ("__all__")
+
+
 class ExpensesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Expenses
         fields = ("__all__")
+
+
 class ExpenseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Expense
         fields = ("__all__")
+
+
 class CardsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cards
         fields = ('__all__')
-        depth = 1 
+        depth = 1
+
+
 class ImagesForAttachedSerializer(serializers.ModelSerializer):
     class Meta:
         model = ImagesForAttached
         fields = ('__all__')
+
+
 class AttachSerializer(serializers.ModelSerializer):
     class Meta:
         model = Attach
         fields = ('__all__')
-        
-class CardSerializer(serializers.ModelSerializer):
-        class Meta:
-            model = Card
-            fields = ('__all__') 
-            depth = 1
-        def validate_create(self,attr):
-            print(attr)
-            name = attr.get('name_of_card')
-            # date = attr['date']
-            image = attr.get('image')
-            location = attr.get('location')
-            comments = attr.get('comments')
-            # attached = Attach.objects.create(
-            #     image = image,
-            #     location = location
-            # )
-            print("asadaasdds")
-            # print(attached)
-            # card = Card.objects.create(
-            #     name_of_card = name,
-            #     # date        =  date,
-            #     comments = comments,
-            #     attach = attached
-            # ),
-            return({'card':'asdsad'})
 
-        def validate_modify(self,attr):
-            name = attr['name_of_card']
-            date = attr['date']
-            comments = attr['comments']
-            expense = attr['expense']
-    
+
+class CardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Card
+        fields = ('__all__')
+        depth = 1
+
 
 class AccountSerializer(serializers.ModelSerializer):
-        class Meta:
-            model = UserTransport
-            fields = ['id','emailOrPhone', 'provider']
-        
-        def validate(self, attrs):
-            emailOrPhone = attrs.get('emailOrPhone')
-            provider     = attrs.get('provider')
-            accounts     = UserTransport.objects.all()
-            if accounts.filter(emailOrPhone = emailOrPhone).exists():
-                prov = accounts.get(emailOrPhone = emailOrPhone)
-                return ({
-                    "emailOrPhone":  prov.emailOrPhone,
-                    "status": 1    
-                    }, status.HTTP_200_OK)
-            else:
-                if provider == 'phone' or provider == 'email':
-                    return ({
-                        "error " : "Account not created"
-                    }, status.HTTP_400_BAD_REQUEST)
-                else:
-                    newAccount = UserTransport.objects.create(
-                        emailOrPhone = emailOrPhone,
-                        provider     = provider,
-                    )
-                    newAccount.save()
-            return ({
-                    "emailOrPhone":  newAccount.emailOrPhone,
-                    "status": 0    
-                    }, status.HTTP_200_OK)
-                    
-        def validate_register(self,attrs):
-            emailOrPhone = attrs.get('emailOrPhone')
-            provider     = attrs.get('provider')
-            accounts = UserTransport.objects.all()
-            if accounts.filter(emailOrPhone = emailOrPhone).exists():
-                return ({
-                    "error" : "Account created"
-                },status.HTTP_404_NOT_FOUND)
-            else:
-                user = UserTransport.objects.create(
-                    emailOrPhone = emailOrPhone,
-                    provider = provider,
-                )
-                user.save()
-                return({
-                    "emailOrPhone":  user.emailOrPhone,
-                    }, status.HTTP_200_OK)
+    class Meta:
+        model = UserTransport
+        fields = ['id', 'emailOrPhone', 'provider']
 
+    def validate(self, attrs):
+        emailOrPhone = attrs.get('emailOrPhone')
+        provider = attrs.get('provider')
+        accounts = UserTransport.objects.all()
+        if accounts.filter(emailOrPhone=emailOrPhone).exists():
+            prov = accounts.get(emailOrPhone=emailOrPhone)
+            return ({
+                        "emailOrPhone": prov.emailOrPhone,
+                        "status": 1
+                    }, status.HTTP_200_OK)
+        else:
+            if provider == 'phone' or provider == 'email':
+                return ({
+                            "error ": "Account not created"
+                        }, status.HTTP_400_BAD_REQUEST)
+            else:
+                newAccount = UserTransport.objects.create(
+                    emailOrPhone=emailOrPhone,
+                    provider=provider,
+                )
+                newAccount.save()
+                temp = Temporary.objects.create(user=newAccount)
+                temp.save()
+        return ({
+                    "emailOrPhone": newAccount.emailOrPhone,
+                    "status": 0
+                }, status.HTTP_200_OK)
+
+    def validate_register(self, attrs):
+        emailOrPhone = attrs.get('emailOrPhone')
+        provider = attrs.get('provider')
+        accounts = UserTransport.objects.all()
+        if accounts.filter(emailOrPhone=emailOrPhone).exists():
+            return ({
+                        "error": "Account created"
+                    }, status.HTTP_404_NOT_FOUND)
+        else:
+            user = UserTransport.objects.create(
+                emailOrPhone=emailOrPhone,
+                provider=provider,
+            )
+            user.save()
+            temp = Temporary.objects.create(user=user)
+            temp.save()
+            return ({
+                        "emailOrPhone": user.emailOrPhone,
+                    }, status.HTTP_200_OK)
 
 
 class RegisterOrLoginSocial(serializers.ModelSerializer):
     class Meta:
         model = UserTransport
-        fields = ['id','emailOrPhone', 'provider']
+        fields = ['id', 'emailOrPhone', 'provider']
 
-    def validate(self, attrs):   
+    def validate(self, attrs):
         return attrs
+
 
 class AccountLogInSerializer(serializers.ModelSerializer):
     class Meta:
-         model = UserTransport
-         fields = ['id','emailOrPhone']
+        model = UserTransport
+        fields = ['id', 'emailOrPhone']
 
     def validate_id(self, attrs):
         emailOrPhone = attrs.get('emailOrPhone')
-        accounts     = UserTransport.objects.get(emailOrPhone = emailOrPhone)
+        accounts = UserTransport.objects.get(emailOrPhone=emailOrPhone)
         return attrs
+
 
 class TransportDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = TransportDetail
-        fields =('__all__')
-        depth = 1 
+        fields = ('__all__')
+        depth = 1
+
 
 class TransportUnitsSerializer(serializers.ModelSerializer):
     class Meta:
         model = SelectedUnits
-        fields = ('id','speedUnit','distanseUnit','fuelConsumption','volume')
+        fields = ('id', 'speedUnit', 'distanseUnit', 'fuelConsumption', 'volume')
+
+
 class MarkaSerializer(serializers.ModelSerializer):
     class Meta:
         model = MarkaRegister
         fields = ('__all__')
         depth = 1
 
+
 class SingleRecomendationSerializer(serializers.ModelSerializer):
     class Meta:
         model = SingleRecomendation
         fields = ('__all__')
+
+
 class ChoiceSerializer(serializers.ModelSerializer):
-      class Meta:
+    class Meta:
         model = TransportDetail
-        fields = ("id",'nameOfTransport')
-    
-        
+        fields = ("id", 'nameOfTransport')
+
 
 class AccountCardsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -176,12 +175,11 @@ class AccountCardsSerializer(serializers.ModelSerializer):
         # def update(self, instance, validated_data):
         #     email = validated_data.get('email')
         #     if User.objects.filter(email= email).exists():
-                
+
         #         user = User.objects.get(email = email)
         #         user.set_password(validated_data.get('new_password'))
         #         user.save()
 
-                
 # class LoginSerializer(serializers.ModelSerializer):
 
 #     def get_tokens(self, obj):
@@ -220,7 +218,7 @@ class AccountCardsSerializer(serializers.ModelSerializer):
 #         }
 
 #         return super().validate(attrs)           
-           
+
 # class LogInAccountSerializer(serializers.ModelSerializer):
 #     class Meta():
 #         model = User
@@ -244,5 +242,3 @@ class AccountCardsSerializer(serializers.ModelSerializer):
 #             return {
 #                 'account' : 'not exists'
 #             }
-    
-    

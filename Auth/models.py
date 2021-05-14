@@ -64,6 +64,7 @@ class Attach(models.Model):
     def delete(self, *args, **kwargs):
         for image in self.image.all():
             image.delete()
+        self.location.delete()
         super(Attach, self).delete(*args, **kwargs)
 
 
@@ -229,6 +230,25 @@ class UserTransport(models.Model):
         return self.emailOrPhone
 
 
+class Temporary(models.Model):
+    image = models.ManyToManyField(ImagesForAttached)
+    expenses = models.ManyToManyField(Expense)
+    user = models.ForeignKey(UserTransport, related_name='user_for_images', on_delete=models.CASCADE, blank=True,
+                             null=True)
+
+    def delete_operation(self):
+        for image in self.image.all():
+            default_storage.delete(image.image.path())
+            image.delete()
+        for expense in self.expenses.all():
+            expense.delete()
+
+    def clean_operation(self):
+        self.image.clear()
+        self.expenses.clear()
+        self.save()
+
+
 # class Payment(BasePayment):
 #      user        = models.ForeignKey(UserTransport,on_delete =models.CASCADE, blank= True, null= True)
 #      class Meta:
@@ -298,7 +318,7 @@ class PaynetProPayment(models.Model):
         if not self.customerId:
             while True:
                 id_unique = uuid.uuid4().hex[:12].upper()
-                if not self.objects.filter(customerId=id).exists():
+                if not PaynetProPayment.objects.filter(customerId=id_unique).exists():
                     break
             self.customerId = id_unique
         super(PaynetProPayment, self).save(*args, **kwargs)

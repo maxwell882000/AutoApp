@@ -4,18 +4,7 @@ from django.http import HttpResponse
 
 from datetime import datetime, timezone
 
-from .models import (UserTransport, TransportDetail,
-                     SelectedUnits, MarkaRegister, Attach,
-                     ImagesForAttached, Card, Adds,
-                     Cards, ModelRegister, Location,
-                     RecommendedChange, Expense, Expenses)
-from .serializers import (AccountSerializer, SingleRecomendationSerializer,
-                          AccountCardsSerializer,
-                          TransportDetailSerializer,
-                          TransportUnitsSerializer, LocationSerializer,
-                          MarkaSerializer, CardSerializer,
-                          ImagesForAttachedSerializer,
-                          CardsSerializer, ExpenseSerializer, ChoiceSerializer)
+from .serializers import *
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from authlib.integrations.django_client import OAuth, DjangoRemoteApp
@@ -29,41 +18,6 @@ import base64
 from .Payme_Merchant_API.Application import Application
 
 from django.core.exceptions import ObjectDoesNotExist
-
-# def api(request):
-#     a = False
-#     b = 1
-#     while not a:
-#         b+=1
-#         if(b==10):
-#             a =True
-#         time.sleep(1)
-#     payload = {"message": "Hello World!"}
-#     if "task_id" in request.GET:
-#         payload["task_id"] = request.GET["task_id"]
-#     return JsonResponse(payload)
-
-
-# def get_api_urls(num=10):
-#     base_url = "http://127.0.0.1:8000/api/"
-#     return [f"{base_url}?task_id={task_id}" for task_id in range(num)]
-
-
-# async def api_aggregated(request):
-#     s = time.perf_counter()
-#     responses = []
-#     urls = get_api_urls(num=1)
-#     async with httpx.AsyncClient() as client:
-#         responses = await asyncio.gather(*[client.get(url) for url in urls])
-#         responses = [r.json() for r in responses]
-#     elapsed = time.perf_counter() - s
-#     result = {
-#         "message": "Hello Async World!",
-#         "responses": responses,
-#         "debug_message": f"fetch executed in {elapsed:0.2f} seconds.",
-#     }
-#     return JsonResponse(result)
-
 
 USERINFO_FIELDS = ['id', 'name', 'first_name', 'middle_name',
                    'last_name', 'email', 'website', 'gender', 'locale']
@@ -160,7 +114,7 @@ def authGoogle(request):
     direction = "/select_unit"
     if validation[0]['status'] == 1:
         direction = "/authorized"
-    print("{} + {}".format(validation, direction))
+
     redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}?emailOrPhone={}&apn=com.autoapp.application&amv=0&afl=google.com".format(
         direction, validation[0]['emailOrPhone'])
     return redirect(redirection)
@@ -193,43 +147,7 @@ class AccountRegister(APIView):
         return Response(valid)
 
 
-# import asyncio
-# async def set_after(fut, delay, value):
-#     # Sleep for *delay* seconds.
-#     await asyncio.sleep(delay)
-
-#     # Set *value* as a result of *fut* Future.
-#     fut.set_result(value)
-
-# async def main():
-#     # Get the current event loop.
-#     loop = asyncio.get_running_loop()
-
-#     # Create a new Future object.
-#     fut = loop.create_future()
-
-#     # Run "set_after()" coroutine in a parallel Task.
-#     # We are using the low-level "loop.create_task()" API here because
-#     # we already have a reference to the event loop at hand.
-#     # Otherwise we could have just used "asyncio.create_task()".
-#     loop.create_task(
-#         set_after(fut, 1, '... world'))
-
-#     print('hello ...')
-
-#     # Wait until *fut* has a result (1 second) and print it.
-#     print(await fut)
-
-
 class TransportUnits(APIView):
-
-    def get(self, request, *args, **kwargs):
-        l = []
-        l.append({
-            'sss': 'sss',
-            'dss': 'asdsad'
-        })
-        return Response(l)
 
     def put(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
@@ -265,18 +183,18 @@ class ChooseShareDetail(APIView):
             if not shared.pro_account:
                 shared.cards.clear()
             shared.cards.add(detail)
-            shared.last_account = detail._id
+            shared.last_account = detail.id
             shared.save()
             user.cards.remove(detail)
             user.save()
-            user.last_account = user.cards.first()._id
+            user.last_account = user.cards.first().id
             user.save()
             return Response(status=status.HTTP_200_OK)
         except AttributeError:
             user.last_account = 0
             user.save()
             return Response(status=status.HTTP_400_BAD_REQUEST)
-        except ObjectDoesNotExist:
+        except UserTransport.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
     def get(self, request, *args, **kwargs):
@@ -420,23 +338,23 @@ class TransportViews(APIView):
         return Response(serializer.data)
 
 
-from .tasks import add
-
-
 class AttachedImageViews(APIView):
     parser_classes = (MultiPartParser, FormParser)
 
     def get(self, request, pk, format=None):
-        add.delay(3)
         data = ImagesForAttached.objects.all()
         serializer = ImagesForAttachedSerializer(data, many=True)
         return Response(serializer.data)
 
+    ###################################################################################################################################
     def post(self, request, format=None):
         data = request.data
         serializer = ImagesForAttachedSerializer(data=data)
         serializer.is_valid()
-        serializer.save()
+        obj = serializer.save()
+        temp_storage = Temporary.objects.get(user_id=data['user_id'])
+        temp_storage.image.add(obj)
+
         return Response({'id': serializer.data.get('id')})
 
     def delete(self, request, pk, format=None):
@@ -465,7 +383,9 @@ class ExpenseViews(APIView):
         data = request.data
         serializer = ExpenseSerializer(data=data)
         serializer.is_valid()
-        serializer.save()
+        obj = serializer.save()
+        temp_storage = Temporary.objects.get(user_id=data['temp_id'])
+        temp_storage.expenses.add(obj)
         return Response({'id': serializer.data.get('id')})
 
     def put(self, request, *args, **kwargs):
@@ -490,6 +410,13 @@ class LocationGetViews(APIView):
         location = Location.objects.get(id=kwargs['pk'])
         serializer = LocationSerializer(location)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class RecomendationCardsView(APIView):
+    def get(self, request, *args, **kwargs):
+        cards = RecommendCards
+        cards_serialized = RecommendCardsSerializer(cards, many=True)
+        return Response(cards_serialized, status=status.HTTP_200_OK)
 
 
 class CardsViews(APIView):
@@ -519,11 +446,14 @@ class CardsViews(APIView):
             change.run = 0
             change.time = data['time']
         change.save()
-        if 'images_list' in data:
-            for i in data['images_list']:
-                array.append(ImagesForAttached.objects.get(id=int(i)))
-
-            attach.image.set(array)
+        temp = Temporary.objects.get(user_id=data['user_id'])
+        attach.image = temp.image
+        temp.image.clear()
+        temp.save()
+        # if 'images_list' in data:
+        #     for i in data['images_list']:
+        #         array.append(ImagesForAttached.objects.get(id=int(i)))
+        #     attach.image.set(array)
         if 'location' in data:
             location.latitude = data['location']['latitude']
             location.longitude = data['location']['longitude']
@@ -542,7 +472,6 @@ class CardsViews(APIView):
             detail = TransportDetail.objects.get(id=kwargs['pk'])
             cards = Cards.objects.create()
             cards.card.add(card)
-            cards.storeCard.add(card)
             cards.save()
             detail.cards_user = cards
             detail.save()
@@ -554,6 +483,7 @@ class CardsViews(APIView):
         cards = Cards.objects.get(id=data['id'])
         cards.card.add(card)
         cards.save()
+
         # serializer = CardsSerializer(cards)
         return Response(
             {"id_attach": attach._id, "id_change": change._id, "id_card": card._id, "id_location": location._id},
@@ -562,22 +492,17 @@ class CardsViews(APIView):
     def put(self, request, pk, format=None):
         data = request.data
         card = Card.objects.get(id=pk)
+        temp = Temporary.objects.get(user_id=data['user_id'])
         if 'id_attach' in data:
             attach = Attach.objects.get(id=data['id_attach'])
-            if 'images_list' in data:
-                for i in data['images_list']:
-                    attach.image.add(ImagesForAttached.objects.get(id=int(i)))
+
+            attach.image = temp.image
             if 'location' in data:
                 attach.location.latitude = data['location']['latitude']
                 attach.location.longitude = data['location']['longitude']
                 attach.location.comment = data['location']['comment']
                 attach.location.save()
             attach.save()
-            locat = {
-                "latitude": attach.location.latitude,
-                "longitude": attach.location.longitude,
-                "comment": attach.location.comment,
-            }
         if 'name_of_card' in data:
             card.name_of_card = data['name_of_card']
         if 'comments' in data:
@@ -594,12 +519,11 @@ class CardsViews(APIView):
                 change.run = 0
                 change.time = data['time']
             change.save()
-        if 'expense_list' in data:
-            for i in data['expense_list']:
-                card.expense.add(Expense.objects.get(id=int(i)))
+        card.expense = temp.expenses
         card.save()
+        temp.clean_operation()
         # serializer = CardSerializer(card)
-        return Response(locat)
+        return Response({}, status=status.HTTP_200_OK)
 
     def delete(self, request, pk, format=None):
         id_cards = request.query_params.get('id_cards')
@@ -653,3 +577,12 @@ class PaynetView(APIView):
     def post(self, request, *args, **kwargs):
         application = Paynet_Application(request)
         return application.run()
+
+
+def clean(request, pk=None):
+    try:
+        temp = Temporary.objects.get(user_id=pk)
+        temp.delete_operation()
+        return Response({}, status=status.HTTP_200_OK)
+    except Temporary.DoesNotExist:
+        return Response({}, status=status.HTTP_404_NOT_FOUND)
