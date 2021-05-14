@@ -49,9 +49,9 @@ PAYME = {
 PAYNET = {
     'username': "admin",
     'password': "123123",
-    'serviceId': "",
-    'providerId': "",
-    'data': "",
+    'serviceId': "00",
+    'providerId': "00",
+    'data': "00",
 }
 PAYMENT_HOST = '127.0.0.1:8000'
 PAYMENT_USES_SSL = False  # set the True value if you are using the SSL
