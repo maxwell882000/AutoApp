@@ -11,9 +11,10 @@ from authlib.integrations.django_client import OAuth, DjangoRemoteApp
 from django.urls import reverse
 from ._core import map_profile_fields
 from rest_framework.parsers import MultiPartParser, FormParser
-from .renderers import JPEGRenderer
+from .renderers import JPEGRenderer, XmlRenderer
 from .Payme_Subscribe_API.Application import Application as Payme_Application
-from .Paynet.Application import Application as Paynet_Application
+from .Paynet.Application import Application as PaynetApplication
+from rest_framework_xml.parsers import XMLParser
 import base64
 from .Payme_Merchant_API.Application import Application
 
@@ -573,21 +574,16 @@ class SubscribeAPI(APIView):
         return app.run()
 
 
-from rest_framework_xml.parsers import XMLParser
-from rest_framework_xml.renderers import XMLRenderer
-
-
 class PaynetView(APIView):
-
+    parser_classes = (XMLParser,)
+    renderer_classes = (XmlRenderer,)
 
     def post(self, request, *args, **kwargs):
-        print(request.data)
-        pp = Response(request.data, content_type="application/soap+xml")
-        print(pp.context_data)
-        return pp
+        application = PaynetApplication(request=request)
+        return application.run()
 
     def get(self, request, *args, **kwargs):
-        application = Paynet_Application(request)
+        application = PaynetApplication(request)
         return application.run()
 
 
