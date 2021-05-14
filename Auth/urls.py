@@ -1,5 +1,4 @@
 from django.urls import path
-from spyne.protocol.http import HttpRpc
 
 from Auth.views import *
 
@@ -12,7 +11,7 @@ from spyne.server.django import DjangoView as RPCView
 from .Paynet.service import PaynetService
 
 api = Application(services=[PaynetService], tns='AutoApp.Auth.Paynet.service',
-                  out_protocol=Soap11())
+                  in_protocol=Soap11(validator='lxml'), out_protocol=Soap11())
 urlpatterns = [
                   path('login/', RegisterOrLoginUsersViews.as_view()),
                   path('register/', AccountRegister.as_view()),
