@@ -578,6 +578,10 @@ class PaynetView(APIView):
         application = Paynet_Application(request)
         return application.run()
 
+    def get(self, request, *args, **kwargs):
+        application = Paynet_Application(request)
+        return application.run()
+
 
 def clean(request, pk=None):
     try:

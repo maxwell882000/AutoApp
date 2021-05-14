@@ -26,10 +26,13 @@ admin.site.register(AmountProAccount)
 admin.site.register(SingleRecomendation)
 
 admin.site.register(RecommendCards)
-class PaynetProPaymentAdmin(admin.ModelAdmin):
-    fields = ('user', )
 
-admin.site.register(PaynetProPayment,PaynetProPaymentAdmin)
+
+class PaynetProPaymentAdmin(admin.ModelAdmin):
+    fields = ('user',)
+
+
+admin.site.register(PaynetProPayment, PaynetProPaymentAdmin)
 
 
 # class PaymentAdmin(admin.ModelAdmin):

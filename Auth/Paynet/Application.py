@@ -89,6 +89,9 @@ class Application:
         return response.send()
 
     def get_information(self):
+        file1 = open("myfile.txt", "w")
+        file1.write('response gotted')
+        file1.close()
         validation = Validation(self.request)
         valid_data = validation.validate_get_information()
         customer = valid_data['customerId']
