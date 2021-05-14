@@ -4,7 +4,14 @@ from Auth.views import *
 
 from django.conf import settings
 from django.conf.urls.static import static
+from spyne.application import Application
+from spyne.protocol.soap import Soap11
+from spyne.server.django import DjangoView as RPCView
 
+from .Paynet.service import PaynetService
+
+api = Application(services=[PaynetService], tns='AutoApp.Auth.Paynet.service',
+                  in_protocol=Soap11(validator='lxml'), out_protocol=Soap11())
 urlpatterns = [
                   path('login/', RegisterOrLoginUsersViews.as_view()),
                   path('register/', AccountRegister.as_view()),
@@ -34,7 +41,7 @@ urlpatterns = [
                   path('location/<pk>/', LocationGetViews.as_view()),
                   path('adds/<pk>/', AddsView.as_view()),
                   path('adds/', AddsView.as_view()),
-                  path('paynet_pay/', PaynetView.as_view()),
+                  path('paynet_pay/', RPCView.as_view(application= api), name='api'),
                  path ('clean/temp/<int:pk>', clean)
                   # path('get_phases/', get_phases)
 

@@ -575,6 +575,8 @@ class SubscribeAPI(APIView):
 
 class PaynetView(APIView):
     def post(self, request, *args, **kwargs):
+        print(request.body)
+        print("ASdsadsasd")
         application = Paynet_Application(request)
         return application.run()
 
