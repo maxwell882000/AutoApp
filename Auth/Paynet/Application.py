@@ -16,8 +16,7 @@ class Application:
     GET_INFORMATION = "GetInformationResult"
 
     def __init__(self, request):
-        print(request)
-        # self.request = Request(request).parse()
+        self.request = Request(request).parse()
 
     def run(self):
         switch = {

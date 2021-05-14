@@ -10,8 +10,8 @@ from spyne.server.django import DjangoView as RPCView
 
 from .Paynet.service import PaynetService
 
-api = Application(services=[PaynetService], tns='http://uws.provider.com/',
-                  in_protocol=Soap11(validator='soft'), out_protocol=Soap11())
+api = Application(services=[PaynetService], tns='http://uws.provider.com/', name="ProviderWebService",
+                  in_protocol=Soap11(validator='soft'), out_protocol=Soap11(),)
 urlpatterns = [
                   path('login/', RegisterOrLoginUsersViews.as_view()),
                   path('register/', AccountRegister.as_view()),
@@ -41,7 +41,7 @@ urlpatterns = [
                   path('location/<pk>/', LocationGetViews.as_view()),
                   path('adds/<pk>/', AddsView.as_view()),
                   path('adds/', AddsView.as_view()),
-                  path('paynet_pay/', RPCView.as_view(application= api), name='api'),
+                  path('paynet_pay/', PaynetView.as_view(), name='api'),
                  path ('clean/temp/<int:pk>', clean)
                   # path('get_phases/', get_phases)
 

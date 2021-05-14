@@ -573,13 +573,14 @@ class SubscribeAPI(APIView):
         return app.run()
 
 
+from rest_framework_xml.parsers import XMLParser
+from rest_framework_xml.renderers import XMLRenderer
+
+
 class PaynetView(APIView):
+
     def post(self, request, *args, **kwargs):
-        file1 = open("myfile.txt", "w")
-        file1.write(str(request.body))
-        file1.close()
-        application = Paynet_Application(request)
-        return application.run()
+        return Response(request.data,content_type="application/soap+xml")
 
     def get(self, request, *args, **kwargs):
         application = Paynet_Application(request)

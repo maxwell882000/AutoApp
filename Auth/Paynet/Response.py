@@ -1,6 +1,6 @@
 from Auth.Format import Format
 from rest_framework.response import Response as Res
-
+from django.http.response import HttpResponse
 
 class Response:
 
@@ -29,4 +29,4 @@ class Response:
                           timeStamp=Format.current_time(),
                           response=self.response)
 
-        return Res(response, content_type="application/soap+xml")
+        return HttpResponse(response, content_type="text/soap+xml")

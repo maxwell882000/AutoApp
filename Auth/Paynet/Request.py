@@ -6,7 +6,7 @@ from io import  BytesIO
 class Request:
 
     def __init__(self, request):
-        self.content = request
+        self.content = request.data
 
     def parse(self):
         get = BytesIO(self.content.encode('utf-8'))
