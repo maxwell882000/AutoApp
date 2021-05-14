@@ -51,7 +51,7 @@ PAYNET = {
     'password': "123123",
     'serviceId': "00",
     'providerId': "00",
-    'data': "00",
+    'data': "2011-04-26T18:07:22",
 }
 PAYMENT_HOST = '127.0.0.1:8000'
 PAYMENT_USES_SSL = False  # set the True value if you are using the SSL

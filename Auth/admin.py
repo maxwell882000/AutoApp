@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.admin import AdminSite
 
 from .models import UserTransport, MarkaRegister, ModelRegister, SingleRecomendation, Adds, AmountProAccount, \
-    RecommendCards
+    RecommendCards, PaynetProPayment
 
 from django.contrib.auth.models import Group, User
 
@@ -26,6 +26,10 @@ admin.site.register(AmountProAccount)
 admin.site.register(SingleRecomendation)
 
 admin.site.register(RecommendCards)
+class PaynetProPaymentAdmin(admin.ModelAdmin):
+    fields = ('user', )
+
+admin.site.register(PaynetProPayment,PaynetProPaymentAdmin)
 
 
 # class PaymentAdmin(admin.ModelAdmin):
