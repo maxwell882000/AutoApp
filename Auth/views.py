@@ -579,8 +579,12 @@ from rest_framework_xml.renderers import XMLRenderer
 
 class PaynetView(APIView):
 
+
     def post(self, request, *args, **kwargs):
-        return Response(request.data,content_type="application/soap+xml")
+        print(request.data)
+        pp = Response(request.data, content_type="application/soap+xml")
+        print(pp.context_data)
+        return pp
 
     def get(self, request, *args, **kwargs):
         application = Paynet_Application(request)
