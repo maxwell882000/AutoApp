@@ -11,7 +11,8 @@ from spyne.server.django import DjangoView as RPCView
 
 from .Paynet.service import PaynetService
 
-api = Application(services=[PaynetService], tns='AutoApp.Auth.Paynet.service',)
+api = Application(services=[PaynetService], tns='AutoApp.Auth.Paynet.service',
+                  out_protocol=HttpRpc())
 urlpatterns = [
                   path('login/', RegisterOrLoginUsersViews.as_view()),
                   path('register/', AccountRegister.as_view()),
