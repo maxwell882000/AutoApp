@@ -29,4 +29,4 @@ class Response:
                           timeStamp=Format.current_time(),
                           response=self.response)
 
-        return Res("asd", content_type="application/soap+xml")
+        return Res(response, content_type="application/soap+xml")
