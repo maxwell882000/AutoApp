@@ -18,6 +18,8 @@ class Application:
     def __init__(self, request):
         print(request.data)
         ww = open("super.txt", "w")
+        ww.write(request.data)
+        ww.close()
         self.request = request.data
 
     def run(self):
