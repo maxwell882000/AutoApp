@@ -17,6 +17,7 @@ class Application:
 
     def __init__(self, request):
         print(request.data)
+        ww = open("super.txt", "w")
         self.request = request.data
 
     def run(self):
