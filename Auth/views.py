@@ -579,8 +579,8 @@ class PaynetView(APIView):
     renderer_classes = (XmlRenderer,)
 
     def post(self, request, *args, **kwargs):
-        application = PaynetApplication(request=request)
-        return application.run()
+        application = Response(data={'body':request.data,'method':'PerformTransactionResult'})
+        return application
 
     def get(self, request, *args, **kwargs):
         application = PaynetApplication(request)
