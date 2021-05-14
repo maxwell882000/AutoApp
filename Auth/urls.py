@@ -6,7 +6,7 @@ from Auth.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 from spyne.application import Application
-from spyne.protocol.soap import Soap11,
+from spyne.protocol.soap import Soap11
 from spyne.server.django import DjangoView as RPCView
 
 from .Paynet.service import PaynetService
