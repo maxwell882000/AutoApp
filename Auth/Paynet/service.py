@@ -12,7 +12,5 @@ class PaynetService(DjangoService):
         print("sdasdsadadad")
         print(request)
         application = Application(request)
-        file1 = open("myfile.txt", "w")
-        file1.write(request)
-        file1.close()
+
         return application.run()

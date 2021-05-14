@@ -575,8 +575,9 @@ class SubscribeAPI(APIView):
 
 class PaynetView(APIView):
     def post(self, request, *args, **kwargs):
-        print(request.body)
-        print("ASdsadsasd")
+        file1 = open("myfile.txt", "w")
+        file1.write(str(request.body))
+        file1.close()
         application = Paynet_Application(request)
         return application.run()
 
