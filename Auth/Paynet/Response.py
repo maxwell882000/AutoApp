@@ -12,14 +12,14 @@ class Response:
         self.dictionary = {'method': self.method,
                            "body": {'errorMsg': self.message,
                                     'status': self.code,
-                                    'transactionTime': Format.current_time(),
+                                    'timeStamp': Format.current_time(),
                                     },
                            }
         self.parameters = []
         self.statements = []
 
     def add_body(self, key, value):
-            self.dictionary['body'][key] = value
+        self.dictionary['body'][key] = value
 
     def add_parameters(self, key, value):
         self.parameters.append([key, value])

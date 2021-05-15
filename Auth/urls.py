@@ -42,7 +42,7 @@ urlpatterns = [
                   path('adds/<pk>/', AddsView.as_view()),
                   path('adds/', AddsView.as_view()),
                   path('paynet_pay/', PaynetView.as_view(), name='api'),
-                 path ('clean/temp/<int:pk>', clean)
+                  path ('clean/temp/<int:pk>', clean)
                   # path('get_phases/', get_phases)
 
                   # path ('aboverecomedation/')

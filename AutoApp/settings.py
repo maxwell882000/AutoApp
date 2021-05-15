@@ -38,7 +38,7 @@ CELERY_CACHE_BACKEND = 'default'
 SECRET_KEY = 't-#d-pe&d2v+s_n+vntjm+eu32s$kwg!io%@@zs05kad_b0&x8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['autoapp.elite-house.uz','machina.uz','127.0.0.1', '185.74.5.208', 'localhost']
 
