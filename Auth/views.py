@@ -117,8 +117,8 @@ def authGoogle(request):
     if validation[0]['status'] == 1:
         direction = "/authorized"
 
-    redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}?emailOrPhone={}&apn=com.autoapp.application&amv=0&afl=google.com".format(
-        direction, validation[0]['emailOrPhone'])
+    redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}?emailOrPhone={}$user_id={}&apn=com.autoapp.application&amv=0&afl=google.com".format(
+        direction, validation[0]['emailOrPhone'], validation[0]['user_id'])
     return redirect(redirection)
 
 
@@ -132,13 +132,13 @@ class RegisterOrLoginUsersViews(APIView):
     def get(self, request, *args, **kwargs):
         user = UserTransport.objects.all()
         serializer = AccountSerializer(user, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
         user = request.data
         user = AccountSerializer(user)
         valid = user.validate(user.data)
-        return Response(valid)
+        return Response(valid, status=status.HTTP_200_OK)
 
 
 class AccountRegister(APIView):
@@ -146,7 +146,7 @@ class AccountRegister(APIView):
         user = request.data
         user = AccountSerializer(user)
         valid = user.validate_register(user.data)
-        return Response(valid)
+        return Response(valid, status=status.HTTP_200_OK)
 
 
 class TransportUnits(APIView):

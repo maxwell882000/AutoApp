@@ -79,7 +79,8 @@ class AccountSerializer(serializers.ModelSerializer):
             prov = accounts.get(emailOrPhone=emailOrPhone)
             return ({
                         "emailOrPhone": prov.emailOrPhone,
-                        "status": 1
+                        "status": 1,
+                        "user_id": prov.id,
                     }, status.HTTP_200_OK)
         else:
             if provider == 'phone' or provider == 'email':
@@ -90,7 +91,8 @@ class AccountSerializer(serializers.ModelSerializer):
                 newAccount = self.create_account(emailOrPhone=emailOrPhone, provider=provider)
         return ({
                     "emailOrPhone": newAccount.emailOrPhone,
-                    "status": 0
+                    "status": 0,
+                    "user_id": newAccount.id,
                 }, status.HTTP_200_OK)
 
     def validate_register(self, attrs):
@@ -105,6 +107,7 @@ class AccountSerializer(serializers.ModelSerializer):
             user = self.create_account(emailOrPhone=emailOrPhone, provider=provider)
             return ({
                         "emailOrPhone": user.emailOrPhone,
+                        "user_id": user.id,
                     }, status.HTTP_200_OK)
 
 
