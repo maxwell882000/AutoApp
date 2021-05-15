@@ -584,6 +584,9 @@ class PaynetView(APIView):
 
     def post(self, request, *args, **kwargs):
         print(request.data)
+        ww = open("super.txt", "w")
+        ww.write(str(request.data))
+        ww.close()
         ss = PaynetRepsonse("PerformTransactionResult", response={})
         pp = ss.send()
         print(pp.context_data)
