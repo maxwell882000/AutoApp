@@ -249,10 +249,7 @@ class Temporary(models.Model):
         self.save()
 
 
-# class Payment(BasePayment):
-#      user        = models.ForeignKey(UserTransport,on_delete =models.CASCADE, blank= True, null= True)
-#      class Meta:
-#             verbose_name_plural  = 'Реклама'
+
 class Adds(models.Model):
     file = models.FileField(upload_to='admin/adds/', verbose_name="Реклама", max_length=100)
     links = models.CharField(max_length=200, verbose_name="Линк для перехода")

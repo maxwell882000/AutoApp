@@ -14,6 +14,8 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from .renderers import JPEGRenderer, XmlRenderer
 from .Payme_Subscribe_API.Application import Application as Payme_Application
 from .Paynet.Application import Application as PaynetApplication
+
+from .parser import ParserXML
 import base64
 from .Payme_Merchant_API.Application import Application
 
@@ -235,11 +237,22 @@ class RecomendationViews(APIView):
 
     def post(self, request, *args, **kwargs):
         data = request.data
-        marka = MarkaRegister.objects.get(name_of_marka=data['name_of_marka'])
-        model = marka.model.get(name_of_model=data['name_of_model'])
+        model = get_model(data)
         serializer = SingleRecomendationSerializer(model.recomendations, many=True)
         return Response({'id_model': model._id, 'recomendations': serializer.data, 'text_above': model.text_above,
                          'image_name': model.image_above.name})
+
+
+def get_model(data):
+    marka = MarkaRegister.objects.get(name_of_marka=data['name_of_marka'])
+    return marka.model.get(name_of_model=data['name_of_model'])
+
+
+class RecomendationCardsView(APIView):
+    def get(self, request, *args, **kwargs):
+        model = get_model(request.data)
+        serializer = RecommendCardsSerializer(model.recommend_card, many=True)
+        return Response(serializer, status=status.HTTP_200_OK)
 
 
 class MarkaRegisterViews(APIView):
@@ -412,13 +425,6 @@ class LocationGetViews(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-class RecomendationCardsView(APIView):
-    def get(self, request, *args, **kwargs):
-        cards = RecommendCards
-        cards_serialized = RecommendCardsSerializer(cards, many=True)
-        return Response(cards_serialized, status=status.HTTP_200_OK)
-
-
 class CardsViews(APIView):
 
     def get(self, request, *args, **kwargs):
@@ -572,11 +578,6 @@ class SubscribeAPI(APIView):
         app = Payme_Application(request)
         return app.run()
 
-
-from rest_framework_xml.parsers import XMLParser
-from rest_framework_xml.renderers import XMLRenderer
-from .Paynet.Response import Response as PaynetRepsonse
-from .parser import  ParserXML
 
 class PaynetView(APIView):
     parser_classes = (ParserXML,)
