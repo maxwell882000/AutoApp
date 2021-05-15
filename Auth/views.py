@@ -1,3 +1,4 @@
+from re import S
 from django.shortcuts import redirect
 from rest_framework import status
 from django.http import HttpResponse
@@ -170,7 +171,7 @@ class TransportUnits(APIView):
     def delete(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
         user.delete()
-        return Response({"status": 200})
+        return Response({"status": 200}, status=status.HTTP_200_OK)
 
 
 class ChooseShareDetail(APIView):
@@ -217,7 +218,7 @@ class AddsView(APIView):
             try:
                 data = Adds.objects.first()
                 response = {
-                    "id": data._id,
+                    "id": data.id,
                     "links": data.links
                 }
                 return Response(response, status=status.HTTP_200_OK)
@@ -239,11 +240,12 @@ class RecomendationViews(APIView):
         data = request.data
         model = get_model(data)
         serializer = SingleRecomendationSerializer(model.recomendations, many=True)
-        return Response({'id_model': model._id, 'recomendations': serializer.data, 'text_above': model.text_above,
+        return Response({'id_model': model.id, 'recomendations': serializer.data, 'text_above': model.text_above,
                          'image_name': model.image_above.name})
 
 
 def get_model(data):
+    
     marka = MarkaRegister.objects.get(name_of_marka=data['name_of_marka'])
     return marka.model.get(name_of_model=data['name_of_model'])
 
@@ -279,6 +281,7 @@ class TransportViews(APIView):
             response = {
                 "pro_account": user.pro_account,
                 "date": user.date,
+                "user_id": user.id,
                 "units": units.data,
                 "cards": None,
             }
@@ -328,10 +331,11 @@ class TransportViews(APIView):
             )
             if 'tech_passport' in data:
                 detail.tech_passport = data['tech_passport']
+                detail.save()
             user.cards.add(detail)
-            user.last_account = detail._id
+            user.last_account = detail.id
             user.save()
-            return Response({"id": detail._id}, status=status.HTTP_200_OK)
+            return Response({"id": detail.id}, status=status.HTTP_200_OK)
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
@@ -453,7 +457,7 @@ class CardsViews(APIView):
             change.time = data['time']
         change.save()
         temp = Temporary.objects.get(user_id=data['user_id'])
-        attach.image = temp.image
+        attach.image.set(temp.image)
         temp.image.clear()
         temp.save()
         # if 'images_list' in data:
@@ -483,8 +487,8 @@ class CardsViews(APIView):
             detail.save()
             # serializer = TransportDetailSerializer(detail)
             return Response(
-                {"id_cards": cards._id, "id_attach": attach._id, "id_change": change._id, "id_card": card._id,
-                 "id_location": location._id}, status=status.HTTP_200_OK)
+                {"id_cards": cards.id, "id_attach": attach.id, "id_change": change.id, "id_card": card.id,
+                 "id_location": location.id}, status=status.HTTP_200_OK)
         card.save()
         cards = Cards.objects.get(id=data['id'])
         cards.card.add(card)
@@ -492,7 +496,7 @@ class CardsViews(APIView):
 
         # serializer = CardsSerializer(cards)
         return Response(
-            {"id_attach": attach._id, "id_change": change._id, "id_card": card._id, "id_location": location._id},
+            {"id_attach": attach.id, "id_change": change.id, "id_card": card.id, "id_location": location.id},
             status=status.HTTP_200_OK)
 
     def put(self, request, pk, format=None):
@@ -502,7 +506,7 @@ class CardsViews(APIView):
         if 'id_attach' in data:
             attach = Attach.objects.get(id=data['id_attach'])
 
-            attach.image = temp.image
+            attach.image.set(temp.image)
             if 'location' in data:
                 attach.location.latitude = data['location']['latitude']
                 attach.location.longitude = data['location']['longitude']
@@ -525,7 +529,7 @@ class CardsViews(APIView):
                 change.run = 0
                 change.time = data['time']
             change.save()
-        card.expense = temp.expenses
+        card.expense.set(temp.expenses)
         card.save()
         temp.clean_operation()
         # serializer = CardSerializer(card)

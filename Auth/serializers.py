@@ -90,6 +90,8 @@ class AccountSerializer(serializers.ModelSerializer):
             else:
                 newAccount = self.create_account(emailOrPhone=emailOrPhone, provider=provider)
         return ({
+
+                
                     "emailOrPhone": newAccount.emailOrPhone,
                     "status": 0,
                     "user_id": newAccount.id,
