@@ -576,14 +576,15 @@ class SubscribeAPI(APIView):
 from rest_framework_xml.parsers import XMLParser
 from rest_framework_xml.renderers import XMLRenderer
 from .Paynet.Response import Response as PaynetRepsonse
-
+from .parser import  ParserXML
 
 class PaynetView(APIView):
-    parser_classes = (XMLParser,)
+    parser_classes = (ParserXML,)
     renderer_classes = (XmlRenderer,)
 
     def post(self, request, *args, **kwargs):
-        ss = PaynetRepsonse("GetInformationResult", response={})
+        print(request.data)
+        ss = PaynetRepsonse("PerformTransactionResult", response={})
         pp = ss.send()
         print(pp.context_data)
         return pp

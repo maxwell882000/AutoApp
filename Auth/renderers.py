@@ -55,20 +55,20 @@ class XmlRenderer(renderers.BaseRenderer):
             "xmlns:xsd": "http://www.w3.org/2001/XMLSchema"})
         xml.startElement(self.third_tag_name.format(method=data['method']), {"xmlns:uws": "http://uws.provider.com/"})
         self._to_xml(xml, data['body'])
-        # try:
-        #     for params in data['parameters']:
-        #         self._to_xml(xml, {
-        #             "parameters": {
-        #                 "paramKey": params[0],
-        #                 "paramValue": params[1],
-        #             },
-        #         })
-        #     for statements in data['statements']:
-        #         self._to_xml(xml, {
-        #             "statements": statements,
-        #         })
-        # except KeyError:
-        #     pass
+        try:
+            for params in data['parameters']:
+                self._to_xml(xml, {
+                    "parameters": {
+                        "paramKey": params[0],
+                        "paramValue": params[1],
+                    },
+                })
+            for statements in data['statements']:
+                self._to_xml(xml, {
+                    "statements": statements,
+                })
+        except KeyError:
+            pass
         xml.endElement(self.third_tag_name.format(method=data['method']))
         xml.endElement(self.second_tag_name)
         xml.endElement(self.root_tag_name)
