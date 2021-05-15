@@ -12,7 +12,7 @@ class Response:
         self.dictionary = {'method': self.method,
                            "body": {'errorMsg': self.message,
                                     'status': self.code,
-                                    'timeStamp': Format.current_time(),
+                                    'transactionTime': Format.current_time(),
                                     },
                            }
         self.parameters = []
