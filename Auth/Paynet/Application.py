@@ -16,119 +16,92 @@ class Application:
     GET_INFORMATION = "GetInformationResult"
 
     def __init__(self, request):
-        print(request.data)
-        ww = open("super.txt", "w")
-        ww.write(str(request.data))
-        ww.close()
         self.request = request.data
 
     def run(self):
-        switch = {
-            Application.PERFORM_TRANSACTION: self.perform_transaction(),
-            Application.CHECK_TRANSACTION: self.check_transaction(),
-            Application.CANCEL_TRANSACTION: self.cancel_transaction(),
-            Application.GET_INFORMATION: self.get_information(),
-            Application.GET_STATEMENT: self.get_statement(),
-        }
+
         try:
-            response = switch[self.request['method']]
+            switch = {
+                Application.PERFORM_TRANSACTION: self.perform_transaction,
+                Application.CHECK_TRANSACTION: self.check_transaction,
+                Application.CANCEL_TRANSACTION: self.cancel_transaction,
+                Application.GET_INFORMATION: self.get_information,
+                Application.GET_STATEMENT: self.get_statement,
+            }
+
+            method = self.request['method']
+            print(method)
+            response = switch[method]()
             return response
         except PaynetException as e:
             return e.send()
 
     def perform_transaction(self):
+        print("IT IS HERE")
         validation = Validation(self.request)
         valid_data = validation.validate_perform_transaction()
         customer = valid_data['customerId']
         trans = Transaction.objects.create(
-            amount=valid_data['amount']*100,
+            amount=valid_data['amount'],
             transactionId=valid_data['transactionId'],
             paid_time=valid_data['transactionTime'],
-            state=1
+            state=1,
+            customer=customer
         )
-        trans.customer = customer
         trans.save()
-        customer.user.balans += trans.amount
+        customer.user.balans = customer.user.balans + trans.amount
         customer.user.save()
-        provider_id = """
-        <parameters>
-             <paramKey>balance</paramKey>
-             <paramValue>{balance}</paramValue>
-        </parameters>
-        <providerTrnId>{providerId}</providerTrnId>
-        """.format(
-            providerId=settings.PAYNET['providerId'],
-            balance=customer.user.balans*100
-        )
-        response = Response(valid_data['method'], 'ok', 0, provider_id)
+        response = Response(valid_data['method'], 'ok', 0)
+        response.add_body(key="providerTrnId", value=settings.PAYNET['providerId'])
+        response.add_parameters(key="balance", value=customer.user.balans * 100)
+
         return response.send()
 
     def check_transaction(self):
+        print("IS NOT HERE")
         validation = Validation(self.request)
         valid_data = validation.validate_check_transaction()
+        print(valid_data)
         transaction = Transaction.objects.get(
             Q(transactionId=valid_data['transactionId']) & Q(paid_time=valid_data['transactionTime']))
-        transaction_response = """
-               <providerTrnId>{id}</providerTrnId>
-               <transactionState>{state}</transactionState>
-               <transactionStateErrorStatus>0</transactionStateErrorStatus>
-               <transactionStateErrorMsg>Success</transactionStateErrorMsg>
-               """.format(
-            id=transaction.id,
-            state=transaction.state
-        )
-        response = Response(valid_data['method'], 'ok', 10, transaction_response)
+        response = Response(valid_data['method'], 'ok', 10)
+        response.add_body(key="providerTrnId", value=transaction.id)
+        response.add_body(key="transactionState", value=transaction.state)
+        response.add_body(key="transactionStateErrorStatus", value=0)
+        response.add_body(key="transactionStateErrorMsg", value="Success")
         return response.send()
 
     def cancel_transaction(self):
         validation = Validation(self.request)
         valid_data = validation.validate_cancel_transaction()
-        transaction = Transaction.objects.get(transactionId=valid_data['transactionId'])
-        transaction.customer.user.balans -= transaction.amount
+        transaction = valid_data['transaction']
         transaction.customer.user.save()
         transaction.state = 2
         transaction.save()
-        cancel_response = "<transactionState>{state}</transactionState>".format(state=transaction.state)
-        response = Response(valid_data['method'], 'ok', 0, cancel_response)
+        response = Response(valid_data['method'], 'ok', 0)
+        response.add_body(key="transactionState", value=transaction.state)
         return response.send()
 
     def get_information(self):
-        file1 = open("myfile.txt", "w")
-        file1.write('response gotted')
-        file1.close()
         validation = Validation(self.request)
         valid_data = validation.validate_get_information()
         customer = valid_data['customerId']
-        response_information = """
-                <parameters>
-                     <paramKey>balance</paramKey>
-                     <paramValue>{balance}</paramValue>
-                </parameters>
-        """.format(balance=customer.user.balans*100)
-        response = Response(valid_data['method'], 'ok', 0, response_information)
+        response = Response(valid_data['method'], 'ok', 0)
+        response.add_parameters(key="balance", value=customer.user.balans * 100)
         return response.send()
 
     def get_statement(self):
         validation = Validation(self.request)
         valid_data = validation.validate_get_statement()
         transaction = Transaction.objects.filter(
-            Q(paid_time__gt=valid_data['dateFrom']) & Q(paid_time__lte=valid_data['dateTo']))
-        statement = ""
+            Q(paid_time__gt=valid_data['dateFrom']) & Q(paid_time__lte=valid_data['dateTo']) & Q(state=1))
+        response = Response(valid_data['method'], 'ok', 0)
         for trans in transaction:
-            statement += """
-            
-                    <statements>
-                        <amount>{amount}</amount>
-                        <providerTrnId>{id}</providerTrnId>
-                        <transactionId>{transactionId}</transactionId>
-                        <transactionTime>{paidTime}</transactionTime>
-                    </statements>
-                    
-            """.format(
-                id=trans.id,
-                amount=trans.amount*100,
-                transactionId=trans.transactionId,
-                paidTime=Format.datetime2str(trans.paid_time)
-            )
-        response = Response(valid_data['method'], 'ok', 0, statement)
+            response.add_statements({
+                "amount": trans.amount * 100,
+                "providerTrnId": trans.id,
+                "transactionId": trans.transactionId,
+                "transactionTime": Format.datetime2str(trans.paid_time)
+            })
+
         return response.send()

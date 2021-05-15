@@ -59,6 +59,18 @@ class AccountSerializer(serializers.ModelSerializer):
         model = UserTransport
         fields = ['id', 'emailOrPhone', 'provider']
 
+    def create_account(self, emailOrPhone, provider):
+        newAccount = UserTransport.objects.create(
+            emailOrPhone=emailOrPhone,
+            provider=provider,
+        )
+        newAccount.save()
+        temp = Temporary.objects.create(user=newAccount)
+        paynet = PaynetProPayment.objects.create(user=newAccount)
+        paynet.save()
+        temp.save()
+        return newAccount
+
     def validate(self, attrs):
         emailOrPhone = attrs.get('emailOrPhone')
         provider = attrs.get('provider')
@@ -75,13 +87,7 @@ class AccountSerializer(serializers.ModelSerializer):
                             "error ": "Account not created"
                         }, status.HTTP_400_BAD_REQUEST)
             else:
-                newAccount = UserTransport.objects.create(
-                    emailOrPhone=emailOrPhone,
-                    provider=provider,
-                )
-                newAccount.save()
-                temp = Temporary.objects.create(user=newAccount)
-                temp.save()
+                newAccount = self.create_account(emailOrPhone=emailOrPhone, provider=provider)
         return ({
                     "emailOrPhone": newAccount.emailOrPhone,
                     "status": 0
@@ -96,13 +102,7 @@ class AccountSerializer(serializers.ModelSerializer):
                         "error": "Account created"
                     }, status.HTTP_404_NOT_FOUND)
         else:
-            user = UserTransport.objects.create(
-                emailOrPhone=emailOrPhone,
-                provider=provider,
-            )
-            user.save()
-            temp = Temporary.objects.create(user=user)
-            temp.save()
+            user = self.create_account(emailOrPhone=emailOrPhone, provider=provider)
             return ({
                         "emailOrPhone": user.emailOrPhone,
                     }, status.HTTP_200_OK)

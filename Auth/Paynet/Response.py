@@ -5,23 +5,21 @@ from django.http.response import HttpResponse
 
 class Response:
 
-    def __init__(self, method, response, message="Ok", code=0):
+    def __init__(self, method, message="Ok", code=0):
         self.method = method
         self.code = code
         self.message = message
-        self.response = response
         self.dictionary = {'method': self.method,
                            "body": {'errorMsg': self.message,
                                     'status': self.code,
                                     'timeStamp': Format.current_time(),
-                                    'transactionTime': Format.current_time(),
                                     },
                            }
         self.parameters = []
         self.statements = []
 
     def add_body(self, key, value):
-        self.dictionary['body']['key'] = value
+            self.dictionary['body'][key] = value
 
     def add_parameters(self, key, value):
         self.parameters.append([key, value])

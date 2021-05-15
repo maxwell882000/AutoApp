@@ -43,8 +43,11 @@ class Format():
 
     @staticmethod
     def str2datetime(date):
-        if date:
+        if date and type(date) == str:
+            print("TYPE DATE IS ")
+            print(type(date))
             date = datetime.fromisoformat(date)
+            print(date)
             return date
         raise ValueError("Throw")
 

@@ -52,6 +52,5 @@ class PaynetException(Exception):
     def send(self):
         response = Response(method=self.method,
                             message=self.message,
-                            code=self.code,
-                            response="")
+                            code=self.code)
         return response.send()

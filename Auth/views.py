@@ -13,7 +13,7 @@ from ._core import map_profile_fields
 from rest_framework.parsers import MultiPartParser, FormParser
 from .renderers import JPEGRenderer, XmlRenderer
 from .Payme_Subscribe_API.Application import Application as Payme_Application
-from .Paynet.Application import Application as Paynet_Application
+from .Paynet.Application import Application as PaynetApplication
 import base64
 from .Payme_Merchant_API.Application import Application
 
@@ -584,16 +584,11 @@ class PaynetView(APIView):
 
     def post(self, request, *args, **kwargs):
         print(request.data)
-        ww = open("super.txt", "w")
-        ww.write(str(request.data))
-        ww.close()
-        ss = PaynetRepsonse("PerformTransactionResult", response={})
-        pp = ss.send()
-        print(pp.context_data)
-        return pp
+        run = PaynetApplication(request=request)
+        return run.run()
 
     def get(self, request, *args, **kwargs):
-        application = Paynet_Application(request)
+        application = PaynetApplication(request)
         return application.run()
 
 
