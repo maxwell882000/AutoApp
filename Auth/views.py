@@ -118,8 +118,8 @@ def authGoogle(request):
     if validation[0]['status'] == 1:
         direction = "/authorized"
 
-    redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}?emailOrPhone={}$user_id={}&apn=com.autoapp.application&amv=0&afl=google.com".format(
-        direction, validation[0]['emailOrPhone'], validation[0]['user_id'])
+    redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}/{user_id}?emailOrPhone={}&apn=com.autoapp.application&amv=0&afl=google.com".format(
+        direction, validation[0]['emailOrPhone'], user_id = validation[0]['user_id'])
     return redirect(redirection)
 
 
@@ -313,6 +313,7 @@ class TransportViews(APIView):
             if user.cards.filter(nameOfTransport=data['nameOfTransport']).exists():
                 return Response({"error": "Это название уже существует"}, status=status.HTTP_400_BAD_REQUEST)
             expenses = Expenses.objects.create()
+            cards_user = Cards.objects.create()
             detail = TransportDetail.objects.create(
                 nameOfTransport=data['nameOfTransport'],
                 marka=data['marka'],
@@ -327,7 +328,8 @@ class TransportViews(APIView):
                 secondTankVolume=data['secondTankVolume'],
                 run=data['run'],
                 initial_run=data['run'],
-                expenses=expenses
+                expenses=expenses,
+                cards_user = cards_user
             )
             if 'tech_passport' in data:
                 detail.tech_passport = data['tech_passport']
@@ -369,7 +371,7 @@ class AttachedImageViews(APIView):
         serializer = ImagesForAttachedSerializer(data=data)
         serializer.is_valid()
         obj = serializer.save()
-        temp_storage = Temporary.objects.get(user_id=data['user_id'])
+        temp_storage = Temporary.objects.get(user_id=int(data['user_id']))
         temp_storage.image.add(obj)
 
         return Response({'id': serializer.data.get('id')})
@@ -401,7 +403,7 @@ class ExpenseViews(APIView):
         serializer = ExpenseSerializer(data=data)
         serializer.is_valid()
         obj = serializer.save()
-        temp_storage = Temporary.objects.get(user_id=data['temp_id'])
+        temp_storage = Temporary.objects.get(user_id=data['user_id'])
         temp_storage.expenses.add(obj)
         return Response({'id': serializer.data.get('id')})
 
@@ -457,7 +459,7 @@ class CardsViews(APIView):
             change.time = data['time']
         change.save()
         temp = Temporary.objects.get(user_id=data['user_id'])
-        attach.image.set(temp.image)
+        attach.image.set(temp.image.all())
         temp.image.clear()
         temp.save()
         # if 'images_list' in data:
@@ -506,7 +508,7 @@ class CardsViews(APIView):
         if 'id_attach' in data:
             attach = Attach.objects.get(id=data['id_attach'])
 
-            attach.image.set(temp.image)
+            attach.image.set(temp.image.all())
             if 'location' in data:
                 attach.location.latitude = data['location']['latitude']
                 attach.location.longitude = data['location']['longitude']
@@ -529,7 +531,7 @@ class CardsViews(APIView):
                 change.run = 0
                 change.time = data['time']
             change.save()
-        card.expense.set(temp.expenses)
+        card.expense.set(temp.expenses.all())
         card.save()
         temp.clean_operation()
         # serializer = CardSerializer(card)

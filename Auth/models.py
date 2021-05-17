@@ -97,10 +97,13 @@ class Card(models.Model):
                                null=True)
 
     def delete(self, *args, **kwargs):
-        for e in self.expense.all():
-            e.delete()
-        self.change.delete()
-        self.attach.delete()
+        try:
+            for e in self.expense.all():
+                e.delete()
+            self.change.delete()
+            self.attach.delete()
+        except AttributeError:
+            pass
         super(Card, self).delete(*args, **kwargs)
 
 
@@ -109,10 +112,13 @@ class Cards(models.Model):
     storeCard = models.ManyToManyField(Card, related_name='store_card')
 
     def delete(self, *args, **kwargs):
-        for c in self.card.all():
-            c.delete()
-        for s in self.storeCard.all():
-            s.delete()
+        try:
+            for c in self.card.all():
+                c.delete()
+            for s in self.storeCard.all():
+                s.delete()
+        except AttributeError:
+            pass
         super(Cards, self).delete(*args, **kwargs)
 
 
@@ -201,8 +207,11 @@ class TransportDetail(models.Model):
     expenses = models.ForeignKey(Expenses, related_name='expenses', on_delete=models.CASCADE, blank=True, null=True)
 
     def delete(self, *args, **kwargs):
-        self.cards_user.delete()
-        self.expenses.delete()
+        try:
+            self.cards_user.delete()
+            self.expenses.delete()
+        except AttributeError:
+            pass
         super(TransportDetail, self).delete(*args, **kwargs)
 
 
@@ -221,9 +230,11 @@ class UserTransport(models.Model):
         verbose_name_plural = 'Аккаунты'
 
     def delete(self, *args, **kwargs):
-        for card in self.cards.all():
-            card.delete()
-        self.units.delete()
+        if self.cards is not None and self.cards.all() != []:
+            for card in self.cards.all():
+                card.delete()
+        if self.units is not None: 
+            self.units.delete()
         super(UserTransport, self).delete(*args, **kwargs)
 
     def __str__(self):

@@ -64,7 +64,7 @@ class AccountSerializer(serializers.ModelSerializer):
             emailOrPhone=emailOrPhone,
             provider=provider,
         )
-        newAccount.save()
+     
         temp = Temporary.objects.create(user=newAccount)
         paynet = PaynetProPayment.objects.create(user=newAccount)
         paynet.save()
