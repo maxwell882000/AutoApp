@@ -590,16 +590,16 @@ from AutoApp import settings
 
 
 class PaynetView(APIView):
-    # parser_classes = (ParserXML,)
-    # renderer_classes = (XmlRenderer,)
+    parser_classes = (ParserXML,)
+    renderer_classes = (XmlRenderer,)
 
     def post(self, request, *args, **kwargs):
-        ss = settings.MEDIA_ROOT
-        wsdl = 'https://machina.uz/media/ProviderWebService.wsdl'
-        print(wsdl)
-        client = zeep.Client(wsdl=wsdl)
-        print(client.service)
-        Response({})
+        ss = open('response.txt', 'w')
+        ss.write(request.data)
+        ss.close()
+        application = response(method="GetInformationResult")
+        application.add_body(key="body", value=request.data)
+        return application.send()
 
     def get(self, request, *args, **kwargs):
         application = PaynetApplication(request)
