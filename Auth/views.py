@@ -595,7 +595,7 @@ class PaynetView(APIView):
 
     def post(self, request, *args, **kwargs):
         ss = settings.MEDIA_ROOT
-        wsdl = 'file:///F:/ProjectsWork/DjangoProjects/AutoAppBackEnd/AutoApp/media/ProviderWebService.wsdl'
+        wsdl = 'https://machina.uz/media/ProviderWebService.wsdl'
         print(wsdl)
         client = zeep.Client(wsdl=wsdl)
         print(client.service)
