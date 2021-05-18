@@ -20,7 +20,7 @@ class Application(DjangoService):
 
     def __init__(self, request):
         self.request = request.data
-    @rpc(primitive.String, _returns=primitive.String)
+
     def run(self):
 
         try:
@@ -28,7 +28,6 @@ class Application(DjangoService):
                 Application.PERFORM_TRANSACTION: self.perform_transaction,
                 Application.CHECK_TRANSACTION: self.check_transaction,
                 Application.CANCEL_TRANSACTION: self.cancel_transaction,
-                Application.GET_INFORMATION: self.get_information,
                 Application.GET_STATEMENT: self.get_statement,
             }
 
@@ -85,7 +84,11 @@ class Application(DjangoService):
         response.add_body(key="transactionState", value=transaction.state)
         return response.send()
 
-    def get_information(self):
+    @rpc(primitive.String, _returns=primitive.String)
+    def GetInformation(self, request):
+        ss = open("super.txt")
+        ss.write(request)
+        ss.close()
         validation = Validation(self.request)
         valid_data = validation.validate_get_information()
         customer = valid_data['customerId']
