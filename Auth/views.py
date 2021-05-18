@@ -597,9 +597,8 @@ class PaynetView(APIView):
         ss = open('response.txt', 'w')
         ss.write(request.data)
         ss.close()
-        application = response(method="GetInformationResult")
-        application.add_body(key="body", value=request.data)
-        return application.send()
+        application = PaynetApplication(request)
+        return application.run()
 
     def get(self, request, *args, **kwargs):
         application = PaynetApplication(request)

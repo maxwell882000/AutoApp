@@ -9,8 +9,5 @@ class PaynetService(DjangoService):
 
     @rpc(primitive.String, _returns=primitive.String)
     def paynet_view(ctx, request):
-        print("sdasdsadadad")
-        print(request)
         application = Application(request)
-
         return application.run()
