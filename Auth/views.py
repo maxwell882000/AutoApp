@@ -119,7 +119,7 @@ def authGoogle(request):
         direction = "/authorized"
 
     redirection = "https://autoapp.page.link/?link=https://autoapp.page.link{}/{user_id}?emailOrPhone={}&apn=com.autoapp.application&amv=0&afl=google.com".format(
-        direction, validation[0]['emailOrPhone'], user_id = validation[0]['user_id'])
+        direction, validation[0]['emailOrPhone'], user_id=validation[0]['user_id'])
     return redirect(redirection)
 
 
@@ -245,7 +245,6 @@ class RecomendationViews(APIView):
 
 
 def get_model(data):
-    
     marka = MarkaRegister.objects.get(name_of_marka=data['name_of_marka'])
     return marka.model.get(name_of_model=data['name_of_model'])
 
@@ -329,7 +328,7 @@ class TransportViews(APIView):
                 run=data['run'],
                 initial_run=data['run'],
                 expenses=expenses,
-                cards_user = cards_user
+                cards_user=cards_user
             )
             if 'tech_passport' in data:
                 detail.tech_passport = data['tech_passport']
@@ -585,14 +584,22 @@ class SubscribeAPI(APIView):
         return app.run()
 
 
+from Auth.Paynet.Response import Response as response
+import zeep
+from AutoApp import settings
+
+
 class PaynetView(APIView):
-    parser_classes = (ParserXML,)
-    renderer_classes = (XmlRenderer,)
+    # parser_classes = (ParserXML,)
+    # renderer_classes = (XmlRenderer,)
 
     def post(self, request, *args, **kwargs):
-        print(request.data)
-        run = PaynetApplication(request=request)
-        return run.run()
+        ss = settings.MEDIA_ROOT
+        wsdl = 'file:///F:/ProjectsWork/DjangoProjects/AutoAppBackEnd/AutoApp/media/ProviderWebService.wsdl'
+        print(wsdl)
+        client = zeep.Client(wsdl=wsdl)
+        print(client.service)
+        Response({})
 
     def get(self, request, *args, **kwargs):
         application = PaynetApplication(request)

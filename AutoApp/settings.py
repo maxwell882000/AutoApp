@@ -51,7 +51,6 @@ PAYNET = {
     'password': "123123",
     'serviceId': "00",
     'providerId': "00",
-    'data': "2011-04-26T18:07:22",
 }
 PAYMENT_HOST = '127.0.0.1:8000'
 PAYMENT_USES_SSL = False  # set the True value if you are using the SSL
@@ -168,9 +167,9 @@ STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'static')
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 AUTHLIB_OAUTH_CLIENTS = {
     'google': {
         'client_id': "219394069897-s12bejr6ha34br64bvq6r4988uot20rv.apps.googleusercontent.com",
