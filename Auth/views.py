@@ -127,6 +127,12 @@ def logout(request):
     request.session.pop('user', None)
     return redirect('/')
 
+class AmountProAccountView(APIView):
+    
+    def get(self, request, *args, **kwargs):
+        service = AmountProAccount.objects.all()
+        serializer = AmountProAccountSerializer(service, many = True)
+        return Response(serializer.data, status = status.HTTP_200_OK)
 
 class RegisterOrLoginUsersViews(APIView):
 
@@ -404,7 +410,7 @@ class ExpenseViews(APIView):
         obj = serializer.save()
         temp_storage = Temporary.objects.get(user_id=data['user_id'])
         temp_storage.expenses.add(obj)
-        return Response({'id': serializer.data.get('id')})
+        return Response({'id': serializer.data.get('id')}, status=status.HTTP_200_OK)
 
     def put(self, request, *args, **kwargs):
         data = Expense.objects.get(id=kwargs['pk'])
@@ -415,12 +421,12 @@ class ExpenseViews(APIView):
         if 'amount' in request.data:
             data.amount = request.data['amount']
         data.save()
-        return Response({"data": "updated"})
+        return Response({"data": "updated"}, status=status.HTTP_200_OK)
 
     def delete(self, reuqest, pk, format=None):
         expense = Expense.objects.get(id=pk)
         expense.delete()
-        return Response({"status": 200})
+        return Response({"status": 200}, status=status.HTTP_200_OK)
 
 
 class LocationGetViews(APIView):
@@ -429,6 +435,11 @@ class LocationGetViews(APIView):
         serializer = LocationSerializer(location)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+class CardsStoreView(APIView):
+    def get(self, request, *args, **kwargs):
+        data = Cards.objects.get(id = kwargs['pk'])
+        serializers = CardSerializer(data.storeCard, many=True)
+        return Response(serializers.data)
 
 class CardsViews(APIView):
 
@@ -506,7 +517,6 @@ class CardsViews(APIView):
         temp = Temporary.objects.get(user_id=data['user_id'])
         if 'id_attach' in data:
             attach = Attach.objects.get(id=data['id_attach'])
-
             attach.image.set(temp.image.all())
             if 'location' in data:
                 attach.location.latitude = data['location']['latitude']
@@ -540,8 +550,10 @@ class CardsViews(APIView):
         id_cards = request.query_params.get('id_cards')
         card = Card.objects.get(id=pk)
         cards = Cards.objects.get(id=id_cards)
-        cards.remove(card)
-        return Response({"status": 200})
+        cards.storeCard.add(card)
+        cards.card.remove(card)
+
+        return Response({"status": 200}, status=status.HTTP_200_OK)
 
 
 class DownloadImage(APIView):
@@ -588,21 +600,30 @@ from Auth.Paynet.Response import Response as response
 import zeep
 from AutoApp import settings
 
-
+from django.http import FileResponse
 class PaynetView(APIView):
     parser_classes = (ParserXML,)
-    renderer_classes = (XmlRenderer,)
+    # renderer_classes = (XmlRenderer,)
 
     def post(self, request, *args, **kwargs):
-        ss = open('response.txt', 'w')
-        ss.write(request.data)
-        ss.close()
-        application = PaynetApplication(request)
-        return application.run()
+        media = settings.MEDIA_ROOT
+        response = FileResponse(open("{}\\ProviderWebService.wsdl".format(media), 'rb'),content_type="text/xml")
+        # content = "attachment; filename=%s" % filename
+        # response['Content-Disposition'] = content
+        return response
+        # application = PaynetApplication(request)
+        # return application.run()
 
     def get(self, request, *args, **kwargs):
-        application = PaynetApplication(request)
-        return application.run()
+        media = settings.MEDIA_ROOT
+        response = FileResponse(open("{}\\ProviderWebService.wsdl".format(media), 'rb'),content_type="text/xml")
+        # content = "attachment; filename=%s" % filename
+        # response['Content-Disposition'] = content
+        return response
+
+        # ss = open(,"r")
+        # application = PaynetApplication(request)
+        # return Response(ss.read(), content_type=)
 
 
 def clean(request, pk=None):

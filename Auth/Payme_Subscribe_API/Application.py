@@ -4,22 +4,26 @@ from .Validation import Validation
 from .Exception import PayMeException
 from rest_framework.response import Response
 from rest_framework import status
-
+from django.utils.datastructures import MultiValueDictKeyError
 
 class Application:
 
     def __init__(self, request):
-        self.request = request
+        self.request = request.data
 
     def run(self):
-        user = UserTransport.objects.get(id=self.request['id_user'])
-        payer = PaymeProPayment.objects.create(
-            id=id(self),
-            token=self.request['token'],
-            user=user,
-        )
-        payer.save()
+        id_user= 0
+        user = None
+        payer = None
         try:
+            id_user = self.request['id_user']
+            user = UserTransport.objects.get(id=id_user)
+            payer = PaymeProPayment.objects.create(
+                id=id(self),
+                token=self.request['token'],
+                user=user,
+            )
+            payer.save()
             data = Requests(payer=payer)
             validated_amount = Validation. \
                 validate_amount(id_amount=self.request['id_amount'],
@@ -35,11 +39,14 @@ class Application:
             },
                 status=status.HTTP_200_OK
             )
-        except PayMeException as e_payme:
-            user.pro_account = False
-            user.save()
-            message = e_payme.send()
-            payer.delete()
+        except PayMeException as e_payme:        
+            message = PayMeException.handleError(e_payme, user, payer)
+        except UserTransport.DoesNotExist:
+            e_payme = PayMeException(request_id=id_user,code=PayMeException.ERROR_INVALID_USER,message=PayMeException.error_message['incorrect_user'])
+            message =  PayMeException.handleError(e_payme)
+        except (IndexError, 	MultiValueDictKeyError):
+            e_payme = PayMeException(request_id=id_user, code=PayMeException.ERROR_REQUIRED_PARAMS,message=PayMeException.error_message['required'])
+            message = PayMeException.handleError(e_payme, user, payer)
         return message
 
     def __pay(self, data, payer):

@@ -43,8 +43,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['autoapp.elite-house.uz','machina.uz','127.0.0.1', '185.74.5.208', 'localhost']
 
 PAYME = {
-    'url': "",
-    'headers': "",
+    'url': "https://checkout.test.paycom.uz/api",
+    'headers': {
+        'X-Auth': '{id}:{password}'.format(id="60a8b7bea44459bf07890f34", password ="")
+    },
 }
 PAYNET = {
     'username': "admin",
@@ -75,6 +77,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'modernrpc',
     'Auth',
     'rest_framework',
     'django_celery_beat'

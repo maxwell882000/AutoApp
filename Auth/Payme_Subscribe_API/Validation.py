@@ -18,14 +18,14 @@ class Validation:
             }
             return result
         raise PayMeException(request_id=self._payer.id, code=PayMeException.ERROR_CREATE_CHECK,
-                             message="Не правильный ID вернулся")
+                             message=PayMeException.error_message['incorrect_id'])
 
     def validate_pay(self):
         self.__validate(error_code=PayMeException.ERROR_PAY_CHECK)
         if self._hashed_id == self._response['result']['receipt']['_id']:
             return True
         raise PayMeException(request_id=self._payer.id, code=PayMeException.ERROR_PAY_CHECK,
-                             message="Не правильный ID вернулся")
+                             message=PayMeException.error_message['incorrect_id'])
 
     def set_response(self, response):
         self._response = response
@@ -44,5 +44,5 @@ class Validation:
         amount = AmountProAccount.objects.filter(id=id_amount).first()
         if amount is None:
             raise PayMeException(request_id=id_user, code=PayMeException.ERROR_INCORRECT_TYPE_OF_AMOUNT,
-                                 message="Не правильный вид услуги был выбран")
+                                 message =PayMeException.error_message['incorrect_service'] )
         return amount

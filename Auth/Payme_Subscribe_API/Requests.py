@@ -14,7 +14,7 @@ class Requests:
             "id": self.payer.id,
             "method": "receipts.create",
             "params": {
-                "amount": amount.amount * 100,
+                "amount": amount.price * 100,
             }
         }
 

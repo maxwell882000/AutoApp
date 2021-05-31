@@ -30,7 +30,7 @@ class XmlRenderer(renderers.BaseRenderer):
     Renderer which serializes to XML.
     """
 
-    media_type = "application/soap+xml"
+    media_type = "text/xml"
     format = "xml"
     charset = "utf-8"
     item_tag_name = "list-item"

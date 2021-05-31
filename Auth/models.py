@@ -166,7 +166,7 @@ class ModelRegister(models.Model):
 
 
 class MarkaRegister(models.Model):
-    name_of_marka = models.CharField(max_length=50, default=0, verbose_name="Название марки")
+    name_of_marka = models.CharField(max_length=50, default=0, verbose_name="Название марки" , unique=True)
     model = models.ManyToManyField(ModelRegister, verbose_name="Модель")
 
     def delete(self, *args, **kwargs):

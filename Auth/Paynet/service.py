@@ -1,6 +1,9 @@
 from spyne.decorator import rpc
 
 from spyne.model import primitive
+from spyne.model.complex import ComplexModel
+from spyne.model.primitive.string import Unicode
+from spyne.service import Service, ServiceBase
 from spyne.util.django import DjangoService
 from .Validation import Validation
 from Auth.models import Transaction, PaynetProPayment
@@ -10,6 +13,27 @@ from .Exception import PaynetException
 from django.db.models import Q
 from Auth.Format import Format
 
+class GenericArguments(Service):
+    pass
+class ProviderWebService(DjangoService):
+
+    @rpc(_in_message_name='GetInformationRequest',_soap_body_style= "bare"  )
+    def GetInformation(ctx):
+        pass
+
+    # @rpc(_in_message_name='PerformTransactionRequest')
+    # def PerformTransaction(request):
+    #     pass
+    # @rpc(_in_message_name='CheckTransactionRequest')
+    # def CheckTransaction(request):
+    #     pass
+    # @rpc(_in_message_name='CancelTransactionRequest')
+    # def CancelTransaction(request):
+    #     pass
+    # @rpc(_in_message_name='GetStatementRequest')
+    # def GetStatement(request):
+    #     pass
+        
 
 class Application(DjangoService):
     PERFORM_TRANSACTION = "PerformTransactionResult"
@@ -84,7 +108,7 @@ class Application(DjangoService):
         response.add_body(key="transactionState", value=transaction.state)
         return response.send()
 
-    @rpc(primitive.String, _returns=primitive.String)
+    @rpc(primitive.String,_args=['arguments'],_in_variable_names={'parameters': 'Log'},_returns=primitive.String)
     def GetInformation(self, request):
         ss = open("super.txt")
         ss.write(request)

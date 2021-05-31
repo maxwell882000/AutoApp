@@ -1,9 +1,14 @@
+from django.db.models import fields
 from .models import *
 from rest_framework import serializers, status
 from django.contrib import auth
 from rest_framework.exceptions import AuthenticationFailed
 
 
+class AmountProAccountSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AmountProAccount
+        fields = ("__all__")
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location

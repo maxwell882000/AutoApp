@@ -1,3 +1,4 @@
+from Auth.Paynet.CustomSoap.custom_soap import MySoap11
 from django.urls import path
 
 from Auth.views import *
@@ -8,8 +9,8 @@ from spyne.application import Application
 from spyne.protocol.soap import Soap11
 from spyne.server.django import DjangoView as RPCView
 
-from .Paynet.service import Application as pp
-
+from .Paynet.service import ProviderWebService as pp
+from modernrpc.views import RPCEntryPoint
 api = Application(services=[pp], tns='http://uws.provider.com/', name="ProviderWebService",
                   in_protocol=Soap11(validator='soft'), out_protocol=Soap11(),)
 urlpatterns = [
@@ -26,6 +27,7 @@ urlpatterns = [
                   path('marka/', MarkaRegisterViews.as_view()),
                   path('cards/', CardsViews.as_view()),
                   path('cards/<pk>/', CardsViews.as_view()),
+                  path('cards/store/<pk>', CardsStoreView.as_view()),
                   path('download/<pk>/', DownloadImage.as_view()),
                   path('cards/images_upload', AttachedImageViews.as_view()),
                   path('cards/images_upload/<pk>/', AttachedImageViews.as_view()),
@@ -43,7 +45,8 @@ urlpatterns = [
                   path('adds/<pk>/', AddsView.as_view()),
                   path('adds/', AddsView.as_view()),
                   path('paynet_pay/', RPCView.as_view(application=api), name='api'),
-                  path('clean/temp/<int:pk>', clean)
+                  path('clean/temp/<int:pk>', clean),
+                  path('service/', AmountProAccountView.as_view())
                   # path('get_phases/', get_phases)
                   # path ('aboverecomedation/')
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_URL) + static(settings.MEDIA_URL,
