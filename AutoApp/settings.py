@@ -40,12 +40,12 @@ SECRET_KEY = 't-#d-pe&d2v+s_n+vntjm+eu32s$kwg!io%@@zs05kad_b0&x8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['autoapp.elite-house.uz','machina.uz','127.0.0.1', '185.74.5.208', 'localhost']
+ALLOWED_HOSTS = ['autoapp.elite-house.uz', 'machina.uz', '127.0.0.1', '185.74.5.208', 'localhost']
 
 PAYME = {
     'url': "https://checkout.test.paycom.uz/api",
     'headers': {
-        'X-Auth': '{id}:{password}'.format(id="60a8b7bea44459bf07890f34", password ="")
+        'X-Auth': '{id}:{password}'.format(id="60a8b7bea44459bf07890f34", password="")
     },
 }
 PAYNET = {
@@ -77,10 +77,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'modernrpc',
-    'Auth',
+    "fcm_django",
     'rest_framework',
-    'django_celery_beat'
+    'django_celery_beat',
+    "Auth.apps.AuthConfig"
 ]
 
 REST_FRAMEWORK = {
@@ -167,9 +167,8 @@ STATIC_URL = '/static/'
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'static')
 ]
-
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -182,4 +181,19 @@ AUTHLIB_OAUTH_CLIENTS = {
         'client_id': "899459834226658",
         'client_secret': "4ce078f1a3dea24142b92f6bc2d87f5a",
     }
+}
+FCM_DJANGO_SETTINGS = {
+    # default: _('FCM Django')
+    "APP_VERBOSE_NAME": "Уведомления",
+    # Your firebase API KEY
+    "FCM_SERVER_KEY": "[your api key]",
+
+    # true if you want to have only one active device per registered user at a time
+    # default: False
+    "ONE_DEVICE_PER_USER": False,
+    # devices to which notifications cannot be sent,
+    # are deleted upon receiving error response from FCM
+    # default: False
+    "DELETE_INACTIVE_DEVICES": False,
+    "USER_MODEL": 'Auth.UserTransport'
 }

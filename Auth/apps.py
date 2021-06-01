@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class AuthConfig(AppConfig):
-    name = 'Auth'
-    verbose_name = "Главные пункты"
+    name = "Auth"
+    verbose_name = "Главное"
