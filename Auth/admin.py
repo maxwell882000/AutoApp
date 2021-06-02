@@ -1,8 +1,9 @@
 from django.contrib import admin
 from django.contrib.admin import AdminSite
-
-from .models import UserTransport, MarkaRegister, ModelRegister, SingleRecomendation, Adds, AmountProAccount, \
-    RecommendCards, PaynetProPayment
+from fcm_django.models import FCMDevice
+from .models import UserTransport, MarkaRegister, ModelRegister, \
+    SingleRecomendation, Adds, AmountProAccount, \
+    Message, RecommendCards, PaynetProPayment
 
 from django.contrib.auth.models import Group, User
 
@@ -26,6 +27,26 @@ admin.site.register(AmountProAccount)
 admin.site.register(SingleRecomendation)
 
 admin.site.register(RecommendCards)
+
+
+class MessagesAdmin(admin.ModelAdmin):
+    fields = ('title', 'body')
+    actions = ("send_message_to_all",)
+
+    def send_message_to_all(self, request, queryset):
+        devices = FCMDevice.objects.all()
+        for message in queryset:
+            for device in devices:
+                response = device.send_data_message(data_message={
+                    'title': message.title,
+                    'body': message.body
+                })
+                self.message_user(request, response)
+
+    send_message_to_all.short_description = "Отправить всем пользователям"
+
+
+admin.site.register(Message, MessagesAdmin)
 
 
 class PaynetProPaymentAdmin(admin.ModelAdmin):

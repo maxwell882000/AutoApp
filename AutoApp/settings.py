@@ -186,7 +186,7 @@ FCM_DJANGO_SETTINGS = {
     # default: _('FCM Django')
     "APP_VERBOSE_NAME": "Уведомления",
     # Your firebase API KEY
-    "FCM_SERVER_KEY": "[your api key]",
+    "FCM_SERVER_KEY": "AAAAMxTn1Yk:APA91bFERur1Q6hNlFzg7-XW-4L3qhTNpCnNyd3o6RSZvDUI4pgSpheNwPqEvdO2u45q9tCvx45rAdKzDjknTyRARVzZuCgRWEJgbmsciB-gWd10KtkZgsgSoviQlQ0RSkVZH_Q3fQOn",
 
     # true if you want to have only one active device per registered user at a time
     # default: False

@@ -624,7 +624,10 @@ class PaynetView(APIView):
         # ss = open(,"r")
         # application = PaynetApplication(request)
         # return Response(ss.read(), content_type=)
-
+from fcm_django.models import FCMDevice
+def send_push(request):
+    device = FCMDevice.objects.first()
+    device.send_message()
 
 def clean(request, pk=None):
     try:

@@ -166,7 +166,7 @@ class ModelRegister(models.Model):
 
 
 class MarkaRegister(models.Model):
-    name_of_marka = models.CharField(max_length=50, default=0, verbose_name="Название марки" , unique=True)
+    name_of_marka = models.CharField(max_length=50, default=0, verbose_name="Название марки", unique=True)
     model = models.ManyToManyField(ModelRegister, verbose_name="Модель")
 
     def delete(self, *args, **kwargs):
@@ -218,7 +218,7 @@ class TransportDetail(models.Model):
 class UserTransport(models.Model):
     emailOrPhone = models.CharField(max_length=200, unique=True)
     provider = models.CharField(max_length=30)
-    cards = models.ManyToManyField(TransportDetail)
+    cards = models.ManyToManyField(TransportDetail, null=True, blank=True)
     units = models.ForeignKey(SelectedUnits, related_name='units', on_delete=models.CASCADE, blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
     pro_account = models.BooleanField(default=False)
@@ -233,7 +233,7 @@ class UserTransport(models.Model):
         if self.cards is not None and self.cards.all() != []:
             for card in self.cards.all():
                 card.delete()
-        if self.units is not None: 
+        if self.units is not None:
             self.units.delete()
         super(UserTransport, self).delete(*args, **kwargs)
 
@@ -258,7 +258,6 @@ class Temporary(models.Model):
         self.image.clear()
         self.expenses.clear()
         self.save()
-
 
 
 class Adds(models.Model):
@@ -331,6 +330,15 @@ class PaynetProPayment(models.Model):
             self.customerId = id_unique
         super(PaynetProPayment, self).save(*args, **kwargs)
 
+
+class Message(models.Model):
+    title = models.CharField(max_length=10, verbose_name="Заглавние")
+    body = models.CharField(max_length=50, verbose_name="Содержание")
+
+    class Meta:
+        verbose_name_plural = 'Push уведомления'
+    def __str__(self):
+        return  self.title
 
 class Transaction(models.Model):
     amount = models.BigIntegerField(default=0)
