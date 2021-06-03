@@ -127,12 +127,14 @@ def logout(request):
     request.session.pop('user', None)
     return redirect('/')
 
+
 class AmountProAccountView(APIView):
-    
+
     def get(self, request, *args, **kwargs):
         service = AmountProAccount.objects.all()
-        serializer = AmountProAccountSerializer(service, many = True)
-        return Response(serializer.data, status = status.HTTP_200_OK)
+        serializer = AmountProAccountSerializer(service, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 class RegisterOrLoginUsersViews(APIView):
 
@@ -435,11 +437,13 @@ class LocationGetViews(APIView):
         serializer = LocationSerializer(location)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
 class CardsStoreView(APIView):
     def get(self, request, *args, **kwargs):
-        data = Cards.objects.get(id = kwargs['pk'])
+        data = Cards.objects.get(id=kwargs['pk'])
         serializers = CardSerializer(data.storeCard, many=True)
         return Response(serializers.data)
+
 
 class CardsViews(APIView):
 
@@ -472,10 +476,7 @@ class CardsViews(APIView):
         attach.image.set(temp.image.all())
         temp.image.clear()
         temp.save()
-        # if 'images_list' in data:
-        #     for i in data['images_list']:
-        #         array.append(ImagesForAttached.objects.get(id=int(i)))
-        #     attach.image.set(array)
+
         if 'location' in data:
             location.latitude = data['location']['latitude']
             location.longitude = data['location']['longitude']
@@ -550,6 +551,10 @@ class CardsViews(APIView):
         id_cards = request.query_params.get('id_cards')
         card = Card.objects.get(id=pk)
         cards = Cards.objects.get(id=id_cards)
+        detail = TransportDetail.objects.get(cards_user_id=cards.id)
+        card.change.run = detail.run
+        card.change.save()
+        card.save()
         cards.storeCard.add(card)
         cards.card.remove(card)
 
@@ -601,13 +606,16 @@ import zeep
 from AutoApp import settings
 
 from django.http import FileResponse
+
+
 class PaynetView(APIView):
     parser_classes = (ParserXML,)
+
     # renderer_classes = (XmlRenderer,)
 
     def post(self, request, *args, **kwargs):
         media = settings.MEDIA_ROOT
-        response = FileResponse(open("{}\\ProviderWebService.wsdl".format(media), 'rb'),content_type="text/xml")
+        response = FileResponse(open("{}\\ProviderWebService.wsdl".format(media), 'rb'), content_type="text/xml")
         # content = "attachment; filename=%s" % filename
         # response['Content-Disposition'] = content
         return response
@@ -616,7 +624,7 @@ class PaynetView(APIView):
 
     def get(self, request, *args, **kwargs):
         media = settings.MEDIA_ROOT
-        response = FileResponse(open("{}\\ProviderWebService.wsdl".format(media), 'rb'),content_type="text/xml")
+        response = FileResponse(open("{}\\ProviderWebService.wsdl".format(media), 'rb'), content_type="text/xml")
         # content = "attachment; filename=%s" % filename
         # response['Content-Disposition'] = content
         return response
@@ -624,10 +632,15 @@ class PaynetView(APIView):
         # ss = open(,"r")
         # application = PaynetApplication(request)
         # return Response(ss.read(), content_type=)
+
+
 from fcm_django.models import FCMDevice
+
+
 def send_push(request):
     device = FCMDevice.objects.first()
     device.send_message()
+
 
 def clean(request, pk=None):
     try:
