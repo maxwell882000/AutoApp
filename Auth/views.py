@@ -614,7 +614,7 @@ class PaynetView(APIView):
     # renderer_classes = (XmlRenderer,)
 
     def post(self, request, *args, **kwargs):
-        print("WE ARE IN PAYNER VIEW")
+
         file = open(os.path.join(settings.MEDIA_ROOT, 'ProviderWebService.wsdl'), 'rb')
         response = FileResponse(file, content_type='text/xml')
         return response
