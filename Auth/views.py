@@ -476,7 +476,6 @@ class CardsViews(APIView):
         attach.image.set(temp.image.all())
         temp.image.clear()
         temp.save()
-
         if 'location' in data:
             location.latitude = data['location']['latitude']
             location.longitude = data['location']['longitude']
