@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "fcm_django",
     'rest_framework',
+    'channels',
     'django_celery_beat',
     "Auth.apps.AuthConfig"
 ]
@@ -182,6 +183,9 @@ AUTHLIB_OAUTH_CLIENTS = {
         'client_secret': "4ce078f1a3dea24142b92f6bc2d87f5a",
     }
 }
+CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_HTTPONLY = False
+ASGI_APPLICATION = "AutoApp.asgi.application"
 FCM_DJANGO_SETTINGS = {
     # default: _('FCM Django')
     "APP_VERBOSE_NAME": "Уведомления",

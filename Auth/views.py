@@ -613,12 +613,12 @@ class PaynetView(APIView):
     # renderer_classes = (XmlRenderer,)
 
     def post(self, request, *args, **kwargs):
-        media = settings.MEDIA_ROOT
-        response = FileResponse(open("{}\\ProviderWebService.wsdl".format(media), 'rb'), content_type="text/xml")
-        # content = "attachment; filename=%s" % filename
-        # response['Content-Disposition'] = content
+
+        file = open(os.path.join(settings.MEDIA_ROOT, 'ProviderWebService.wsdl'), 'rb')
+        response = FileResponse(file, content_type='text/xml')
         return response
-        # application = PaynetApplication(request)
+
+    # application = PaynetApplication(request)
         # return application.run()
 
     def get(self, request, *args, **kwargs):
@@ -633,12 +633,19 @@ class PaynetView(APIView):
         # return Response(ss.read(), content_type=)
 
 
-from fcm_django.models import FCMDevice
+import os
 
 
-def send_push(request):
-    device = FCMDevice.objects.first()
-    device.send_message()
+class GetWSDL(APIView):
+    def post(self, request, *args, **kwargs):
+        file = open(os.path.join(settings.MEDIA_ROOT, 'ProviderWebService.wsdl'), 'rb')
+        response = FileResponse(file, content_type='text/xml')
+        return response
+
+    def get(self, request, *args, **kwargs):
+        file = open(os.path.join(settings.MEDIA_ROOT, 'ProviderWebService.wsdl'), 'rb')
+        response = FileResponse(file, content_type='text/xml')
+        return response
 
 
 def clean(request, pk=None):
