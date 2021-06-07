@@ -186,6 +186,7 @@ AUTHLIB_OAUTH_CLIENTS = {
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = False
 ASGI_APPLICATION = "AutoApp.asgi.application"
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 FCM_DJANGO_SETTINGS = {
     # default: _('FCM Django')
     "APP_VERBOSE_NAME": "Уведомления",

@@ -1,9 +1,9 @@
-from channels.generic.websocket import AsyncWebsocketConsumer
+from channels.generic.websocket import AsyncWebsocketConsumer,WebsocketConsumer
 import json
 from django.views.decorators.csrf import csrf_exempt
 
 
-class PaynetServer(AsyncWebsocketConsumer):
+class PaynetServer(WebsocketConsumer):
 
     def connect(self):
         self.accept()
@@ -11,7 +11,7 @@ class PaynetServer(AsyncWebsocketConsumer):
     def disconnect(self, close_code):
         pass
 
-    def receive(self, text_data, bytes_data):
+    def receive(self, text_data):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
 
