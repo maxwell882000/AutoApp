@@ -280,11 +280,8 @@ class TransportViews(APIView):
             serializer = AccountCardsSerializer(user, many=True)
             return Response(serializer.data)
         else:
-            print(request.query_params.get('id_cards'))
-            print(kwargs)
             user = UserTransport.objects.get(emailOrPhone=kwargs['pk'])
             units = TransportUnitsSerializer(user.units)
-            print(user.pro_account)
             response = {
                 "pro_account": user.pro_account,
                 "date": user.date,
@@ -312,6 +309,20 @@ class TransportViews(APIView):
                 detail = TransportDetailSerializer(cards)
                 response['cards'] = detail.data
             return Response(response)
+
+    def add_default_cards(self, detail: TransportDetail):
+        model = ModelRegister.objects.get(name_of_model=detail.model)
+        if model.recommend_card is not None:
+            for card in model.recommend_card.all():
+                new_card = Card.objects.create()
+                new_card.name_of_card = card.name
+                new_card.change = RecommendedChange.objects.create(
+                    initial_run=detail.run,
+                    run=detail.run + model.recommend_card.recommend_run
+                )
+                new_card.change.save()
+                new_card.save()
+                detail.cards_user.card.add(new_card)
 
     def post(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
@@ -341,6 +352,7 @@ class TransportViews(APIView):
             if 'tech_passport' in data:
                 detail.tech_passport = data['tech_passport']
                 detail.save()
+            self.add_default_cards(detail)
             user.cards.add(detail)
             user.last_account = detail.id
             user.save()
@@ -600,8 +612,6 @@ class SubscribeAPI(APIView):
         return app.run()
 
 
-from Auth.Paynet.Response import Response as response
-import zeep
 from AutoApp import settings
 
 from django.http import FileResponse
@@ -613,13 +623,12 @@ class PaynetView(APIView):
     # renderer_classes = (XmlRenderer,)
 
     def post(self, request, *args, **kwargs):
-
         file = open(os.path.join(settings.MEDIA_ROOT, 'ProviderWebService.wsdl'), 'rb')
         response = FileResponse(file, content_type='text/xml')
         return response
 
     # application = PaynetApplication(request)
-        # return application.run()
+    # return application.run()
 
     def get(self, request, *args, **kwargs):
         media = settings.MEDIA_ROOT

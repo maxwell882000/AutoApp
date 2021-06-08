@@ -92,7 +92,7 @@ class Card(models.Model):
     date_of_change = models.DateTimeField(blank=True, null=True)
     comments = models.CharField(max_length=100)
     attach = models.ForeignKey(Attach, related_name='attach', on_delete=models.CASCADE, blank=True, null=True)
-    expense = models.ManyToManyField(Expense)
+    expense = models.ManyToManyField(Expense, blank=True, null=True)
     change = models.ForeignKey(RecommendedChange, related_name='attach', on_delete=models.CASCADE, blank=True,
                                null=True)
 
@@ -124,7 +124,7 @@ class Cards(models.Model):
 
 class RecommendCards(models.Model):
     name = models.CharField(default="", max_length=30, verbose_name="Название карточки")
-    recommend_run = models.IntegerField(default=0, verbose_name="Рекоммендованный пробег в километрах")
+    recommend_run = models.FloatField(default=0, verbose_name="Рекоммендованный пробег в километрах")
 
     class Meta:
         verbose_name_plural = "Рекоммендованые карточки"
@@ -146,7 +146,7 @@ class SingleRecomendation(models.Model):
 
 
 class ModelRegister(models.Model):
-    name_of_model = models.CharField(max_length=50, verbose_name="Название модели")
+    name_of_model = models.CharField(max_length=50, verbose_name="Название модели" , unique=True)
     recomendations = models.ManyToManyField(SingleRecomendation, verbose_name="Рекомендации для модели")
     recommend_card = models.ManyToManyField(RecommendCards, verbose_name="Рекомендованные карточки")
     image_above = models.ImageField(upload_to='admin/', verbose_name="Фото для модели")
@@ -190,8 +190,8 @@ class SelectedUnits(models.Model):
 
 class TransportDetail(models.Model):
     nameOfTransport = models.CharField(max_length=50)
-    marka = models.CharField(max_length=20)
-    model = models.CharField(max_length=30)
+    marka = models.CharField(max_length=50)
+    model = models.CharField(max_length=50)
     yearOfMade = models.CharField(max_length=4)
     yearOfPurchase = models.CharField(max_length=4)
     number = models.CharField(max_length=30)
