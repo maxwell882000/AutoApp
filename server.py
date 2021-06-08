@@ -13,7 +13,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     int_num = 0
     while True:
         data = conn.recv(1024)
-        print("DATA COMMING {} {type}".format(data, type=type(data)))
+        print("DATA COMMING {} {type}".format(data.decode("utf-8") , type=type(data)))
         if not data:
             break
         int_num += 1
