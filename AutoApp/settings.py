@@ -206,3 +206,11 @@ FCM_DJANGO_SETTINGS = {
     "DELETE_INACTIVE_DEVICES": False,
     "USER_MODEL": 'Auth.UserTransport'
 }
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("redis://127.0.0.1", 6379)],
+        },
+    },
+}
