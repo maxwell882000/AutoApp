@@ -297,19 +297,20 @@ class Orders(models.Model):
     phoneOrMail = models.CharField(max_length=15)
 
 
+from .utils import create_new_ref_number, ChoicesForSubscribe
+
+
 class AmountProAccount(models.Model):
     name_subscribe = models.CharField(max_length=50, verbose_name="Название подписки")
     price = models.IntegerField(verbose_name="Цена подписки в суммах", default=0)
     duration = models.IntegerField(verbose_name="Длительность подписки в днях", default=0)
+    type = models.IntegerField(choices=ChoicesForSubscribe, default=1)
 
     class Meta:
         verbose_name_plural = 'Подписка'
 
     def __str__(self):
         return self.name_subscribe
-
-
-from .utils import create_new_ref_number
 
 
 class PaymeProPayment(models.Model):
