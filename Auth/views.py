@@ -612,49 +612,43 @@ class SubscribeAPI(APIView):
         return app.run()
 
 
-from AutoApp import settings
-
-from django.http import FileResponse
-
-
 class PaynetView(APIView):
     parser_classes = (ParserXML,)
 
-    # renderer_classes = (XmlRenderer,)
+    renderer_classes = (XmlRenderer,)
 
     def post(self, request, *args, **kwargs):
-        file = open(os.path.join(settings.MEDIA_ROOT, 'ProviderWebService.wsdl'), 'rb')
-        response = FileResponse(file, content_type='text/xml')
-        return response
+        result = PaynetApplication(request=request)
+        return result.run()
 
     # application = PaynetApplication(request)
     # return application.run()
 
-    def get(self, request, *args, **kwargs):
-        media = settings.MEDIA_ROOT
-        response = FileResponse(open("{}\\ProviderWebService.wsdl".format(media), 'rb'), content_type="text/xml")
-        # content = "attachment; filename=%s" % filename
-        # response['Content-Disposition'] = content
-        return response
+    # def get(self, request, *args, **kwargs):
+    #     media = settings.MEDIA_ROOT
+    #     response = FileResponse(open("{}\\ProviderWebService.wsdl".format(media), 'rb'), content_type="text/xml")
+    #     # content = "attachment; filename=%s" % filename
+    #     # response['Content-Disposition'] = content
+    #     return response
 
-        # ss = open(,"r")
-        # application = PaynetApplication(request)
-        # return Response(ss.read(), content_type=)
-
-
-import os
+    # ss = open(,"r")
+    # application = PaynetApplication(request)
+    # return Response(ss.read(), content_type=)
 
 
-class GetWSDL(APIView):
-    def post(self, request, *args, **kwargs):
-        file = open(os.path.join(settings.MEDIA_ROOT, 'ProviderWebService.wsdl'), 'rb')
-        response = FileResponse(file, content_type='text/xml')
-        return response
-
-    def get(self, request, *args, **kwargs):
-        file = open(os.path.join(settings.MEDIA_ROOT, 'ProviderWebService.wsdl'), 'rb')
-        response = FileResponse(file, content_type='text/xml')
-        return response
+# import os
+#
+#
+# class GetWSDL(APIView):
+#     def post(self, request, *args, **kwargs):
+#         file = open(os.path.join(settings.MEDIA_ROOT, 'ProviderWebService.wsdl'), 'rb')
+#         response = FileResponse(file, content_type='text/xml')
+#         return response
+#
+#     def get(self, request, *args, **kwargs):
+#         file = open(os.path.join(settings.MEDIA_ROOT, 'ProviderWebService.wsdl'), 'rb')
+#         response = FileResponse(file, content_type='text/xml')
+#         return response
 
 
 def clean(request, pk=None):

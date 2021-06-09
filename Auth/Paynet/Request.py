@@ -1,15 +1,15 @@
 from lxml import etree
 
-from io import  BytesIO
+from io import BytesIO
 
 
 class Request:
 
     def __init__(self, request):
-        self.content = request.data
+        self.content = request
 
     def parse(self):
-        get = BytesIO(self.content.encode('utf-8'))
+        get = BytesIO(self.content)
         context = etree.iterparse(get, events=('end',))
         dictionary = {}
         key_param = ""
@@ -23,6 +23,3 @@ class Request:
             if e.tag[0:26] == '{http://uws.provider.com/}':
                 dictionary["method"] = e.tag[26:-9] + "Result"
         return dictionary
-
-
-

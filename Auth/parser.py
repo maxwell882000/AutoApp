@@ -16,7 +16,7 @@ class ParserXML(BaseParser):
     XML parser.
     """
 
-    media_type = "application/xml"
+    media_type = "text/xml"
 
     def parse(self, stream, media_type=None, parser_context=None):
         """

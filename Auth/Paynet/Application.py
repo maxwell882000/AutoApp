@@ -16,7 +16,9 @@ class Application:
     GET_INFORMATION = "GetInformationResult"
 
     def __init__(self, request):
-        self.request = request.data
+        request_process = Request(request.body)
+        self.request = request_process.parse()
+        print(self.request)
 
     def run(self):
 
