@@ -89,11 +89,14 @@ class Application:
         return response.send()
 
     def get_information(self):
-        validation = Validation(self.request)
-        valid_data = validation.validate_get_information()
-        customer = valid_data['customerId']
-        response = Response(valid_data['method'], 'ok', 0)
-        response.add_parameters(key="balance", value=customer.user.balans * 100)
+        try:
+            validation = Validation(self.request)
+            valid_data = validation.validate_get_information()
+            customer = valid_data['customerId']
+            response = Response(valid_data['method'], 'ok', 0)
+            response.add_parameters(key="balance", value=customer.user.balans * 100)
+        except PaynetException as e:
+            response = e.send()
         return response.send()
 
     def get_statement(self):
