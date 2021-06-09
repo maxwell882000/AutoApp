@@ -322,7 +322,7 @@ class TransportViews(APIView):
                         run=detail.run + card.recommend_run
                     ),
                     comments="",
-                    attach = attach,
+                    attach=attach,
                     date=datetime.now()
                 )
 
@@ -360,7 +360,7 @@ class TransportViews(APIView):
             user.cards.add(detail)
             user.last_account = detail.id
             user.save()
-            return Response({"id": detail.id}, status=status.HTTP_200_OK)
+            return Response({"id": detail.id, 'id_cards': detail.cards_user.id}, status=status.HTTP_200_OK)
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
@@ -506,17 +506,7 @@ class CardsViews(APIView):
             attach=attach,
             change=change
         )
-        if 'pk' in kwargs:
-            detail = TransportDetail.objects.get(id=kwargs['pk'])
-            cards = Cards.objects.create()
-            cards.card.add(card)
-            cards.save()
-            detail.cards_user = cards
-            detail.save()
-            # serializer = TransportDetailSerializer(detail)
-            return Response(
-                {"id_cards": cards.id, "id_attach": attach.id, "id_change": change.id, "id_card": card.id,
-                 "id_location": location.id}, status=status.HTTP_200_OK)
+
         card.save()
         cards = Cards.objects.get(id=data['id'])
         cards.card.add(card)
@@ -614,8 +604,12 @@ class SubscribeAPI(APIView):
     def post(self, request, *args, **kwargs):
         app = Payme_Application(request)
         return app.run()
+
+
 import os
 from AutoApp import settings
+
+
 class PaynetView(APIView):
     parser_classes = (ParserXML,)
 
