@@ -14,11 +14,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     while True:
         data = conn.recv(1024)
         print("DATA COMMING {} {type}".format(data , type=type(data)))
-        if not data:
-            break
-        int_num += 1
-        if int_num == 2:
-            break
+        break
     print("CLOSE FROM LOOP")
     conn.sendall(data)
     conn.close()
