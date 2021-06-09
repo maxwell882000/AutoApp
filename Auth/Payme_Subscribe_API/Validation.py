@@ -21,7 +21,7 @@ class Validation:
                              message=PayMeException.error_message['incorrect_id'])
 
     def validate_pay(self):
-        self.__validate(error_code=PayMeException.ERROR_PAY_CHECK)
+        self.__validate_pay(error_code=PayMeException.ERROR_PAY_CHECK)
         if self._hashed_id == self._response['result']['receipt']['_id']:
             return True
         raise PayMeException(request_id=self._payer.id, code=PayMeException.ERROR_PAY_CHECK,
@@ -35,14 +35,21 @@ class Validation:
             'error': self._response['result']['receipt']['error'],
             'description': self._response['result']['receipt']['description'],
         }
-        if error is not None:
+
+        if error['error'] is not None:
             raise PayMeException(request_id=self._payer.id, code=error_code,
                                  message=error['description'])
+
+    def __validate_pay(self, error_code):
+
+        if 'error' in self._response:
+            raise PayMeException(request_id=self._payer.id, code=error_code,
+                                 message=self._response['error']['message'])
 
     @staticmethod
     def validate_amount(id_amount, id_user):
         amount = AmountProAccount.objects.filter(id=id_amount).first()
         if amount is None:
             raise PayMeException(request_id=id_user, code=PayMeException.ERROR_INCORRECT_TYPE_OF_AMOUNT,
-                                 message =PayMeException.error_message['incorrect_service'] )
+                                 message=PayMeException.error_message['incorrect_service'])
         return amount

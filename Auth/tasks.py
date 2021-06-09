@@ -7,7 +7,7 @@ from .models import UserTransport
 
 @shared_task
 def payme_periodic():
-    application = Application("")
+    application = Application()
     application.background_run()
 
 

@@ -9,6 +9,8 @@ class AmountProAccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = AmountProAccount
         fields = ("__all__")
+
+
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Location
@@ -69,11 +71,12 @@ class AccountSerializer(serializers.ModelSerializer):
             emailOrPhone=emailOrPhone,
             provider=provider,
         )
-     
-        temp = Temporary.objects.create(user=newAccount)
-        paynet = PaynetProPayment.objects.create(user=newAccount)
-        paynet.save()
-        temp.save()
+
+        Temporary.objects.create(user=newAccount)
+        PaynetProPayment.objects.create(user=newAccount)
+        PaymeProPayment.objects.create(
+            user=newAccount,
+        )
         return newAccount
 
     def validate(self, attrs):
@@ -96,7 +99,6 @@ class AccountSerializer(serializers.ModelSerializer):
                 newAccount = self.create_account(emailOrPhone=emailOrPhone, provider=provider)
         return ({
 
-                
                     "emailOrPhone": newAccount.emailOrPhone,
                     "status": 0,
                     "user_id": newAccount.id,

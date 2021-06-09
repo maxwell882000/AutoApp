@@ -88,9 +88,9 @@ class Expense(models.Model):
 
 class Card(models.Model):
     name_of_card = models.CharField(max_length=50)
-    date = models.DateTimeField(verbose_name="дата",auto_now_add=True)
+    date = models.DateTimeField(verbose_name="дата", auto_now_add=True)
     date_of_change = models.DateTimeField(blank=True, null=True)
-    comments = models.CharField(max_length=100,default="")
+    comments = models.CharField(max_length=100, default="")
     attach = models.ForeignKey(Attach, related_name='attach', on_delete=models.CASCADE, blank=True, null=True)
     expense = models.ManyToManyField(Expense, blank=True, null=True)
     change = models.ForeignKey(RecommendedChange, related_name='attach', on_delete=models.CASCADE, blank=True,
@@ -309,9 +309,13 @@ class AmountProAccount(models.Model):
         return self.name_subscribe
 
 
+from .utils import create_new_ref_number
+
+
 class PaymeProPayment(models.Model):
-    token = models.CharField(max_length=100)
-    id = models.IntegerField(default=0, primary_key=True)
+    token = models.CharField(max_length=100, blank=True, null=True)
+    id = models.BigIntegerField(default=create_new_ref_number, primary_key=True, unique=True)
+    hashed_id = models.BigIntegerField(default=0)
     user = models.ForeignKey(UserTransport, related_name='client_payme', on_delete=models.CASCADE, blank=True,
                              null=True)
     amount = models.ForeignKey(AmountProAccount, related_name='amount', on_delete=models.CASCADE, blank=True, null=True)
@@ -340,9 +344,6 @@ class Message(models.Model):
 
     def __str__(self):
         return self.title
-
-
-from .utils import create_new_ref_number
 
 
 class Transaction(models.Model):

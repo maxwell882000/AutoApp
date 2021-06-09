@@ -10,14 +10,15 @@ class Requests:
         self.payer = payer
 
     def receipts_create(self, amount):
+
         body = {
             "id": self.payer.id,
             "method": "receipts.create",
             "params": {
-                "amount": amount.price * 100,
+                "amount": 1000 * 100,
             }
         }
-
+        print("BODY OF OBJECT {}".format(body))
         result = requests.post(self.url, json=body, headers=self.headers)
         print(result.content)
         return result.json()
@@ -31,10 +32,10 @@ class Requests:
                 "token": self.token,
             }
         }
-
+        print("BODY OF OBJECT {}".format(body))
         result = requests.post(self.url, json=body, headers=self.headers)
 
-        return result
+        return result.json()
 
     def cards_remove(self, identifier):
         body = {
@@ -46,4 +47,4 @@ class Requests:
         }
         result = requests.post(self.url, json=body, headers=self.headers)
         self.payer.delete()
-        return result
+        return result.json()
