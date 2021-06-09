@@ -319,7 +319,7 @@ class TransportViews(APIView):
                     name_of_card=card.name,
                     change=RecommendedChange.objects.create(
                         initial_run=detail.run,
-                        run=detail.run + model.recommend_card.recommend_run
+                        run=detail.run + card.recommend_run
                     ),
                     comments="",
                     attach = attach,
