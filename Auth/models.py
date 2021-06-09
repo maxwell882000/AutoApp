@@ -146,7 +146,7 @@ class SingleRecomendation(models.Model):
 
 
 class ModelRegister(models.Model):
-    name_of_model = models.CharField(max_length=50, verbose_name="Название модели" , unique=True)
+    name_of_model = models.CharField(max_length=50, verbose_name="Название модели", unique=True)
     recomendations = models.ManyToManyField(SingleRecomendation, verbose_name="Рекомендации для модели")
     recommend_card = models.ManyToManyField(RecommendCards, verbose_name="Рекомендованные карточки")
     image_above = models.ImageField(upload_to='admin/', verbose_name="Фото для модели")
@@ -337,8 +337,13 @@ class Message(models.Model):
 
     class Meta:
         verbose_name_plural = 'Push уведомления'
+
     def __str__(self):
-        return  self.title
+        return self.title
+
+
+from .utils import create_new_ref_number
+
 
 class Transaction(models.Model):
     amount = models.BigIntegerField(default=0)
@@ -346,6 +351,7 @@ class Transaction(models.Model):
     transactionId = models.BigIntegerField(default=0)
     state = models.IntegerField(default=0)
     customer = models.ForeignKey(PaynetProPayment, related_name='customer', on_delete=models.CASCADE)
+    providerTrnId = models.BigIntegerField(default=create_new_ref_number, unique=True)
 
 
 class Test(models.Model):

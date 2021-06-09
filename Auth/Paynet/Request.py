@@ -4,6 +4,11 @@ from io import BytesIO
 
 
 class Request:
+    PERFORM_TRANSACTION = "PerformTransactionResult"
+    CHECK_TRANSACTION = "CheckTransactionResult"
+    CANCEL_TRANSACTION = "CancelTransactionResult"
+    GET_STATEMENT = "GetStatementResult"
+    GET_INFORMATION = "GetInformationResult"
 
     def __init__(self, request):
         self.content = request

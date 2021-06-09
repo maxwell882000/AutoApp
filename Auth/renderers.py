@@ -32,11 +32,11 @@ class XmlRenderer(renderers.BaseRenderer):
 
     media_type = "text/xml"
     format = "xml"
-    charset = "utf-8"
+    charset = "UTF-8"
     item_tag_name = "list-item"
-    root_tag_name = "s:Envelope"
-    second_tag_name = "s:Body"
-    third_tag_name = "uws:{method}"
+    root_tag_name = "soapenv:Envelope"
+    second_tag_name = "soapenv:Body"
+    third_tag_name = "ns2:{method}"
 
     def render(self, data, accepted_media_type=None, renderer_context=None):
         """
@@ -49,11 +49,10 @@ class XmlRenderer(renderers.BaseRenderer):
 
         xml = SimplerXMLGenerator(stream, self.charset)
         xml.startDocument()
-        xml.startElement(self.root_tag_name, {"xmlns:s": "http://schemas.xmlsoap.org/soap/envelope/"})
-        xml.startElement(self.second_tag_name, {
-            "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-            "xmlns:xsd": "http://www.w3.org/2001/XMLSchema"})
-        xml.startElement(self.third_tag_name.format(method=data['method']), {"xmlns:uws": "http://uws.provider.com/"})
+        xml.startElement(self.root_tag_name, {"xmlns:soapenv": "http://schemas.xmlsoap.org/soap/envelope/"})
+        xml.startElement(self.second_tag_name, {})
+        xml.startElement(self.third_tag_name.format(method=data['method']), {"xmlns:ns2": "http://uws.provider.com/"})
+
         self._to_xml(xml, data['body'])
         try:
             for params in data['parameters']:

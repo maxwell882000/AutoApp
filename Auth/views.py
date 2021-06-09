@@ -1,7 +1,7 @@
 from re import S
 from django.shortcuts import redirect
 from rest_framework import status
-from django.http import HttpResponse
+from django.http import HttpResponse, FileResponse
 
 from datetime import datetime, timezone
 
@@ -610,14 +610,17 @@ class SubscribeAPI(APIView):
     def post(self, request, *args, **kwargs):
         app = Payme_Application(request)
         return app.run()
-
-
+import os
+from AutoApp import settings
 class PaynetView(APIView):
     parser_classes = (ParserXML,)
 
     renderer_classes = (XmlRenderer,)
 
     def post(self, request, *args, **kwargs):
+        # file = open(os.path.join(settings.MEDIA_ROOT, 'ss.xml'), 'rb')
+        # response = FileResponse(file, content_type='text/xml')
+        # return  response
         result = PaynetApplication(request=request)
         return result.run()
 

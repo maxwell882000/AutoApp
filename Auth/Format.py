@@ -4,7 +4,7 @@ from datetime import datetime
 
 class Format():
     FORMAT = '%Y-%m-%dT%H:%M:%S.%f+05:00'
-
+    # FORMAT = '%Y-%m.%d'
     @staticmethod
     def toSom(coins):
 

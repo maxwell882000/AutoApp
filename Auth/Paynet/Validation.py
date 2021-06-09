@@ -4,7 +4,6 @@ from Auth.models import AmountProAccount, PaynetProPayment, Transaction
 from Auth.Format import Format
 from django.db.models import Q
 
-
 class Validation:
 
     def __init__(self, dictionary):
@@ -32,7 +31,6 @@ class Validation:
         except KeyError:
             raise PaynetException(PaynetException.ERROR_REQUIRED_PARAM_NOT_SET,
                                   PaynetException.dict[PaynetException.ERROR_REQUIRED_PARAM_NOT_SET], method)
-        return self.dictionary
 
     def validate_cancel_transaction(self):
         method = self.dictionary['method']
@@ -79,9 +77,10 @@ class Validation:
         return self.dictionary
 
     def __validate_from_to_date(self, method):
-
+        print("DATE  {}".format(str(self.dictionary['dateFrom'])))
         try:
             from_date = self.dictionary['dateFrom']
+            print("DATE  {}".format(str(from_date)))
             to_date = self.dictionary['dateTo']
             self.dictionary['dateFrom'] = Format.str2datetime(from_date)
             self.dictionary['dateTo'] = Format.str2datetime(to_date)
@@ -118,7 +117,9 @@ class Validation:
                                   PaynetException.dict[PaynetException.ERROR_WRONG_SUM], method)
 
     def __validate_customerId(self, method):
+        print(self.dictionary['customerId'])
         customer_query = PaynetProPayment.objects.filter(customerId=self.dictionary['customerId'])
+        print(customer_query)
         if not customer_query.exists():
             raise PaynetException(PaynetException.ERROR_CLIENT_NOT_FOUND,
                                   PaynetException.dict[PaynetException.ERROR_CLIENT_NOT_FOUND], method)

@@ -5,6 +5,9 @@ from Auth.Format import Format
 
 
 class PaynetException(Exception):
+
+
+
     SUCCESS = 0
     ERROR_INSUFFICIENT_FUNDS = 77
     ERROR_TEMPORARLY_INACCESSABLE = 100
@@ -50,7 +53,7 @@ class PaynetException(Exception):
         self.method = method
 
     def send(self):
-        response = Response(method=self.method,
+        return Response(method=self.method,
                             message=self.message,
                             code=self.code)
-        return response.send()
+        # return response.send()
