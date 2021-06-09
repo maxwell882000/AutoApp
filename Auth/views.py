@@ -322,7 +322,8 @@ class TransportViews(APIView):
                         run=detail.run + model.recommend_card.recommend_run
                     ),
                     comments="",
-                    attach = attach
+                    attach = attach,
+                    date=datetime.now()
                 )
 
                 detail.cards_user.card.add(new_card)
