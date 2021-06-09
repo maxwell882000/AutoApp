@@ -314,14 +314,18 @@ class TransportViews(APIView):
         model = ModelRegister.objects.get(name_of_model=detail.model)
         if model.recommend_card is not None:
             for card in model.recommend_card.all():
-                new_card = Card.objects.create()
-                new_card.name_of_card = card.name
-                new_card.change = RecommendedChange.objects.create(
-                    initial_run=detail.run,
-                    run=detail.run + model.recommend_card.recommend_run
+                attach = Attach.objects.create()
+                new_card = Card.objects.create(
+                    name_of_card=card.name,
+                    change=RecommendedChange.objects.create(
+                        initial_run=detail.run,
+                        run=detail.run + model.recommend_card.recommend_run
+                    ),
+                    comments="",
+                    date=
+                    attach = attach
                 )
-                new_card.change.save()
-                new_card.save()
+
                 detail.cards_user.card.add(new_card)
 
     def post(self, request, pk, format=None):

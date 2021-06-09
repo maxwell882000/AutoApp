@@ -88,9 +88,9 @@ class Expense(models.Model):
 
 class Card(models.Model):
     name_of_card = models.CharField(max_length=50)
-    date = models.DateTimeField(verbose_name="дата")
+    date = models.DateTimeField(verbose_name="дата",auto_now_add=True)
     date_of_change = models.DateTimeField(blank=True, null=True)
-    comments = models.CharField(max_length=100)
+    comments = models.CharField(max_length=100,default="")
     attach = models.ForeignKey(Attach, related_name='attach', on_delete=models.CASCADE, blank=True, null=True)
     expense = models.ManyToManyField(Expense, blank=True, null=True)
     change = models.ForeignKey(RecommendedChange, related_name='attach', on_delete=models.CASCADE, blank=True,
