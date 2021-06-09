@@ -47,7 +47,6 @@ urlpatterns = [
                   path('paynet_pay/', PaynetView.as_view(), name='api'),
                   path('clean/temp/<int:pk>', clean),
                   path('service/', AmountProAccountView.as_view()),
-                  path('get_wsdl', GetWSDL.as_view())
                   # path('send_push/message',)
                   # path('get_phases/', get_phases)
                   # path ('aboverecomedation/')
