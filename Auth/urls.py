@@ -46,7 +46,7 @@ urlpatterns = [
                   path('adds/<pk>/', AddsView.as_view()),
                   path('adds/', AddsView.as_view()),
                   path('paynet_pay/', PaynetView.as_view(), name='api'),
-                  path("balance-data/", PaynetView.as_view()),
+                  path("balance-data/", GetBalans.as_view()),
                   path('clean/temp/<int:pk>', clean),
                   path('service/', AmountProAccountView.as_view()),
                   # path('send_push/message',)

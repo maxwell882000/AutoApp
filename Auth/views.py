@@ -615,11 +615,12 @@ class PaynetView(APIView):
         result = PaynetApplication(request=request)
         return result.run()
 
+
+
+class GetBalans(APIView):
     def get(self, request, *args, **kwargs):
-        data = PaynetProPayment.objects.get(user_id=request.data['user_id'])
-        return {'balance': data.user.balans, 'customerId': data.customerId}
-
-
+        data = PaynetProPayment.objects.get(user_id=request.query_params['user_id'])
+        return Response({'balance': data.user.balans, 'customerId': data.customerId}, status=status.HTTP_200_OK)
 def clean(request, pk=None):
     try:
         temp = Temporary.objects.get(user_id=pk)
