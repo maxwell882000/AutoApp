@@ -606,50 +606,18 @@ class SubscribeAPI(APIView):
         return app.run()
 
 
-import os
-from AutoApp import settings
-
-
 class PaynetView(APIView):
     parser_classes = (ParserXML,)
 
     renderer_classes = (XmlRenderer,)
 
     def post(self, request, *args, **kwargs):
-        # file = open(os.path.join(settings.MEDIA_ROOT, 'ss.xml'), 'rb')
-        # response = FileResponse(file, content_type='text/xml')
-        # return  response
         result = PaynetApplication(request=request)
         return result.run()
 
-    # application = PaynetApplication(request)
-    # return application.run()
-
-    # def get(self, request, *args, **kwargs):
-    #     media = settings.MEDIA_ROOT
-    #     response = FileResponse(open("{}\\ProviderWebService.wsdl".format(media), 'rb'), content_type="text/xml")
-    #     # content = "attachment; filename=%s" % filename
-    #     # response['Content-Disposition'] = content
-    #     return response
-
-    # ss = open(,"r")
-    # application = PaynetApplication(request)
-    # return Response(ss.read(), content_type=)
-
-
-# import os
-#
-#
-# class GetWSDL(APIView):
-#     def post(self, request, *args, **kwargs):
-#         file = open(os.path.join(settings.MEDIA_ROOT, 'ProviderWebService.wsdl'), 'rb')
-#         response = FileResponse(file, content_type='text/xml')
-#         return response
-#
-#     def get(self, request, *args, **kwargs):
-#         file = open(os.path.join(settings.MEDIA_ROOT, 'ProviderWebService.wsdl'), 'rb')
-#         response = FileResponse(file, content_type='text/xml')
-#         return response
+    def get(self, request, *args, **kwargs):
+        data = PaynetProPayment.objects.get(user_id=request.data['user_id'])
+        return {'balance': data.user.balans, 'customerId': data.customerId}
 
 
 def clean(request, pk=None):

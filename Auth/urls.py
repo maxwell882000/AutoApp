@@ -15,6 +15,7 @@ api = Application(services=[pp], tns='http://uws.provider.com/', name="ProviderW
                   in_protocol=Soap11(validator='soft'), out_protocol=Soap11(), )
 urlpatterns = [
                   path('login/', RegisterOrLoginUsersViews.as_view()),
+
                   path('register/', AccountRegister.as_view()),
                   path('transport/', TransportViews.as_view()),
                   path('transport/<pk>/', TransportViews.as_view()),
@@ -45,6 +46,7 @@ urlpatterns = [
                   path('adds/<pk>/', AddsView.as_view()),
                   path('adds/', AddsView.as_view()),
                   path('paynet_pay/', PaynetView.as_view(), name='api'),
+                  path("balance-data/", PaynetView.as_view()),
                   path('clean/temp/<int:pk>', clean),
                   path('service/', AmountProAccountView.as_view()),
                   # path('send_push/message',)
