@@ -63,7 +63,7 @@ class Application:
             response = Response(valid_data['method'], 'Success', 0)
             response.add_body(key="providerTrnId", value=transaction.providerTrnId)
             response.add_body(key="transactionState", value=transaction.state)
-            response.add_body(key="transactionStateErrorStatus", value=1)
+            response.add_body(key="transactionStateErrorStatus", value=0)
             response.add_body(key="transactionStateErrorMsg", value="Success")
         except PaynetException as e:
             response = e.send()
@@ -79,7 +79,7 @@ class Application:
             valid_data = validation.validate_cancel_transaction()
             transaction = valid_data['transaction']
             transaction.customer.user.save()
-            transaction.state = 2
+            transaction.state = settings.PAYNET['state']
             transaction.save()
             response = Response(valid_data['method'], 'Success', 0)
             response.add_body(key="transactionState", value=transaction.state)

@@ -49,7 +49,8 @@ ALLOWED_HOSTS = ['autoapp.elite-house.uz', 'machina.uz', '127.0.0.1', '185.74.5.
 PAYME = {
     'url': "https://checkout.test.paycom.uz/api",
     'headers': {
-        'X-Auth': '{id}:{password}'.format(id="60a8b7bea44459bf07890f34", password="")
+        'X-Auth': '{id}:{password}'.format(id="5e730e8e0b852a417aa49ceb",
+                                           password="#MWnwHNYATJo%W@XvO5nISiY&mG7PEuzDX18")
     },
 }
 PAYNET = {
@@ -57,7 +58,7 @@ PAYNET = {
     'password': "123123",
     'serviceId': "10",
     'providerId': "00",
-    'state':2
+    'state': 2
 }
 PAYMENT_HOST = '127.0.0.1:8000'
 PAYMENT_USES_SSL = False  # set the True value if you are using the SSL
