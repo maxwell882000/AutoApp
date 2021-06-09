@@ -19,8 +19,8 @@ class Requests:
         }
 
         result = requests.post(self.url, json=body, headers=self.headers)
-
-        return result
+        print(result.content)
+        return result.content
 
     def receipts_pay(self, request):
         body = {
