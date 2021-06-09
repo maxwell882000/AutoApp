@@ -322,7 +322,6 @@ class TransportViews(APIView):
                         run=detail.run + model.recommend_card.recommend_run
                     ),
                     comments="",
-                    date=
                     attach = attach
                 )
 
