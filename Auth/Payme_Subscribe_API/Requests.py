@@ -20,7 +20,7 @@ class Requests:
 
         result = requests.post(self.url, json=body, headers=self.headers)
         print(result.content)
-        return result.content
+        return result.json()
 
     def receipts_pay(self, request):
         body = {
