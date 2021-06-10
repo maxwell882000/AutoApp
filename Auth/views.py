@@ -204,8 +204,8 @@ class ChooseShareDetail(APIView):
             user = UserTransport.objects.get(emailOrPhone=kwargs['pk'])
             shared = UserTransport.objects.get(emailOrPhone=data['emailOrPhone'])
             detail = user.cards.get(id=data['id'])
-            if not shared.pro_account:
-                shared.cards.clear()
+            if not shared.pro_account and shared.cards.first() != None:
+                return Response(status=status.HTTP_403_FORBIDDEN)
             shared.cards.add(detail)
             shared.last_account = detail.id
             shared.save()
@@ -375,7 +375,7 @@ class TransportViews(APIView):
             user.save()
             return Response({"id": detail.id, 'id_cards': detail.cards_user.id}, status=status.HTTP_200_OK)
         else:
-            return Response({},status=status.HTTP_403_FORBIDDEN)
+            return Response({}, status=status.HTTP_403_FORBIDDEN)
 
     def put(self, request, pk, format=None):
         detail = TransportDetail.objects.get(id=pk)
