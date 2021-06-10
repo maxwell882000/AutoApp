@@ -131,7 +131,7 @@ def logout(request):
 class AmountProAccountView(APIView):
 
     def get(self, request, *args, **kwargs):
-        service = AmountProAccount.objects.all()
+        service = AmountProAccount.objects.filter(type=request.query_params['type'])
         serializer = AmountProAccountSerializer(service, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -620,8 +620,6 @@ class ProAccountView(APIView):
     def get(self, request, *args, **kwargs):
         data = PaynetProPayment.objects.get(user_id=request.query_params['user_id'])
         return Response({'balance': data.user.balans, 'customerId': data.customerId}, status=status.HTTP_200_OK)
-
-
 
 
 def clean(request, pk=None):
