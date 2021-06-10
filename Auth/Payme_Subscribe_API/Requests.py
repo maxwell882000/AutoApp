@@ -15,7 +15,7 @@ class Requests:
             "id": self.payer.id,
             "method": "receipts.create",
             "params": {
-                "amount": 1000 * 100,
+                "amount": amount.price * 100,
             }
         }
         print("BODY OF OBJECT {}".format(body))
