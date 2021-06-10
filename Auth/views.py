@@ -135,6 +135,18 @@ class AmountProAccountView(APIView):
         serializer = AmountProAccountSerializer(service, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        account = UserTransport.objects.get(id=data['user_id'])
+        amount = AmountProAccount.objects.get(id=data['amount_id'])
+        if account.balans >= amount.amount:
+            account.pro_account = True
+            account.duration += amount.duration
+            account.balans -= amount.amount
+            return Response({}, status=status.HTTP_200_OK)
+        else:
+            return Response({}, status=status.HTTP_401_UNAUTHORIZED)
+
 
 class RegisterOrLoginUsersViews(APIView):
 
