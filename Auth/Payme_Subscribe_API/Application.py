@@ -77,4 +77,5 @@ class Application:
                 self.__pay(data=data, payer=payer)
             except PayMeException as e_payme:
                 payer.user.pro_account = False
-                payer.delete()
+                payer.token = ""
+                payer.save()

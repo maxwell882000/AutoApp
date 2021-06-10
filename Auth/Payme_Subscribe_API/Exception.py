@@ -1,6 +1,7 @@
 from re import M, U
 from rest_framework.response import Response
 from rest_framework import status
+from Auth.models import PaymeProPayment
 
 
 class PayMeException(Exception):
@@ -11,24 +12,25 @@ class PayMeException(Exception):
     ERROR_REQUIRED_PARAMS = -66666
 
     error_message = {
-        "incorrect_id" : "Не правильный ID вернулся",
-        "incorrect_service" : "Не правильный вид услуги был выбран",
-        "incorrect_user" : "User",
-        "required" : "Required params",
+        "incorrect_id": "Не правильный ID вернулся!",
+        "incorrect_service": "Не правильный вид услуги был выбран!",
+        "incorrect_user": "Нету разрешения для этого пользователя!",
+        "required": "Необходимое поле пропущенно!",
     }
+
     def __init__(self, request_id, code, message):
         self.code = code
         self.request_id = request_id
         self.message = message
 
-    def handleError( error, user = None,payer = None ):
+    def handleError(error, user=None, payer: PaymeProPayment = None):
         if user is not None:
             user.pro_account = False
             user.save()
         if payer is not None:
-            payer.delete()
+            payer.token = ""
+            payer.save()
         return error.send()
-       
 
     def send(self):
         response = {
