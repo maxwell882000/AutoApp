@@ -375,7 +375,7 @@ class TransportViews(APIView):
             user.save()
             return Response({"id": detail.id, 'id_cards': detail.cards_user.id}, status=status.HTTP_200_OK)
         else:
-            return Response({},status=status.HTTP_400_BAD_REQUEST)
+            return Response({},status=status.HTTP_403_FORBIDDEN)
 
     def put(self, request, pk, format=None):
         detail = TransportDetail.objects.get(id=pk)
