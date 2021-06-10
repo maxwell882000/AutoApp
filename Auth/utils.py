@@ -6,6 +6,6 @@ def create_new_ref_number():
 
 
 ChoicesForSubscribe = (
-    (0, 'Одноразовая'),
+    (0, 'Одноразовая оплата'),
     (1, 'Подписка')
 )

@@ -304,7 +304,7 @@ class AmountProAccount(models.Model):
     name_subscribe = models.CharField(max_length=50, verbose_name="Название подписки")
     price = models.IntegerField(verbose_name="Цена подписки в суммах", default=0)
     duration = models.IntegerField(verbose_name="Длительность подписки в днях", default=0)
-    type = models.IntegerField(choices=ChoicesForSubscribe, default=1)
+    type = models.IntegerField(choices=ChoicesForSubscribe, default=0, verbose_name="Тип подписки")
 
     class Meta:
         verbose_name_plural = 'Подписка'
