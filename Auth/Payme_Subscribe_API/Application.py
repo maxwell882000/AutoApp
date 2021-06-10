@@ -70,7 +70,7 @@ class Application:
             payer.user.save()
 
     def background_run(self):
-        payers = PaymeProPayment.objects.filter(user__duration=1).all()
+        payers = PaymeProPayment.objects.filter(user__duration=1).exclude(token="").all()
         for payer in payers:
             data = Requests(payer=payer)
             try:
