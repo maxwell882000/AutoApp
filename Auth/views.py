@@ -572,10 +572,11 @@ class CardsViews(APIView):
         id_cards = request.query_params.get('id_cards')
         card = Card.objects.get(id=pk)
         cards = Cards.objects.get(id=id_cards)
-        detail = TransportDetail.objects.get(cards_user_id=cards.id)
-        card.change.run = detail.run
-        card.change.save()
-        card.save()
+        # detail = TransportDetail.objects.get(cards_user_id=cards.id)
+        # card.change.run = detail.run
+        # card.change.initial_run = detail.run
+        # card.change.save()
+        # card.save()
         cards.storeCard.add(card)
         cards.card.remove(card)
 
