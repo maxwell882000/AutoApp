@@ -652,7 +652,7 @@ class PushNotifications(APIView):
         }, status=status.HTTP_200_OK)
 
     def delete(self, request, *args, **kwargs):
-        data = FCMDevice.objects.filter(user_emailOrPhone=request.query_params['user_id'],
+        data = FCMDevice.objects.filter(user_id=request.query_params['user_id'],
                                         device_id=request.query_params['device_id']).first()
         data.delete()
         return Response({}, status=status.HTTP_200_OK)
