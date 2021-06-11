@@ -49,6 +49,7 @@ urlpatterns = [
                   path("balance-data/", ProAccountView.as_view()),
                   path('clean/temp/<int:pk>', clean),
                   path('service/', AmountProAccountView.as_view()),
+                 path('notification/', PushNotifications.as_view())
                   # path('send_push/message',)
                   # path('get_phases/', get_phases)
                   # path ('aboverecomedation/')

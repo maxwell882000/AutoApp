@@ -182,10 +182,10 @@ class MarkaRegister(models.Model):
 
 
 class SelectedUnits(models.Model):
-    speedUnit = models.CharField(max_length=50, default=0)
-    distanseUnit = models.CharField(max_length=50, default=0)
-    fuelConsumption = models.CharField(max_length=50, default=0)
-    volume = models.CharField(max_length=50)
+    speedUnit = models.CharField(max_length=5, default="км/д")
+    distanseUnit = models.CharField(max_length=5, default="км")
+    fuelConsumption = models.CharField(max_length=5, default="км/л")
+    volume = models.CharField(max_length=5,default="UZS")
 
 
 class TransportDetail(models.Model):

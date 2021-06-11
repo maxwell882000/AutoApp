@@ -15,7 +15,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from .renderers import JPEGRenderer, XmlRenderer
 from .Payme_Subscribe_API.Application import Application as Payme_Application
 from .Paynet.Application import Application as PaynetApplication
-
+from fcm_django.models import FCMDevice, AbstractFCMDevice
 from .parser import ParserXML
 import base64
 from .Payme_Merchant_API.Application import Application
@@ -633,6 +633,29 @@ class ProAccountView(APIView):
     def get(self, request, *args, **kwargs):
         data = PaynetProPayment.objects.get(user_id=request.query_params['user_id'])
         return Response({'balance': data.user.balans, 'customerId': data.customerId}, status=status.HTTP_200_OK)
+
+
+class PushNotifications(APIView):
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        user = UserTransport.objects.get(id=data['id'])
+        device_id = id(datetime.now().timestamp())
+        FCMDevice.objects.create(
+            name=user.emailOrPhone,
+            user=user,
+            device_id=device_id,
+            registration_id=data['token'],
+            type=AbstractFCMDevice.DEVICE_TYPES[0][0] if data['type'] == 0 else AbstractFCMDevice.DEVICE_TYPES[1][0]
+        )
+        return Response({
+            'device_id': device_id,
+        }, status=status.HTTP_200_OK)
+
+    def delete(self, request, *args, **kwargs):
+        data = FCMDevice.objects.filter(user_id=request.query_params['user_id'],
+                                        device_id=request.query_params['device_id']).first()
+        data.delete()
+        return Response({}, status=status.HTTP_200_OK)
 
 
 def clean(request, pk=None):
