@@ -373,7 +373,7 @@ class TransportViews(APIView):
             user.cards.add(detail)
             user.last_account = detail.id
             user.save()
-            return Response({"id": detail.id, 'id_cards': detail.cards_user.id}, status=status.HTTP_200_OK)
+            return Response({"id": detail.id, 'id_cards': detail.cards_user.id , 'id_expenses': expenses.id}, status=status.HTTP_200_OK)
         else:
             return Response({}, status=status.HTTP_403_FORBIDDEN)
 
