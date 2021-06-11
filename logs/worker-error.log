@@ -1,0 +1,1348 @@
+You are using `--app` as an option of the beat sub-command:
+celery beat --app celeryapp <...>
+
+The support for this usage was removed in Celery 5.0. Instead you should use `--app` as a global option:
+celery --app celeryapp beat <...>
+Usage: celery beat [OPTIONS]
+Try 'celery beat --help' for help.
+
+Error: no such option: --app
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-08 11:12:45,198: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds... (1/100)
+
+You are using `--app` as an option of the beat sub-command:
+celery beat --app celeryapp <...>
+
+The support for this usage was removed in Celery 5.0. Instead you should use `--app` as a global option:
+celery --app celeryapp beat <...>
+Usage: celery beat [OPTIONS]
+Try 'celery beat --help' for help.
+
+Error: no such option: --app
+[2021-06-08 11:12:47,208: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds... (2/100)
+
+You are using `--app` as an option of the beat sub-command:
+celery beat --app celeryapp <...>
+
+The support for this usage was removed in Celery 5.0. Instead you should use `--app` as a global option:
+celery --app celeryapp beat <...>
+Usage: celery beat [OPTIONS]
+Try 'celery beat --help' for help.
+
+Error: no such option: --app
+[2021-06-08 11:12:51,222: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 6.00 seconds... (3/100)
+
+You are using `--app` as an option of the beat sub-command:
+celery beat --app celeryapp <...>
+
+The support for this usage was removed in Celery 5.0. Instead you should use `--app` as a global option:
+celery --app celeryapp beat <...>
+Usage: celery beat [OPTIONS]
+Try 'celery beat --help' for help.
+
+Error: no such option: --app
+[2021-06-08 11:12:57,237: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds... (4/100)
+
+[2021-06-08 11:13:05,253: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds... (5/100)
+
+[2021-06-08 11:13:15,273: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds... (6/100)
+
+[2021-06-08 11:13:27,293: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds... (7/100)
+
+[2021-06-08 11:13:41,316: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds... (8/100)
+
+[2021-06-08 11:13:57,339: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 18.00 seconds... (9/100)
+
+[2021-06-08 11:14:15,370: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 20.00 seconds... (10/100)
+
+[2021-06-08 11:14:35,403: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 22.00 seconds... (11/100)
+
+[2021-06-08 11:14:57,438: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 24.00 seconds... (12/100)
+
+[2021-06-08 11:15:21,476: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 26.00 seconds... (13/100)
+
+[2021-06-08 11:15:47,516: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 28.00 seconds... (14/100)
+
+[2021-06-08 11:16:15,558: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 30.00 seconds... (15/100)
+
+[2021-06-08 11:16:45,602: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds... (16/100)
+
+[2021-06-08 11:17:17,647: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds... (16/100)
+
+[2021-06-08 11:17:49,689: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds... (16/100)
+
+[2021-06-08 11:18:21,732: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds... (16/100)
+
+[2021-06-08 11:18:53,776: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds... (16/100)
+
+[2021-06-08 11:19:25,823: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds... (16/100)
+
+[2021-06-08 11:19:57,871: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds... (16/100)
+
+[2021-06-08 11:20:29,912: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds... (16/100)
+
+[2021-06-08 11:21:01,955: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds... (16/100)
+
+[2021-06-08 11:21:33,996: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds... (16/100)
+
+[2021-06-08 11:22:06,039: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds... (16/100)
+
+[2021-06-08 11:22:38,081: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds... (16/100)
+
+[2021-06-08 11:23:10,122: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 32.00 seconds... (16/100)
+
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/worker.py", line 320, in worker
+    worker = app.Worker(
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 99, in __init__
+    self.setup_instance(**self.prepare_args(**kwargs))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 122, in setup_instance
+    self.should_use_eventloop() if use_eventloop is None
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 241, in should_use_eventloop
+    self._conninfo.transport.implements.asynchronous and
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 898, in transport
+    self._transport = self.create_transport()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 607, in create_transport
+    return self.get_transport_cls()(client=self)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/transport/redis.py", line 1048, in __init__
+    raise ImportError('Missing redis library (pip install redis)')
+ImportError: Missing redis library (pip install redis)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/worker.py", line 320, in worker
+    worker = app.Worker(
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 99, in __init__
+    self.setup_instance(**self.prepare_args(**kwargs))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 122, in setup_instance
+    self.should_use_eventloop() if use_eventloop is None
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 241, in should_use_eventloop
+    self._conninfo.transport.implements.asynchronous and
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 898, in transport
+    self._transport = self.create_transport()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 607, in create_transport
+    return self.get_transport_cls()(client=self)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/transport/redis.py", line 1048, in __init__
+    raise ImportError('Missing redis library (pip install redis)')
+ImportError: Missing redis library (pip install redis)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/worker.py", line 320, in worker
+    worker = app.Worker(
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 99, in __init__
+    self.setup_instance(**self.prepare_args(**kwargs))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 122, in setup_instance
+    self.should_use_eventloop() if use_eventloop is None
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 241, in should_use_eventloop
+    self._conninfo.transport.implements.asynchronous and
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 898, in transport
+    self._transport = self.create_transport()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 607, in create_transport
+    return self.get_transport_cls()(client=self)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/transport/redis.py", line 1048, in __init__
+    raise ImportError('Missing redis library (pip install redis)')
+ImportError: Missing redis library (pip install redis)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/worker.py", line 320, in worker
+    worker = app.Worker(
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 99, in __init__
+    self.setup_instance(**self.prepare_args(**kwargs))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 122, in setup_instance
+    self.should_use_eventloop() if use_eventloop is None
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 241, in should_use_eventloop
+    self._conninfo.transport.implements.asynchronous and
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 898, in transport
+    self._transport = self.create_transport()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 607, in create_transport
+    return self.get_transport_cls()(client=self)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/transport/redis.py", line 1048, in __init__
+    raise ImportError('Missing redis library (pip install redis)')
+ImportError: Missing redis library (pip install redis)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-08 11:24:52,613: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-08 11:24:52,624: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-08 11:24:53,645: INFO/MainProcess] mingle: all alone
+[2021-06-08 11:24:53,659: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-08 11:24:53,659: INFO/MainProcess] celery@user ready.
+[2021-06-08 11:30:28,463: INFO/MainProcess] Received task: Auth.tasks.add[5ac0e8b0-6328-4f6e-9c30-67c724d842eb]  
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-08 11:30:28,470: INFO/ForkPoolWorker-2] Task Auth.tasks.add[5ac0e8b0-6328-4f6e-9c30-67c724d842eb] succeeded in 0.0035564179997891188s: 20
+[2021-06-08 11:39:35,695: INFO/MainProcess] Received task: Auth.tasks.add[d3e0e23c-a3ce-45b1-8f3b-3d610bb1c7df]  
+[2021-06-08 11:39:35,697: INFO/ForkPoolWorker-2] Task Auth.tasks.add[d3e0e23c-a3ce-45b1-8f3b-3d610bb1c7df] succeeded in 0.0015084050010045758s: 20
+[2021-06-08 11:46:45,899: INFO/MainProcess] Received task: Auth.tasks.add[2c4f3a6f-f503-472d-bb85-7cac6e8c8e75]  
+[2021-06-08 11:46:45,904: INFO/ForkPoolWorker-2] Task Auth.tasks.add[2c4f3a6f-f503-472d-bb85-7cac6e8c8e75] succeeded in 0.001494474001447088s: 20
+[2021-06-08 11:46:46,877: INFO/MainProcess] Received task: Auth.tasks.add[dc197d43-290b-4ac5-b897-b8537837798a]  
+[2021-06-08 11:46:46,881: INFO/ForkPoolWorker-2] Task Auth.tasks.add[dc197d43-290b-4ac5-b897-b8537837798a] succeeded in 0.002100673000313691s: 20
+[2021-06-08 11:46:47,880: INFO/MainProcess] Received task: Auth.tasks.add[d2f20ea1-5d36-44de-a4f2-59521465498b]  
+[2021-06-08 11:46:47,882: INFO/ForkPoolWorker-2] Task Auth.tasks.add[d2f20ea1-5d36-44de-a4f2-59521465498b] succeeded in 0.001541796000310569s: 20
+[2021-06-08 11:46:48,882: INFO/MainProcess] Received task: Auth.tasks.add[ca1f6273-5552-4493-87f8-a39880ab43bf]  
+[2021-06-08 11:46:48,885: INFO/ForkPoolWorker-2] Task Auth.tasks.add[ca1f6273-5552-4493-87f8-a39880ab43bf] succeeded in 0.0015052599992486648s: 20
+[2021-06-08 11:46:49,885: INFO/MainProcess] Received task: Auth.tasks.add[56f3012b-d47e-47ca-9286-730bba93247b]  
+[2021-06-08 11:46:49,887: INFO/ForkPoolWorker-2] Task Auth.tasks.add[56f3012b-d47e-47ca-9286-730bba93247b] succeeded in 0.001520410000011907s: 20
+[2021-06-08 11:46:50,887: INFO/MainProcess] Received task: Auth.tasks.add[9ab72bb1-d65c-4eab-8f1f-89b070c3765a]  
+[2021-06-08 11:46:50,890: INFO/ForkPoolWorker-2] Task Auth.tasks.add[9ab72bb1-d65c-4eab-8f1f-89b070c3765a] succeeded in 0.0016426420006609987s: 20
+[2021-06-08 11:46:51,890: INFO/MainProcess] Received task: Auth.tasks.add[131cbd12-b26d-4d2e-9ad0-bbc974512824]  
+[2021-06-08 11:46:51,892: INFO/ForkPoolWorker-2] Task Auth.tasks.add[131cbd12-b26d-4d2e-9ad0-bbc974512824] succeeded in 0.0015159889990172815s: 20
+[2021-06-08 11:46:52,892: INFO/MainProcess] Received task: Auth.tasks.add[b1916f98-833a-4c70-be1c-90ffe5393d9b]  
+[2021-06-08 11:46:52,894: INFO/ForkPoolWorker-2] Task Auth.tasks.add[b1916f98-833a-4c70-be1c-90ffe5393d9b] succeeded in 0.0015222579986584606s: 20
+[2021-06-08 11:46:53,893: INFO/MainProcess] Received task: Auth.tasks.add[3b377373-0302-45c9-ba51-8b9c44e301ca]  
+[2021-06-08 11:46:53,898: INFO/ForkPoolWorker-2] Task Auth.tasks.add[3b377373-0302-45c9-ba51-8b9c44e301ca] succeeded in 0.003278263999163755s: 20
+[2021-06-08 11:46:54,893: INFO/MainProcess] Received task: Auth.tasks.add[2d043c49-e91d-4d3d-ad32-b6bf639de90a]  
+[2021-06-08 11:46:54,895: INFO/ForkPoolWorker-2] Task Auth.tasks.add[2d043c49-e91d-4d3d-ad32-b6bf639de90a] succeeded in 0.0015234329985105433s: 20
+[2021-06-08 11:46:55,894: INFO/MainProcess] Received task: Auth.tasks.add[28d568af-ba05-4679-9941-a3d5794e9980]  
+[2021-06-08 11:46:55,896: INFO/ForkPoolWorker-2] Task Auth.tasks.add[28d568af-ba05-4679-9941-a3d5794e9980] succeeded in 0.001508834000560455s: 20
+[2021-06-08 11:46:56,896: INFO/MainProcess] Received task: Auth.tasks.add[32bdad8c-61d7-4105-98e1-ec4f6be402e9]  
+[2021-06-08 11:46:56,899: INFO/ForkPoolWorker-2] Task Auth.tasks.add[32bdad8c-61d7-4105-98e1-ec4f6be402e9] succeeded in 0.0015126220005186042s: 20
+[2021-06-08 11:46:57,898: INFO/MainProcess] Received task: Auth.tasks.add[2a8dcdfb-1eb5-4c94-9ad8-1b20e6d2931b]  
+[2021-06-08 11:46:57,901: INFO/ForkPoolWorker-2] Task Auth.tasks.add[2a8dcdfb-1eb5-4c94-9ad8-1b20e6d2931b] succeeded in 0.0015074080001795664s: 20
+[2021-06-08 11:46:58,901: INFO/MainProcess] Received task: Auth.tasks.add[8af19c18-8380-452a-938a-c4205903771a]  
+[2021-06-08 11:46:58,903: INFO/ForkPoolWorker-2] Task Auth.tasks.add[8af19c18-8380-452a-938a-c4205903771a] succeeded in 0.0015207799988274928s: 20
+[2021-06-08 11:46:59,903: INFO/MainProcess] Received task: Auth.tasks.add[d2d00e00-e68d-4e05-8ba0-c8d5e780568f]  
+[2021-06-08 11:46:59,906: INFO/ForkPoolWorker-2] Task Auth.tasks.add[d2d00e00-e68d-4e05-8ba0-c8d5e780568f] succeeded in 0.0015271419997588964s: 20
+[2021-06-08 11:47:00,904: INFO/MainProcess] Received task: Auth.tasks.add[a3849aeb-d821-4165-b0c3-c1c71ff92faa]  
+[2021-06-08 11:47:00,907: INFO/ForkPoolWorker-2] Task Auth.tasks.add[a3849aeb-d821-4165-b0c3-c1c71ff92faa] succeeded in 0.0015086919993336778s: 20
+[2021-06-08 11:47:01,905: INFO/MainProcess] Received task: Auth.tasks.add[b6e286d6-5a20-439c-b6c2-66c9e2464c78]  
+[2021-06-08 11:47:01,907: INFO/ForkPoolWorker-2] Task Auth.tasks.add[b6e286d6-5a20-439c-b6c2-66c9e2464c78] succeeded in 0.0014984939989517443s: 20
+[2021-06-08 11:47:02,905: INFO/MainProcess] Received task: Auth.tasks.add[24ea2cce-1d65-474d-898f-e14a707b931e]  
+[2021-06-08 11:47:02,907: INFO/ForkPoolWorker-2] Task Auth.tasks.add[24ea2cce-1d65-474d-898f-e14a707b931e] succeeded in 0.0014923199996701442s: 20
+[2021-06-08 11:47:03,905: INFO/MainProcess] Received task: Auth.tasks.add[38b0b121-e0c9-4e14-bd90-90c6afc05119]  
+[2021-06-08 11:47:03,907: INFO/ForkPoolWorker-2] Task Auth.tasks.add[38b0b121-e0c9-4e14-bd90-90c6afc05119] succeeded in 0.0015012799995020032s: 20
+[2021-06-08 11:47:04,907: INFO/MainProcess] Received task: Auth.tasks.add[dcfc62fb-32a3-4db5-9702-e16502352555]  
+[2021-06-08 11:47:04,910: INFO/ForkPoolWorker-2] Task Auth.tasks.add[dcfc62fb-32a3-4db5-9702-e16502352555] succeeded in 0.0015557639999315143s: 20
+[2021-06-08 11:47:05,908: INFO/MainProcess] Received task: Auth.tasks.add[4da13317-9a5e-46f4-b6fb-9f424684923e]  
+[2021-06-08 11:47:05,910: INFO/ForkPoolWorker-2] Task Auth.tasks.add[4da13317-9a5e-46f4-b6fb-9f424684923e] succeeded in 0.001535680999950273s: 20
+[2021-06-08 11:47:06,911: INFO/MainProcess] Received task: Auth.tasks.add[e055c737-9d4f-48f1-b5ff-f7f8ca902a7d]  
+[2021-06-08 11:47:06,913: INFO/ForkPoolWorker-2] Task Auth.tasks.add[e055c737-9d4f-48f1-b5ff-f7f8ca902a7d] succeeded in 0.0014476629985438194s: 20
+[2021-06-08 11:47:07,913: INFO/MainProcess] Received task: Auth.tasks.add[c86fa3c8-d8e7-484f-931f-3cc58cac4e8f]  
+[2021-06-08 11:47:07,916: INFO/ForkPoolWorker-2] Task Auth.tasks.add[c86fa3c8-d8e7-484f-931f-3cc58cac4e8f] succeeded in 0.0015203000002657063s: 20
+[2021-06-08 11:47:08,914: INFO/MainProcess] Received task: Auth.tasks.add[09d228ed-0ea0-4e35-9dc9-c0eed6b98260]  
+[2021-06-08 11:47:08,917: INFO/ForkPoolWorker-2] Task Auth.tasks.add[09d228ed-0ea0-4e35-9dc9-c0eed6b98260] succeeded in 0.0015035989999887533s: 20
+[2021-06-08 11:47:09,916: INFO/MainProcess] Received task: Auth.tasks.add[38c863aa-ff09-45a8-a4d8-8b67f86add96]  
+[2021-06-08 11:47:09,918: INFO/ForkPoolWorker-2] Task Auth.tasks.add[38c863aa-ff09-45a8-a4d8-8b67f86add96] succeeded in 0.0015642439993825974s: 20
+[2021-06-08 11:47:10,918: INFO/MainProcess] Received task: Auth.tasks.add[e95c2d97-d246-4ff7-bb4c-9125c3674a1c]  
+[2021-06-08 11:47:10,920: INFO/ForkPoolWorker-2] Task Auth.tasks.add[e95c2d97-d246-4ff7-bb4c-9125c3674a1c] succeeded in 0.0014694850015075644s: 20
+[2021-06-08 11:47:11,920: INFO/MainProcess] Received task: Auth.tasks.add[a7c235a7-6963-4a78-b846-90f1bfc649e1]  
+[2021-06-08 11:47:11,922: INFO/ForkPoolWorker-2] Task Auth.tasks.add[a7c235a7-6963-4a78-b846-90f1bfc649e1] succeeded in 0.0015511099991272204s: 20
+[2021-06-08 11:47:12,920: INFO/MainProcess] Received task: Auth.tasks.add[582c75c8-072a-4380-9b2e-61b1518b9b44]  
+[2021-06-08 11:47:12,922: INFO/ForkPoolWorker-2] Task Auth.tasks.add[582c75c8-072a-4380-9b2e-61b1518b9b44] succeeded in 0.0014923449998605065s: 20
+[2021-06-08 11:47:13,923: INFO/MainProcess] Received task: Auth.tasks.add[e109927b-2fd4-4ce0-89e0-46709b54a1aa]  
+[2021-06-08 11:47:13,925: INFO/ForkPoolWorker-2] Task Auth.tasks.add[e109927b-2fd4-4ce0-89e0-46709b54a1aa] succeeded in 0.0015239040003507398s: 20
+[2021-06-08 11:47:14,925: INFO/MainProcess] Received task: Auth.tasks.add[f8a056b4-f7c8-458e-9b71-049c97692920]  
+[2021-06-08 11:47:14,928: INFO/ForkPoolWorker-2] Task Auth.tasks.add[f8a056b4-f7c8-458e-9b71-049c97692920] succeeded in 0.0015185270003712503s: 20
+[2021-06-08 11:47:15,927: INFO/MainProcess] Received task: Auth.tasks.add[a0364edc-df2f-48a7-9daf-0a893fad5ff3]  
+[2021-06-08 11:47:15,930: INFO/ForkPoolWorker-2] Task Auth.tasks.add[a0364edc-df2f-48a7-9daf-0a893fad5ff3] succeeded in 0.0016244829985225806s: 20
+[2021-06-08 11:47:16,930: INFO/MainProcess] Received task: Auth.tasks.add[3546b94e-c4f0-4327-90ba-308cc6f00365]  
+[2021-06-08 11:47:16,932: INFO/ForkPoolWorker-2] Task Auth.tasks.add[3546b94e-c4f0-4327-90ba-308cc6f00365] succeeded in 0.0015124580004339805s: 20
+[2021-06-08 11:47:17,932: INFO/MainProcess] Received task: Auth.tasks.add[586e120a-0112-4734-b6b2-c5e2727da729]  
+[2021-06-08 11:47:17,934: INFO/ForkPoolWorker-2] Task Auth.tasks.add[586e120a-0112-4734-b6b2-c5e2727da729] succeeded in 0.001527038000858738s: 20
+[2021-06-08 11:47:18,934: INFO/MainProcess] Received task: Auth.tasks.add[a6dd8395-d5c2-48df-9676-31f7df1670f2]  
+[2021-06-08 11:47:18,937: INFO/ForkPoolWorker-2] Task Auth.tasks.add[a6dd8395-d5c2-48df-9676-31f7df1670f2] succeeded in 0.0015222319998429157s: 20
+[2021-06-08 11:47:19,949: INFO/MainProcess] Received task: Auth.tasks.add[225a2af0-3577-423a-a57b-6052942cbc7e]  
+[2021-06-08 11:47:19,952: INFO/ForkPoolWorker-2] Task Auth.tasks.add[225a2af0-3577-423a-a57b-6052942cbc7e] succeeded in 0.0014948169991839677s: 20
+[2021-06-08 11:47:20,942: INFO/MainProcess] Received task: Auth.tasks.add[9d9f5997-4066-4dc8-a406-1a8d8b5f0e61]  
+[2021-06-08 11:47:20,944: INFO/ForkPoolWorker-2] Task Auth.tasks.add[9d9f5997-4066-4dc8-a406-1a8d8b5f0e61] succeeded in 0.0014813399993727216s: 20
+[2021-06-08 11:47:21,941: INFO/MainProcess] Received task: Auth.tasks.add[e03d267e-9cd9-4c72-9e2c-040edc9ef934]  
+[2021-06-08 11:47:21,944: INFO/ForkPoolWorker-2] Task Auth.tasks.add[e03d267e-9cd9-4c72-9e2c-040edc9ef934] succeeded in 0.002090908999889507s: 20
+[2021-06-08 11:47:22,943: INFO/MainProcess] Received task: Auth.tasks.add[7f750009-6c16-4442-b937-5045285de464]  
+[2021-06-08 11:47:22,947: INFO/ForkPoolWorker-2] Task Auth.tasks.add[7f750009-6c16-4442-b937-5045285de464] succeeded in 0.0021620700008497806s: 20
+[2021-06-08 11:47:23,945: INFO/MainProcess] Received task: Auth.tasks.add[8dc4d2b1-d9e8-4603-baf3-b99d53749c45]  
+[2021-06-08 11:47:23,948: INFO/ForkPoolWorker-2] Task Auth.tasks.add[8dc4d2b1-d9e8-4603-baf3-b99d53749c45] succeeded in 0.0015132539992919192s: 20
+[2021-06-08 11:47:24,950: INFO/MainProcess] Received task: Auth.tasks.add[747a9452-243c-4567-b650-a7100d6a6fc8]  
+[2021-06-08 11:47:24,953: INFO/ForkPoolWorker-2] Task Auth.tasks.add[747a9452-243c-4567-b650-a7100d6a6fc8] succeeded in 0.001530358998934389s: 20
+[2021-06-08 11:47:25,950: INFO/MainProcess] Received task: Auth.tasks.add[cb2d8204-f008-49d2-8e4c-9d19746d00c8]  
+[2021-06-08 11:47:25,953: INFO/ForkPoolWorker-2] Task Auth.tasks.add[cb2d8204-f008-49d2-8e4c-9d19746d00c8] succeeded in 0.002084279998598504s: 20
+[2021-06-08 11:47:26,951: INFO/MainProcess] Received task: Auth.tasks.add[a2d5c65f-c0f7-43ed-8158-923cdfedaf4d]  
+[2021-06-08 11:47:26,954: INFO/ForkPoolWorker-2] Task Auth.tasks.add[a2d5c65f-c0f7-43ed-8158-923cdfedaf4d] succeeded in 0.0021326179994503036s: 20
+[2021-06-08 11:47:27,956: INFO/MainProcess] Received task: Auth.tasks.add[d91bfb1d-3f64-4880-ab51-a9197c3204b5]  
+[2021-06-08 11:47:27,959: INFO/ForkPoolWorker-2] Task Auth.tasks.add[d91bfb1d-3f64-4880-ab51-a9197c3204b5] succeeded in 0.0014718850015924545s: 20
+[2021-06-08 11:47:28,955: INFO/MainProcess] Received task: Auth.tasks.add[473944a8-8c63-4325-95fe-19907a83a4bf]  
+[2021-06-08 11:47:28,959: INFO/ForkPoolWorker-2] Task Auth.tasks.add[473944a8-8c63-4325-95fe-19907a83a4bf] succeeded in 0.0021127639993210323s: 20
+[2021-06-08 11:47:29,959: INFO/MainProcess] Received task: Auth.tasks.add[b9d63211-8a4d-418f-ba30-c5bab1b365fd]  
+[2021-06-08 11:47:29,961: INFO/ForkPoolWorker-2] Task Auth.tasks.add[b9d63211-8a4d-418f-ba30-c5bab1b365fd] succeeded in 0.0014837079997960245s: 20
+[2021-06-08 11:47:30,958: INFO/MainProcess] Received task: Auth.tasks.add[e4f9ca05-a1a8-404f-8c27-0d01a696af3d]  
+[2021-06-08 11:47:30,961: INFO/ForkPoolWorker-2] Task Auth.tasks.add[e4f9ca05-a1a8-404f-8c27-0d01a696af3d] succeeded in 0.0021124470003996976s: 20
+[2021-06-08 11:47:31,964: INFO/MainProcess] Received task: Auth.tasks.add[3a55f1f4-c7ab-43cb-bc2a-19e0e856548e]  
+[2021-06-08 11:47:31,966: INFO/ForkPoolWorker-2] Task Auth.tasks.add[3a55f1f4-c7ab-43cb-bc2a-19e0e856548e] succeeded in 0.0014889279991621152s: 20
+[2021-06-08 11:47:32,963: INFO/MainProcess] Received task: Auth.tasks.add[b10304d4-4337-46e5-a8af-a067f1a33453]  
+[2021-06-08 11:47:32,966: INFO/ForkPoolWorker-2] Task Auth.tasks.add[b10304d4-4337-46e5-a8af-a067f1a33453] succeeded in 0.00209845400058839s: 20
+[2021-06-08 11:47:33,968: INFO/MainProcess] Received task: Auth.tasks.add[4779b20a-3ec9-43de-ae7a-9fea56eee274]  
+[2021-06-08 11:47:33,970: INFO/ForkPoolWorker-2] Task Auth.tasks.add[4779b20a-3ec9-43de-ae7a-9fea56eee274] succeeded in 0.0014840550011285814s: 20
+[2021-06-08 11:47:34,967: INFO/MainProcess] Received task: Auth.tasks.add[50524d53-e8df-4468-901f-2e3fd98e1ac2]  
+[2021-06-08 11:47:34,970: INFO/ForkPoolWorker-2] Task Auth.tasks.add[50524d53-e8df-4468-901f-2e3fd98e1ac2] succeeded in 0.002107272999637644s: 20
+[2021-06-08 11:47:35,973: INFO/MainProcess] Received task: Auth.tasks.add[d05c83f9-0676-48bf-9c0d-e1f39e0640c7]  
+[2021-06-08 11:47:35,975: INFO/ForkPoolWorker-2] Task Auth.tasks.add[d05c83f9-0676-48bf-9c0d-e1f39e0640c7] succeeded in 0.0014560680010617943s: 20
+[2021-06-08 11:47:36,972: INFO/MainProcess] Received task: Auth.tasks.add[06aff894-6a98-4ea7-88c5-7564eb02ba8b]  
+[2021-06-08 11:47:36,976: INFO/ForkPoolWorker-2] Task Auth.tasks.add[06aff894-6a98-4ea7-88c5-7564eb02ba8b] succeeded in 0.0021821669997734716s: 20
+[2021-06-08 11:47:37,977: INFO/MainProcess] Received task: Auth.tasks.add[9796a367-c8af-4e5c-9166-fa013883698b]  
+[2021-06-08 11:47:37,980: INFO/ForkPoolWorker-2] Task Auth.tasks.add[9796a367-c8af-4e5c-9166-fa013883698b] succeeded in 0.0014508579988614656s: 20
+[2021-06-08 11:47:38,974: INFO/MainProcess] Received task: Auth.tasks.add[bbf669aa-808b-488e-ab82-2923b7b666a5]  
+[2021-06-08 11:47:38,978: INFO/ForkPoolWorker-2] Task Auth.tasks.add[bbf669aa-808b-488e-ab82-2923b7b666a5] succeeded in 0.002279998001540662s: 20
+[2021-06-08 11:47:39,979: INFO/MainProcess] Received task: Auth.tasks.add[31cb2611-51b3-420b-96e5-84d8d0731cc0]  
+[2021-06-08 11:47:39,982: INFO/ForkPoolWorker-2] Task Auth.tasks.add[31cb2611-51b3-420b-96e5-84d8d0731cc0] succeeded in 0.001564431000588229s: 20
+[2021-06-08 11:47:40,979: INFO/MainProcess] Received task: Auth.tasks.add[c4f07e24-c235-4742-a6eb-c78a7f22b72d]  
+[2021-06-08 11:47:40,982: INFO/ForkPoolWorker-2] Task Auth.tasks.add[c4f07e24-c235-4742-a6eb-c78a7f22b72d] succeeded in 0.001582638999025221s: 20
+[2021-06-08 11:47:41,981: INFO/MainProcess] Received task: Auth.tasks.add[a3d03a85-7e0b-4866-b3e9-972f2d4eb873]  
+[2021-06-08 11:47:41,984: INFO/ForkPoolWorker-2] Task Auth.tasks.add[a3d03a85-7e0b-4866-b3e9-972f2d4eb873] succeeded in 0.0015169889993558172s: 20
+[2021-06-08 11:47:42,985: INFO/MainProcess] Received task: Auth.tasks.add[13356db1-a514-43c6-ae70-6a7b96ec52d1]  
+[2021-06-08 11:47:42,987: INFO/ForkPoolWorker-2] Task Auth.tasks.add[13356db1-a514-43c6-ae70-6a7b96ec52d1] succeeded in 0.0015612600000167731s: 20
+[2021-06-08 11:47:43,985: INFO/MainProcess] Received task: Auth.tasks.add[dfcb5645-b8f3-4e64-88b6-42ce6a3d0e78]  
+[2021-06-08 11:47:43,988: INFO/ForkPoolWorker-2] Task Auth.tasks.add[dfcb5645-b8f3-4e64-88b6-42ce6a3d0e78] succeeded in 0.0016645690011500847s: 20
+[2021-06-08 11:47:44,988: INFO/MainProcess] Received task: Auth.tasks.add[8c49b099-271a-4ab5-acc9-092d1ecf3a20]  
+[2021-06-08 11:47:44,990: INFO/ForkPoolWorker-2] Task Auth.tasks.add[8c49b099-271a-4ab5-acc9-092d1ecf3a20] succeeded in 0.00168711100013752s: 20
+[2021-06-08 11:47:45,992: INFO/MainProcess] Received task: Auth.tasks.add[66207fa1-9229-48c2-8270-06487697ca9a]  
+[2021-06-08 11:47:45,995: INFO/ForkPoolWorker-2] Task Auth.tasks.add[66207fa1-9229-48c2-8270-06487697ca9a] succeeded in 0.0015168009995250031s: 20
+[2021-06-08 11:47:46,989: INFO/MainProcess] Received task: Auth.tasks.add[b40f39a6-ff25-4067-ac9f-0378f1fd7f1a]  
+[2021-06-08 11:47:46,992: INFO/ForkPoolWorker-2] Task Auth.tasks.add[b40f39a6-ff25-4067-ac9f-0378f1fd7f1a] succeeded in 0.0014968819996283855s: 20
+[2021-06-08 11:47:47,992: INFO/MainProcess] Received task: Auth.tasks.add[df2f16ad-bc47-4c91-a4fd-329fdd404c9a]  
+[2021-06-08 11:47:47,994: INFO/ForkPoolWorker-2] Task Auth.tasks.add[df2f16ad-bc47-4c91-a4fd-329fdd404c9a] succeeded in 0.0015150529998209095s: 20
+[2021-06-08 11:47:48,994: INFO/MainProcess] Received task: Auth.tasks.add[f148d273-eaf1-4857-aefb-8a9ef84aec01]  
+[2021-06-08 11:47:48,996: INFO/ForkPoolWorker-2] Task Auth.tasks.add[f148d273-eaf1-4857-aefb-8a9ef84aec01] succeeded in 0.0015212199996312847s: 20
+[2021-06-08 11:47:49,996: INFO/MainProcess] Received task: Auth.tasks.add[e262c4f2-caf3-4d79-81c8-23291cc8fef6]  
+[2021-06-08 11:47:49,999: INFO/ForkPoolWorker-2] Task Auth.tasks.add[e262c4f2-caf3-4d79-81c8-23291cc8fef6] succeeded in 0.0014269930015871068s: 20
+[2021-06-08 11:47:50,998: INFO/MainProcess] Received task: Auth.tasks.add[308fc933-b862-4046-8c97-4758307f3943]  
+[2021-06-08 11:47:51,001: INFO/ForkPoolWorker-2] Task Auth.tasks.add[308fc933-b862-4046-8c97-4758307f3943] succeeded in 0.0015076569998200284s: 20
+[2021-06-08 11:47:52,001: INFO/MainProcess] Received task: Auth.tasks.add[60597339-046c-4882-b0b1-deaa7676730a]  
+[2021-06-08 11:47:52,003: INFO/ForkPoolWorker-2] Task Auth.tasks.add[60597339-046c-4882-b0b1-deaa7676730a] succeeded in 0.0015128899995033862s: 20
+[2021-06-08 11:47:53,002: INFO/MainProcess] Received task: Auth.tasks.add[6aa8bca4-7b07-42ef-b319-0473db4fa3e5]  
+[2021-06-08 11:47:53,005: INFO/ForkPoolWorker-2] Task Auth.tasks.add[6aa8bca4-7b07-42ef-b319-0473db4fa3e5] succeeded in 0.0014240939999581315s: 20
+[2021-06-08 11:47:54,005: INFO/MainProcess] Received task: Auth.tasks.add[5577b6c6-7cc7-474e-b189-8ca28d6d1247]  
+[2021-06-08 11:47:54,007: INFO/ForkPoolWorker-2] Task Auth.tasks.add[5577b6c6-7cc7-474e-b189-8ca28d6d1247] succeeded in 0.0014989039991633035s: 20
+[2021-06-08 11:47:55,007: INFO/MainProcess] Received task: Auth.tasks.add[d35402c7-3fc4-4e4d-9b6e-f2de6204c8cc]  
+[2021-06-08 11:47:55,010: INFO/ForkPoolWorker-2] Task Auth.tasks.add[d35402c7-3fc4-4e4d-9b6e-f2de6204c8cc] succeeded in 0.0015655639999749837s: 20
+[2021-06-08 11:47:56,009: INFO/MainProcess] Received task: Auth.tasks.add[7fa19fb5-0b1b-4c6a-832f-d175917cb121]  
+[2021-06-08 11:47:56,011: INFO/ForkPoolWorker-2] Task Auth.tasks.add[7fa19fb5-0b1b-4c6a-832f-d175917cb121] succeeded in 0.0014958899992052466s: 20
+[2021-06-08 11:47:57,011: INFO/MainProcess] Received task: Auth.tasks.add[e1b7d16e-8a53-491a-b189-c13c6e434706]  
+[2021-06-08 11:47:57,014: INFO/ForkPoolWorker-2] Task Auth.tasks.add[e1b7d16e-8a53-491a-b189-c13c6e434706] succeeded in 0.001584177000040654s: 20
+[2021-06-08 11:47:58,011: INFO/MainProcess] Received task: Auth.tasks.add[1a35c8b0-1f13-4b53-9205-82035ec84013]  
+[2021-06-08 11:47:58,014: INFO/ForkPoolWorker-2] Task Auth.tasks.add[1a35c8b0-1f13-4b53-9205-82035ec84013] succeeded in 0.0015453929991053883s: 20
+[2021-06-08 11:47:59,013: INFO/MainProcess] Received task: Auth.tasks.add[72040fbc-e7be-4126-97d0-c6504d401602]  
+[2021-06-08 11:47:59,016: INFO/ForkPoolWorker-2] Task Auth.tasks.add[72040fbc-e7be-4126-97d0-c6504d401602] succeeded in 0.0014909159999660915s: 20
+[2021-06-08 11:48:00,017: INFO/MainProcess] Received task: Auth.tasks.add[47c0e02a-8817-4193-b645-0a5549f88230]  
+[2021-06-08 11:48:00,019: INFO/ForkPoolWorker-2] Task Auth.tasks.add[47c0e02a-8817-4193-b645-0a5549f88230] succeeded in 0.001538746999358409s: 20
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-08 13:40:48,486: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-08 13:40:48,497: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-08 13:40:49,519: INFO/MainProcess] mingle: all alone
+[2021-06-08 13:40:49,530: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-08 13:40:49,530: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-08 13:52:50,158: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-08 13:52:50,169: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-08 13:52:51,189: INFO/MainProcess] mingle: all alone
+[2021-06-08 13:52:51,200: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-08 13:52:51,200: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-08 14:09:37,941: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-08 14:09:37,950: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-08 14:09:38,970: INFO/MainProcess] mingle: all alone
+[2021-06-08 14:09:38,987: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-08 14:09:38,987: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-08 14:14:44,668: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-08 14:14:44,679: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-08 14:14:45,699: INFO/MainProcess] mingle: all alone
+[2021-06-08 14:14:45,710: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-08 14:14:45,710: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 05:04:06,678: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 05:04:06,688: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 05:04:07,709: INFO/MainProcess] mingle: all alone
+[2021-06-09 05:04:07,723: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 05:04:07,723: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/worker.py", line 320, in worker
+    worker = app.Worker(
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/registry.py", line 70, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 589, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 582, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/AutoApp/urls.py", line 21, in <module>
+    path('', include('Auth.urls')),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/Auth/urls.py", line 50, in <module>
+    path('get_wsdl', GetWSDL.as_view())
+NameError: name 'GetWSDL' is not defined
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/worker.py", line 320, in worker
+    worker = app.Worker(
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/registry.py", line 70, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 589, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 582, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/AutoApp/urls.py", line 21, in <module>
+    path('', include('Auth.urls')),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/Auth/urls.py", line 50, in <module>
+    path('get_wsdl', GetWSDL.as_view())
+NameError: name 'GetWSDL' is not defined
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/worker.py", line 320, in worker
+    worker = app.Worker(
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/registry.py", line 70, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 589, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 582, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/AutoApp/urls.py", line 21, in <module>
+    path('', include('Auth.urls')),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/Auth/urls.py", line 50, in <module>
+    path('get_wsdl', GetWSDL.as_view())
+NameError: name 'GetWSDL' is not defined
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/worker.py", line 320, in worker
+    worker = app.Worker(
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/worker/worker.py", line 94, in __init__
+    self.app.loader.init_worker()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/registry.py", line 70, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 589, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 582, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/AutoApp/urls.py", line 21, in <module>
+    path('', include('Auth.urls')),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/Auth/urls.py", line 50, in <module>
+    path('get_wsdl', GetWSDL.as_view())
+NameError: name 'GetWSDL' is not defined
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 05:32:21,988: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 05:32:21,997: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 05:32:23,017: INFO/MainProcess] mingle: all alone
+[2021-06-09 05:32:23,029: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 05:32:23,030: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 08:51:16,255: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 08:51:16,264: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 08:51:17,285: INFO/MainProcess] mingle: all alone
+[2021-06-09 08:51:17,297: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 08:51:17,297: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 08:53:49,385: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 08:53:49,395: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 08:53:50,416: INFO/MainProcess] mingle: all alone
+[2021-06-09 08:53:50,427: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 08:53:50,427: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 09:00:48,622: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 09:00:48,634: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 09:00:49,653: INFO/MainProcess] mingle: all alone
+[2021-06-09 09:00:49,666: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 09:00:49,666: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 09:47:22,789: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 09:47:22,800: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 09:47:23,820: INFO/MainProcess] mingle: all alone
+[2021-06-09 09:47:23,831: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 09:47:23,831: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 09:52:26,418: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 09:52:26,429: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 09:52:27,449: INFO/MainProcess] mingle: all alone
+[2021-06-09 09:52:27,460: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 09:52:27,461: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 09:54:16,022: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 09:54:16,033: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 09:54:17,052: INFO/MainProcess] mingle: all alone
+[2021-06-09 09:54:17,063: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 09:54:17,063: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 09:56:26,006: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 09:56:26,015: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 09:56:27,035: INFO/MainProcess] mingle: all alone
+[2021-06-09 09:56:27,048: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 09:56:27,049: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 10:06:06,849: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 10:06:06,860: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 10:06:07,880: INFO/MainProcess] mingle: all alone
+[2021-06-09 10:06:07,891: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 10:06:07,891: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 10:36:40,294: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 10:36:40,303: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 10:36:41,323: INFO/MainProcess] mingle: all alone
+[2021-06-09 10:36:41,336: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 10:36:41,336: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 10:39:18,144: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 10:39:18,155: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 10:39:19,176: INFO/MainProcess] mingle: all alone
+[2021-06-09 10:39:19,187: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 10:39:19,187: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 12:53:25,237: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 12:53:25,246: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 12:53:26,267: INFO/MainProcess] mingle: all alone
+[2021-06-09 12:53:26,279: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 12:53:26,279: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 12:55:04,829: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 12:55:04,838: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 12:55:05,858: INFO/MainProcess] mingle: all alone
+[2021-06-09 12:55:05,871: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 12:55:05,871: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 13:28:13,415: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 13:28:13,426: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 13:28:14,446: INFO/MainProcess] mingle: all alone
+[2021-06-09 13:28:14,457: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 13:28:14,457: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 13:29:33,560: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 13:29:33,570: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 13:29:34,590: INFO/MainProcess] mingle: all alone
+[2021-06-09 13:29:34,601: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 13:29:34,601: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 13:36:07,773: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 13:36:07,782: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 13:36:08,802: INFO/MainProcess] mingle: all alone
+[2021-06-09 13:36:08,815: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 13:36:08,815: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-09 13:59:37,625: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-09 13:59:37,634: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-09 13:59:38,655: INFO/MainProcess] mingle: all alone
+[2021-06-09 13:59:38,667: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-09 13:59:38,667: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-10 05:07:16,264: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-10 05:07:16,275: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-10 05:07:17,295: INFO/MainProcess] mingle: all alone
+[2021-06-10 05:07:17,306: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-10 05:07:17,306: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-10 05:11:34,954: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-10 05:11:34,965: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-10 05:11:35,985: INFO/MainProcess] mingle: all alone
+[2021-06-10 05:11:35,996: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-10 05:11:35,996: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-10 05:12:05,070: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-10 05:12:05,081: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-10 05:12:06,101: INFO/MainProcess] mingle: all alone
+[2021-06-10 05:12:06,113: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-10 05:12:06,113: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-10 06:10:44,998: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-10 06:10:45,007: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-10 06:10:46,027: INFO/MainProcess] mingle: all alone
+[2021-06-10 06:10:46,040: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-10 06:10:46,040: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-10 09:33:48,517: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-10 09:33:48,526: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-10 09:33:49,547: INFO/MainProcess] mingle: all alone
+[2021-06-10 09:33:49,559: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-10 09:33:49,560: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-10 09:57:44,257: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-10 09:57:44,268: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-10 09:57:45,288: INFO/MainProcess] mingle: all alone
+[2021-06-10 09:57:45,300: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-10 09:57:45,300: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-10 10:31:14,192: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-10 10:31:14,203: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-10 10:31:15,223: INFO/MainProcess] mingle: all alone
+[2021-06-10 10:31:15,235: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-10 10:31:15,235: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-10 10:33:20,778: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-10 10:33:20,787: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-10 10:33:21,808: INFO/MainProcess] mingle: all alone
+[2021-06-10 10:33:21,821: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-10 10:33:21,821: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-10 11:01:13,428: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-10 11:01:13,437: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-10 11:01:14,458: INFO/MainProcess] mingle: all alone
+[2021-06-10 11:01:14,470: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-10 11:01:14,471: INFO/MainProcess] celery@user ready.
+
+worker: Warm shutdown (MainProcess)
+/home/user/AutoApp/env/lib/python3.8/site-packages/celery/platforms.py:796: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  warnings.warn(RuntimeWarning(ROOT_DISCOURAGED.format(
+[2021-06-10 11:26:40,247: INFO/MainProcess] Connected to redis://127.0.0.1:6379//
+[2021-06-10 11:26:40,256: INFO/MainProcess] mingle: searching for neighbors
+[2021-06-10 11:26:41,276: INFO/MainProcess] mingle: all alone
+[2021-06-10 11:26:41,289: WARNING/MainProcess] /home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2021-06-10 11:26:41,290: INFO/MainProcess] celery@user ready.

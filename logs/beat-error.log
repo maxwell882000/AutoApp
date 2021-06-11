@@ -1,0 +1,612 @@
+You are using `--app` as an option of the beat sub-command:
+celery beat --app celeryapp <...>
+
+The support for this usage was removed in Celery 5.0. Instead you should use `--app` as a global option:
+celery --app celeryapp beat <...>
+Usage: celery beat [OPTIONS]
+Try 'celery beat --help' for help.
+
+Error: no such option: --app
+You are using `--app` as an option of the beat sub-command:
+celery beat --app celeryapp <...>
+
+The support for this usage was removed in Celery 5.0. Instead you should use `--app` as a global option:
+celery --app celeryapp beat <...>
+Usage: celery beat [OPTIONS]
+Try 'celery beat --help' for help.
+
+Error: no such option: --app
+You are using `--app` as an option of the beat sub-command:
+celery beat --app celeryapp <...>
+
+The support for this usage was removed in Celery 5.0. Instead you should use `--app` as a global option:
+celery --app celeryapp beat <...>
+Usage: celery beat [OPTIONS]
+Try 'celery beat --help' for help.
+
+Error: no such option: --app
+You are using `--app` as an option of the beat sub-command:
+celery beat --app celeryapp <...>
+
+The support for this usage was removed in Celery 5.0. Instead you should use `--app` as a global option:
+celery --app celeryapp beat <...>
+Usage: celery beat [OPTIONS]
+Try 'celery beat --help' for help.
+
+Error: no such option: --app
+[2021-06-08 11:17:16,096: INFO/MainProcess] beat: Starting...
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/beat.py", line 72, in beat
+    return beat().run()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 77, in run
+    self.start_scheduler()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 96, in start_scheduler
+    print(self.banner(service))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 118, in banner
+    c.reset(self.startup_info(service))),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 130, in startup_info
+    conninfo=self.app.connection().as_uri(),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 667, in as_uri
+    if self.transport.can_parse_url:
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 898, in transport
+    self._transport = self.create_transport()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 607, in create_transport
+    return self.get_transport_cls()(client=self)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/transport/redis.py", line 1048, in __init__
+    raise ImportError('Missing redis library (pip install redis)')
+ImportError: Missing redis library (pip install redis)
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/beat.py", line 72, in beat
+    return beat().run()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 77, in run
+    self.start_scheduler()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 96, in start_scheduler
+    print(self.banner(service))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 118, in banner
+    c.reset(self.startup_info(service))),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 130, in startup_info
+    conninfo=self.app.connection().as_uri(),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 667, in as_uri
+    if self.transport.can_parse_url:
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 898, in transport
+    self._transport = self.create_transport()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 607, in create_transport
+    return self.get_transport_cls()(client=self)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/transport/redis.py", line 1048, in __init__
+    raise ImportError('Missing redis library (pip install redis)')
+ImportError: Missing redis library (pip install redis)
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/beat.py", line 72, in beat
+    return beat().run()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 77, in run
+    self.start_scheduler()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 96, in start_scheduler
+    print(self.banner(service))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 118, in banner
+    c.reset(self.startup_info(service))),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 130, in startup_info
+    conninfo=self.app.connection().as_uri(),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 667, in as_uri
+    if self.transport.can_parse_url:
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 898, in transport
+    self._transport = self.create_transport()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 607, in create_transport
+    return self.get_transport_cls()(client=self)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/transport/redis.py", line 1048, in __init__
+    raise ImportError('Missing redis library (pip install redis)')
+ImportError: Missing redis library (pip install redis)
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/beat.py", line 72, in beat
+    return beat().run()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 77, in run
+    self.start_scheduler()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 96, in start_scheduler
+    print(self.banner(service))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 118, in banner
+    c.reset(self.startup_info(service))),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 130, in startup_info
+    conninfo=self.app.connection().as_uri(),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 667, in as_uri
+    if self.transport.can_parse_url:
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 898, in transport
+    self._transport = self.create_transport()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/connection.py", line 607, in create_transport
+    return self.get_transport_cls()(client=self)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/kombu/transport/redis.py", line 1048, in __init__
+    raise ImportError('Missing redis library (pip install redis)')
+ImportError: Missing redis library (pip install redis)
+[2021-06-08 11:26:14,080: INFO/MainProcess] beat: Starting...
+[2021-06-08 11:36:49,690: INFO/MainProcess] beat: Starting...
+[2021-06-08 11:46:44,864: INFO/MainProcess] beat: Starting...
+[2021-06-08 11:46:45,880: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:46,875: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:47,877: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:48,879: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:49,882: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:50,884: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:51,886: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:52,889: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:53,889: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:54,889: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:55,891: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:56,893: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:57,895: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:58,898: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:46:59,900: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:00,901: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:01,901: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:02,902: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:03,902: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:04,904: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:05,904: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:06,908: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:07,910: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:08,911: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:09,912: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:10,915: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:11,917: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:12,917: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:13,920: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:14,922: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:15,924: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:16,927: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:17,929: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:18,931: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:19,937: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:20,936: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:21,938: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:22,940: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:23,942: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:24,944: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:25,947: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:26,948: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:27,951: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:28,953: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:29,953: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:30,955: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:31,958: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:32,960: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:33,962: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:34,964: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:35,967: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:36,969: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:37,971: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:38,972: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:39,974: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:40,976: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:41,978: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:42,980: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:43,983: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:44,985: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:45,987: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:46,987: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:47,989: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:48,991: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:49,993: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:50,996: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:51,998: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:53,000: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:54,002: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:55,004: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:56,006: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:57,008: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:58,008: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:47:59,011: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:48:00,011: INFO/MainProcess] Scheduler: Sending due task miranda storey (Auth.tasks.add)
+[2021-06-08 11:48:01,006: INFO/MainProcess] DatabaseScheduler: Schedule changed.
+[2021-06-08 13:40:48,246: INFO/MainProcess] beat: Starting...
+[2021-06-08 13:52:49,938: INFO/MainProcess] beat: Starting...
+[2021-06-08 14:09:37,654: INFO/MainProcess] beat: Starting...
+[2021-06-08 14:14:44,354: INFO/MainProcess] beat: Starting...
+[2021-06-09 05:04:06,384: INFO/MainProcess] beat: Starting...
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/beat.py", line 72, in beat
+    return beat().run()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 75, in run
+    self.init_loader()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 124, in init_loader
+    self.app.loader.init_worker()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/registry.py", line 70, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 13, in check_url_config
+    return check_resolver(resolver)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 23, in check_resolver
+    return check_method()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 408, in check
+    for pattern in self.url_patterns:
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 589, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 582, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/AutoApp/urls.py", line 21, in <module>
+    path('', include('Auth.urls')),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/Auth/urls.py", line 50, in <module>
+    path('get_wsdl', GetWSDL.as_view())
+NameError: name 'GetWSDL' is not defined
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/beat.py", line 72, in beat
+    return beat().run()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 75, in run
+    self.init_loader()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 124, in init_loader
+    self.app.loader.init_worker()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/registry.py", line 70, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 13, in check_url_config
+    return check_resolver(resolver)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 23, in check_resolver
+    return check_method()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 408, in check
+    for pattern in self.url_patterns:
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 589, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 582, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/AutoApp/urls.py", line 21, in <module>
+    path('', include('Auth.urls')),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/Auth/urls.py", line 50, in <module>
+    path('get_wsdl', GetWSDL.as_view())
+NameError: name 'GetWSDL' is not defined
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/beat.py", line 72, in beat
+    return beat().run()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 75, in run
+    self.init_loader()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 124, in init_loader
+    self.app.loader.init_worker()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/registry.py", line 70, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 13, in check_url_config
+    return check_resolver(resolver)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 23, in check_resolver
+    return check_method()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 408, in check
+    for pattern in self.url_patterns:
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 589, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 582, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/AutoApp/urls.py", line 21, in <module>
+    path('', include('Auth.urls')),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/Auth/urls.py", line 50, in <module>
+    path('get_wsdl', GetWSDL.as_view())
+NameError: name 'GetWSDL' is not defined
+Traceback (most recent call last):
+  File "/home/user/AutoApp/env/bin/celery", line 8, in <module>
+    sys.exit(main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/__main__.py", line 15, in main
+    sys.exit(_main())
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/celery.py", line 213, in main
+    return celery(auto_envvar_prefix="CELERY")
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/click/decorators.py", line 21, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/base.py", line 132, in caller
+    return f(ctx, *args, **kwargs)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/bin/beat.py", line 72, in beat
+    return beat().run()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 75, in run
+    self.init_loader()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/apps/beat.py", line 124, in init_loader
+    self.app.loader.init_worker()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 111, in init_worker
+    self.import_default_modules()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/loaders/base.py", line 105, in import_default_modules
+    raise response
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/utils/dispatch/signal.py", line 276, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 82, in on_import_modules
+    self.worker_fixup.validate_models()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/celery/fixups/django.py", line 121, in validate_models
+    run_checks()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/registry.py", line 70, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 13, in check_url_config
+    return check_resolver(resolver)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/core/checks/urls.py", line 23, in check_resolver
+    return check_method()
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 408, in check
+    for pattern in self.url_patterns:
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 589, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/resolvers.py", line 582, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/AutoApp/urls.py", line 21, in <module>
+    path('', include('Auth.urls')),
+  File "/home/user/AutoApp/env/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/user/AutoApp/Auth/urls.py", line 50, in <module>
+    path('get_wsdl', GetWSDL.as_view())
+NameError: name 'GetWSDL' is not defined
+[2021-06-09 05:32:21,731: INFO/MainProcess] beat: Starting...
+[2021-06-09 08:51:15,976: INFO/MainProcess] beat: Starting...
+[2021-06-09 08:53:49,061: INFO/MainProcess] beat: Starting...
+[2021-06-09 09:00:48,413: INFO/MainProcess] beat: Starting...
+[2021-06-09 09:47:22,474: INFO/MainProcess] beat: Starting...
+[2021-06-09 09:52:26,131: INFO/MainProcess] beat: Starting...
+[2021-06-09 09:54:15,685: INFO/MainProcess] beat: Starting...
+[2021-06-09 09:56:25,725: INFO/MainProcess] beat: Starting...
+[2021-06-09 10:06:06,685: INFO/MainProcess] beat: Starting...
+[2021-06-09 10:36:40,066: INFO/MainProcess] beat: Starting...
+[2021-06-09 10:39:17,830: INFO/MainProcess] beat: Starting...
+[2021-06-09 12:53:24,917: INFO/MainProcess] beat: Starting...
+[2021-06-09 12:55:04,584: INFO/MainProcess] beat: Starting...
+[2021-06-09 13:28:13,207: INFO/MainProcess] beat: Starting...
+[2021-06-09 13:29:33,274: INFO/MainProcess] beat: Starting...
+[2021-06-09 13:36:07,496: INFO/MainProcess] beat: Starting...
+[2021-06-09 13:59:37,350: INFO/MainProcess] beat: Starting...
+[2021-06-10 05:07:16,033: INFO/MainProcess] beat: Starting...
+[2021-06-10 05:11:34,620: INFO/MainProcess] beat: Starting...
+[2021-06-10 05:12:04,786: INFO/MainProcess] beat: Starting...
+[2021-06-10 06:10:44,714: INFO/MainProcess] beat: Starting...
+[2021-06-10 09:33:48,213: INFO/MainProcess] beat: Starting...
+[2021-06-10 09:57:44,120: INFO/MainProcess] beat: Starting...
+[2021-06-10 10:31:13,878: INFO/MainProcess] beat: Starting...
+[2021-06-10 10:33:20,516: INFO/MainProcess] beat: Starting...
+[2021-06-10 11:01:13,198: INFO/MainProcess] beat: Starting...
+[2021-06-10 11:26:39,937: INFO/MainProcess] beat: Starting...
