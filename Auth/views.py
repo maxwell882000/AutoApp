@@ -294,6 +294,8 @@ class TransportViews(APIView):
             return Response(serializer.data)
         else:
             user = UserTransport.objects.get(emailOrPhone=kwargs['pk'])
+            if user.units is None:
+                user.units = SelectedUnits.objects.create()
             units = TransportUnitsSerializer(user.units)
             response = {
                 "pro_account": user.pro_account,
@@ -373,7 +375,8 @@ class TransportViews(APIView):
             user.cards.add(detail)
             user.last_account = detail.id
             user.save()
-            return Response({"id": detail.id, 'id_cards': detail.cards_user.id , 'id_expenses': expenses.id}, status=status.HTTP_200_OK)
+            return Response({"id": detail.id, 'id_cards': detail.cards_user.id, 'id_expenses': expenses.id},
+                            status=status.HTTP_200_OK)
         else:
             return Response({}, status=status.HTTP_403_FORBIDDEN)
 
