@@ -18,6 +18,7 @@ AdminSite.index_title = "Админка"
 admin.site.unregister(Group)
 admin.site.unregister(User)
 admin.site.register(Adds)
+admin.site.register(UserTransport)
 
 
 class UserAdmin(ImportExportModelAdmin):

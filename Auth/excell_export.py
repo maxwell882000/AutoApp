@@ -31,4 +31,4 @@ def cards_all():
 class UserResource(resources.ModelResource):
     class Meta:
         model = UserTransport
-        fields = cards_all()
+
