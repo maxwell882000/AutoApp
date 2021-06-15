@@ -3,7 +3,7 @@ from django.contrib.admin import AdminSite
 from fcm_django.models import FCMDevice
 from .models import UserTransport, MarkaRegister, ModelRegister, \
     SingleRecomendation, Adds, AmountProAccount, \
-    Message, RecommendCards, PaynetProPayment
+    Message, RecommendCards, PaynetProPayment, TransportDetail
 
 from django.contrib.auth.models import Group, User
 from django.db.models import Q, F, ExpressionWrapper, FloatField, Case, Value, When
@@ -18,7 +18,7 @@ AdminSite.index_title = "Админка"
 admin.site.unregister(Group)
 admin.site.unregister(User)
 admin.site.register(Adds)
-admin.site.register(UserTransport)
+admin.site.register(TransportDetail)
 
 
 class UserAdmin(ImportExportModelAdmin):
