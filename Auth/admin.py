@@ -52,7 +52,7 @@ class UserAdmin(admin.ModelAdmin):
                 max_len = max((
                     series.astype(str).map(len).max(),  # len of largest item
                     len(str(series.name))  # len of column name/header
-                )) + 2  # adding a little extra space
+                )) + 20  # adding a little extra space
                 worksheet.set_column(idx, idx, max_len)
         writer.save()
         xlsx_data = output.getvalue()
