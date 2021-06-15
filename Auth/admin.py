@@ -54,7 +54,7 @@ class UserAdmin(admin.ModelAdmin):
                     len(str(series.name))  # len of column name/header
                 )) + 2  # adding a little extra space
                 worksheet.set_column(idx, idx, max_len)
-            writer.save()
+        writer.save()
         xlsx_data = output.getvalue()
         response = HttpResponse(content_type='application/vnd.ms-excel')
         response['Content-Disposition'] = 'attachment; filename=Report.xlsx'
