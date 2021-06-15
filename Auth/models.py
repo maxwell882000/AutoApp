@@ -4,6 +4,8 @@ from django.core.files.storage import default_storage
 import uuid
 
 from .utils import *
+
+
 # from payments.models import BasePayment
 
 
@@ -75,9 +77,9 @@ class Expenses(models.Model):
 
 
 class RecommendedChange(models.Model):
-    initial_run = models.FloatField(blank=True, null=True)
-    run = models.FloatField(blank=True, null=True)
-    time = models.IntegerField(blank=True, null=True)  # days
+    initial_run = models.FloatField(blank=True, null=True, default=0)
+    run = models.FloatField(blank=True, null=True, default=0)
+    time = models.IntegerField(blank=True, null=True, default=0)  # days
 
 
 class Expense(models.Model):
@@ -125,9 +127,18 @@ class Cards(models.Model):
 class RecommendCards(models.Model):
     name = models.CharField(default="", max_length=30, verbose_name="Название карточки")
     recommend_run = models.FloatField(default=0, verbose_name="пробег в километрах 0 - 100000")
-    recommend_run_old = models.FloatField(default=0, verbose_name="пробег в километрах 200000 и больше")
     recommend_run_avarage = models.FloatField(default=0, verbose_name="пробег в километрах 100000 - 200000")
-    type_car = models.IntegerField(choices=)
+    recommend_run_old = models.FloatField(default=0, verbose_name="пробег в километрах 200000 и больше")
+    type_car = models.IntegerField(choices=ChoiceCarType)
+
+    def select_recommend_run(self, run):
+        if run < 100000:
+            return run + self.recommend_run
+        elif 100000 <= run < 200000:
+            return run + self.recommend_run_avarage
+        else:
+            return run + self.recommend_run_old
+
     class Meta:
         verbose_name_plural = "Рекоммендованые карточки"
 
@@ -187,7 +198,7 @@ class SelectedUnits(models.Model):
     speedUnit = models.CharField(max_length=5, default="км/д")
     distanseUnit = models.CharField(max_length=5, default="км")
     fuelConsumption = models.CharField(max_length=5, default="км/л")
-    volume = models.CharField(max_length=5,default="UZS")
+    volume = models.CharField(max_length=5, default="UZS")
 
 
 class TransportDetail(models.Model):
@@ -207,6 +218,7 @@ class TransportDetail(models.Model):
     tech_passport = models.CharField(max_length=30)
     cards_user = models.ForeignKey(Cards, related_name='cards_user', on_delete=models.CASCADE, blank=True, null=True)
     expenses = models.ForeignKey(Expenses, related_name='expenses', on_delete=models.CASCADE, blank=True, null=True)
+    type_car = models.IntegerField(choices=ChoiceCarType, default=1)
 
     def delete(self, *args, **kwargs):
         try:
@@ -299,9 +311,6 @@ class Orders(models.Model):
     phoneOrMail = models.CharField(max_length=15)
 
 
-
-
-
 class AmountProAccount(models.Model):
     name_subscribe = models.CharField(max_length=50, verbose_name="Название подписки")
     price = models.IntegerField(verbose_name="Цена подписки в суммах", default=0)
@@ -341,6 +350,8 @@ class PaynetProPayment(models.Model):
 class Message(models.Model):
     title = models.CharField(max_length=10, verbose_name="Заглавние")
     body = models.CharField(max_length=50, verbose_name="Содержание")
+    type_cards = models.ManyToManyField(Card, verbose_name="Для каких карточек")
+    type_car = models.IntegerField(choices=ChoiceCarType, default=0, verbose_name="Тип машины")
 
     class Meta:
         verbose_name_plural = 'Push уведомления'

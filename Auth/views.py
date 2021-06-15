@@ -329,19 +329,19 @@ class TransportViews(APIView):
         model = ModelRegister.objects.get(name_of_model=detail.model)
         if model.recommend_card is not None:
             for card in model.recommend_card.all():
-                attach = Attach.objects.create()
-                new_card = Card.objects.create(
-                    name_of_card=card.name,
-                    change=RecommendedChange.objects.create(
-                        initial_run=detail.run,
-                        run=detail.run + card.recommend_run
-                    ),
-                    comments="",
-                    attach=attach,
-                    date=datetime.now()
-                )
-
-                detail.cards_user.card.add(new_card)
+                if detail.type_car == 0 or detail.type_car == card.type_car:
+                    attach = Attach.objects.create()
+                    new_card = Card.objects.create(
+                        name_of_card=card.name,
+                        change=RecommendedChange.objects.create(
+                            initial_run=detail.run,
+                            run=card.select_recommend_run(detail.run)
+                        ),
+                        comments="",
+                        attach=attach,
+                        date=datetime.now()
+                    )
+                    detail.cards_user.card.add(new_card)
 
     def post(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
@@ -366,6 +366,7 @@ class TransportViews(APIView):
                 run=data['run'],
                 initial_run=data['run'],
                 expenses=expenses,
+                type_car=data['type_car'],
                 cards_user=cards_user
             )
             if 'tech_passport' in data:
