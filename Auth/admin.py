@@ -71,7 +71,7 @@ class UserAdmin(admin.ModelAdmin):
                 'Баланс'
             ],
             'Значиения данных о пользователи': [
-                user.emailOrPhone[:30],
+                user.emailOrPhone[:20],
                 user.provider,
                 Format.datetime2str(user.date)[:30],
                 "Есть" if user.pro_account else "Нету",
