@@ -30,7 +30,7 @@ def cards_all():
 
 
 class UserResource(resources.ModelResource):
-    detail = fields.Field(widget=ManyToManyWidget(TransportDetail))
+    detail = fields.Field(widget=ManyToManyWidget(TransportDetail), column_name='ss')
 
     class Meta:
         model = UserTransport
