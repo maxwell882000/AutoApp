@@ -169,7 +169,7 @@ class UserAdmin(admin.ModelAdmin):
             value.append(expense.name)
             value.append(expense.sum)
             value.append(expense.amount)
-        dictionary['Значения о карточке' + index] = value
+        dictionary['Значения о карточке ' + index] = value
         return dictionary
 
 
