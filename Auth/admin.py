@@ -43,7 +43,8 @@ class UserAdmin(admin.ModelAdmin):
             for cards in user.cards.all():
                 data = self.fill_data_transport_details(data, cards, cards.id)
                 print(data)
-            df = pd.DataFrame(data)
+            df = pd.DataFrame.from_dict(data, orient='index')
+            df = df.transpose()
             df.to_excel(writer, sheet_name=user.emailOrPhone)
             worksheet = writer.sheets[user.emailOrPhone]  # pull worksheet object
             for idx, col in enumerate(df):  # loop through all columns
@@ -113,7 +114,6 @@ class UserAdmin(admin.ModelAdmin):
                 "Пробег на момент регестрации",
                 "Тех паспорт",
                 "Тип машины",
-
             ]
             dictionary['Значения о машине ' + index] = [
                 details.nameOfTransport,
