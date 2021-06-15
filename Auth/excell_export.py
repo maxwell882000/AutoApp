@@ -34,3 +34,6 @@ class UserResource(resources.ModelResource):
 
     class Meta:
         model = UserTransport
+
+    def dehydrate_detail(self, user):
+        return user.cards
