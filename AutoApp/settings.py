@@ -84,7 +84,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "fcm_django",
-    'import_export',
     'rest_framework',
     'channels',
     'django_celery_beat',

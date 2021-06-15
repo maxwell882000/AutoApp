@@ -1,16 +1,22 @@
 from django.contrib import admin
 from django.contrib.admin import AdminSite
+from django.http import HttpResponse
 from fcm_django.models import FCMDevice
 from .models import UserTransport, MarkaRegister, ModelRegister, \
     SingleRecomendation, Adds, AmountProAccount, \
-    Message, RecommendCards, PaynetProPayment, TransportDetail
+    Message, RecommendCards, PaynetProPayment, TransportDetail, Card
 
 from django.contrib.auth.models import Group, User
 from django.db.models import Q, F, ExpressionWrapper, FloatField, Case, Value, When
 from django.db.models.functions import (
     ExtractDay, ExtractMonth, ExtractYear, Now)
+from io import StringIO, BytesIO
+from .Format import Format
+import xlsxwriter
 from import_export.admin import ImportExportModelAdmin
-from Auth.excell_export import UserResource
+import pandas as pd
+
+# from Auth.excell_export import UserResource
 
 AdminSite.site_title = "Админка"
 AdminSite.site_header = "Auto App"
@@ -21,8 +27,150 @@ admin.site.register(Adds)
 admin.site.register(TransportDetail)
 
 
-class UserAdmin(ImportExportModelAdmin):
-    resource_class = UserResource
+class UserAdmin(admin.ModelAdmin):
+    actions = ('make_excell',)
+
+    def make_excell(self, request, queryset):
+        output = BytesIO()
+        writer = pd.ExcelWriter(output, engine='xlsxwriter')
+        print(queryset.all())
+        for user in queryset.all():
+            print(user)
+            data = self.fill_data_user(user)
+            print(data)
+            data = self.fill_data_units(data, user)
+            print(data)
+            for cards in user.cards.all():
+                data = self.fill_data_transport_details(data, cards, cards.id)
+                print(data)
+            df = pd.DataFrame(data)
+            df.to_excel(writer, sheet_name=user.emailOrPhone)
+            worksheet = writer.sheets[user.emailOrPhone]  # pull worksheet object
+            for idx, col in enumerate(df):  # loop through all columns
+                series = df[col]
+                max_len = max((
+                    series.astype(str).map(len).max(),  # len of largest item
+                    len(str(series.name))  # len of column name/header
+                )) + 2  # adding a little extra space
+                worksheet.set_column(idx, idx, max_len)
+            writer.save()
+        xlsx_data = output.getvalue()
+        response = HttpResponse(content_type='application/vnd.ms-excel')
+        response['Content-Disposition'] = 'attachment; filename=Report.xlsx'
+        response.write(xlsx_data)
+        return response
+
+    def fill_data_user(self, user: UserTransport) -> dict:
+        return {
+            'Данные о пользователи': [
+                'Логин',
+                'Провайдер',
+                'Дата регистрации',
+                'Про аккаунт',
+                'Баланс'
+            ],
+            'Значиения данных о пользователи': [
+                user.emailOrPhone,
+                user.provider,
+                Format.datetime2str(user.date),
+                "Есть" if user.pro_account else "Нету",
+                user.balans
+            ],
+        }
+
+    def fill_data_units(self, dictionary, user: UserTransport):
+        if user.units is not None:
+            dictionary['Единицы Измерения'] = [
+                "Скорость",
+                "Растояние",
+                "Расход Топлива",
+                "Обьем"
+            ]
+            dictionary["Значения о единицах измерения"] = [
+                user.units.speedUnit,
+                user.units.distanseUnit,
+                user.units.fuelConsumption,
+                user.units.volume
+            ]
+        return dictionary
+
+    def fill_data_transport_details(self, dictionary: dict, details: TransportDetail, index: int):
+        index = str(index)
+        if details is not None:
+            dictionary['Данные о машине ' + index] = [
+                'Имя транспорта',
+                "Марка",
+                "Модель",
+                "Год производства",
+                "Год покупки",
+                "Номер Машины",
+                "Количество баков",
+                "Тип первого бака",
+                "ОБьем первого бака",
+                "Тип второго бака",
+                "ОБьем второго бака",
+                "Пробег",
+                "Пробег на момент регестрации",
+                "Тех паспорт",
+                "Тип машины",
+
+            ]
+            dictionary['Значения о машине ' + index] = [
+                details.nameOfTransport,
+                details.marka,
+                details.model,
+                details.yearOfMade,
+                details.yearOfPurchase,
+                details.number,
+                details.numberOfTank,
+                details.firstTankType,
+                details.firstTankVolume,
+                details.secondTankType,
+                details.secondTankVolume,
+                details.run,
+                details.initial_run,
+                details.tech_passport,
+                details.type_car,
+            ]
+            try:
+                dictionary["Общие Расходы " + index] = [
+                    "За все время",
+                    "За месяц",
+                ]
+                dictionary['Значения расходов ' + index] = [
+                    details.expenses.all_time,
+                    details.expenses.in_this_month
+                ]
+            except:
+                pass
+            for card in details.cards_user.card.all():
+                dictionary = self.fill_data_cards(dictionary, card, card.id)
+            return dictionary
+
+    def fill_data_cards(self, dictionary: dict, card: Card, index: int):
+        index = str(index)
+        dictionary['Данные о карточке ' + index] = [
+            "Название карточки",
+            "Дата изменения карточки",
+            "Комментарии",
+            "Пробег на который закончитсья карточка",
+            "Сколько дней осталось чтоб карточка закончилась",
+            "Расхода на карточку",
+        ]
+        value = [
+            card.name_of_card,
+            Format.datetime2str(card.date),
+            card.comments,
+            card.change.run,
+            card.change.time,
+            ""
+        ]
+        for expense in card.expense.all():
+            value.append(expense.name)
+            value.append(expense.sum)
+            value.append(expense.amount)
+        dictionary['Значения о карточке' + index] = value
+        return dictionary
 
 
 admin.site.register(UserTransport, UserAdmin)
