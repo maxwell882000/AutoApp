@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.core.files.storage import default_storage
 import uuid
 
-
+from .utils import *
 # from payments.models import BasePayment
 
 
@@ -124,8 +124,10 @@ class Cards(models.Model):
 
 class RecommendCards(models.Model):
     name = models.CharField(default="", max_length=30, verbose_name="Название карточки")
-    recommend_run = models.FloatField(default=0, verbose_name="Рекоммендованный пробег в километрах")
-
+    recommend_run = models.FloatField(default=0, verbose_name="пробег в километрах 0 - 100000")
+    recommend_run_old = models.FloatField(default=0, verbose_name="пробег в километрах 200000 и больше")
+    recommend_run_avarage = models.FloatField(default=0, verbose_name="пробег в километрах 100000 - 200000")
+    type_car = models.IntegerField(choices=)
     class Meta:
         verbose_name_plural = "Рекоммендованые карточки"
 
@@ -297,7 +299,7 @@ class Orders(models.Model):
     phoneOrMail = models.CharField(max_length=15)
 
 
-from .utils import create_new_ref_number, ChoicesForSubscribe
+
 
 
 class AmountProAccount(models.Model):
