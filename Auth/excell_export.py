@@ -16,7 +16,7 @@ def cards_user_expenses(name: str):
 
 
 def cards_all():
-    return (card('model'), card('marka'),
+    return ("emailOrPhone", card('model'), card('marka'),
             card('yearOfMade'), card('number'),
             card('yearOfPurchase'), card('numberOfTank'),
             card('firstTankType'), card('firstTankVolume'),
