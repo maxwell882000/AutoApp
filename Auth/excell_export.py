@@ -36,4 +36,7 @@ class UserResource(resources.ModelResource):
         model = UserTransport
 
     def dehydrate_detail(self, user):
-        return "name = {} ".format(user.cards.first().nameOfTransport)
+        try:
+            return "name = {} ".format(user.cards.first().nameOfTransport)
+        except:
+            return ""
