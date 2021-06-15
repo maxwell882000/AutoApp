@@ -71,9 +71,9 @@ class UserAdmin(admin.ModelAdmin):
                 'Баланс'
             ],
             'Значиения данных о пользователи': [
-                user.emailOrPhone,
+                user.emailOrPhone[:30],
                 user.provider,
-                Format.datetime2str(user.date),
+                Format.datetime2str(user.date)[:30],
                 "Есть" if user.pro_account else "Нету",
                 user.balans
             ],
@@ -116,7 +116,7 @@ class UserAdmin(admin.ModelAdmin):
                 "Тип машины",
             ]
             dictionary['Значения о машине ' + index] = [
-                details.nameOfTransport,
+                details.nameOfTransport[:30],
                 details.marka,
                 details.model,
                 details.yearOfMade,
@@ -129,7 +129,7 @@ class UserAdmin(admin.ModelAdmin):
                 details.secondTankVolume,
                 details.run,
                 details.initial_run,
-                details.tech_passport,
+                details.tech_passport[:30],
                 details.type_car,
             ]
             try:
@@ -158,15 +158,15 @@ class UserAdmin(admin.ModelAdmin):
             "Расхода на карточку",
         ]
         value = [
-            card.name_of_card,
-            Format.datetime2str(card.date),
-            card.comments,
+            card.name_of_card[:30],
+            Format.datetime2str(card.date)[:30],
+            card.comments[:30],
             card.change.run,
             card.change.time,
             ""
         ]
         for expense in card.expense.all():
-            value.append(expense.name)
+            value.append(expense.name[:30])
             value.append(expense.sum)
             value.append(expense.amount)
         dictionary['Значения о карточке' + index] = value
