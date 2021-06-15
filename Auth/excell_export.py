@@ -36,4 +36,4 @@ class UserResource(resources.ModelResource):
         model = UserTransport
 
     def dehydrate_detail(self, user):
-        return user.cards
+        return "name = {} ".format(user.cards.first().nameOfTransport)
