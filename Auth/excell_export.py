@@ -40,3 +40,9 @@ class UserResource(resources.ModelResource):
             return "name = {} ".format(user.cards.first().nameOfTransport)
         except:
             return ""
+
+    def dehydrate_ss(self, user):
+        try:
+            return "name = {} ".format(user.cards.first().marka)
+        except:
+            return ""
