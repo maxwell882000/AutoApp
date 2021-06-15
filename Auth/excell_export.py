@@ -1,5 +1,6 @@
-from import_export import resources
-from Auth.models import UserTransport
+from import_export import resources, fields
+from Auth.models import UserTransport, TransportDetail
+from import_export.widgets import ManyToManyWidget
 
 
 def card(name: str):
@@ -29,6 +30,7 @@ def cards_all():
 
 
 class UserResource(resources.ModelResource):
+    detail = fields.Field(widget=ManyToManyWidget(TransportDetail))
+
     class Meta:
         model = UserTransport
-
