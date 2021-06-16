@@ -327,7 +327,7 @@ class TransportViews(APIView):
 
     def add_default_cards(self, detail: TransportDetail):
         model = ModelRegister.objects.get(name_of_model=detail.model)
-        if model.recommend_card is not None:
+        try:
             for card in model.recommend_card.all():
                 print("TYPE CAR")
                 print(detail.type_car == 0 or detail.type_car == card.type_car)
@@ -346,6 +346,8 @@ class TransportViews(APIView):
                     detail.cards_user.card.add(new_card)
                     detail.cards_user.save()
                     detail.save()
+        except AttributeError:
+            pass
 
     def post(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
