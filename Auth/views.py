@@ -180,7 +180,6 @@ class TransportUnits(APIView):
         serializer.is_valid()
         data = serializer.validated_data
         units = SelectedUnits.objects.create(
-            speedUnit=data['speedUnit'],
             distanseUnit=data['distanseUnit'],
             fuelConsumption=data['fuelConsumption'],
             volume=data['volume'],
