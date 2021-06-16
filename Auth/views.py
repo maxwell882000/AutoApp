@@ -479,9 +479,12 @@ class LocationGetViews(APIView):
 
 class CardsStoreView(APIView):
     def get(self, request, *args, **kwargs):
-        data = Cards.objects.get(id=kwargs['pk'])
-        serializers = CardSerializer(data.storeCard, many=True)
-        return Response(serializers.data)
+        try:
+            data = Cards.objects.get(id=kwargs['pk'])
+            serializers = CardSerializer(data.storeCard, many=True)
+            return Response(serializers.data, status=status.HTTP_200_OK)
+        except ValueError:
+            return Response({}, status=status.HTTP_404_NOT_FOUND)
 
 
 class CardsViews(APIView):
