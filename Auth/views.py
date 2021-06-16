@@ -342,6 +342,8 @@ class TransportViews(APIView):
                         date=datetime.now()
                     )
                     detail.cards_user.card.add(new_card)
+                    detail.cards_user.save()
+                    detail.save()
 
     def post(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
