@@ -401,6 +401,16 @@ class TransportViews(APIView):
         serializer = TransportDetailSerializer(detail)
         return Response(serializer.data)
 
+    def delete(self, request, pk, format=None):
+        user = UserTransport.objects.get(emailOrPhone=pk)
+        detail = user.cards.get(id=request.query_params['id_transport'])
+        user.cards.remove(detail)
+        detail.delete()
+        if user.cards.exists():
+            return Response({}, status=status.HTTP_200_OK)
+        else:
+            return Response({}, status=status.HTTP_400_BAD_REQUEST)
+
 
 class AttachedImageViews(APIView):
     parser_classes = (MultiPartParser, FormParser)
