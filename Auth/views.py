@@ -329,6 +329,8 @@ class TransportViews(APIView):
         model = ModelRegister.objects.get(name_of_model=detail.model)
         if model.recommend_card is not None:
             for card in model.recommend_card.all():
+                print("TYPE CAR")
+                print(detail.type_car == 0 or detail.type_car == card.type_car)
                 if detail.type_car == 0 or detail.type_car == card.type_car:
                     attach = Attach.objects.create()
                     new_card = Card.objects.create(
