@@ -330,8 +330,8 @@ class TransportViews(APIView):
         try:
             for card in model.recommend_card.all():
                 print("TYPE CAR")
-                print(detail.type_car == 0 or detail.type_car == card.type_car)
-                if detail.type_car == 0 or detail.type_car == card.type_car:
+                print(card.type_car == 0 or detail.type_car == card.type_car)
+                if card.type_car == 0 or detail.type_car == card.type_car:
                     attach = Attach.objects.create()
                     new_card = Card.objects.create(
                         name_of_card=card.name,
