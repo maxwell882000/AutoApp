@@ -246,9 +246,9 @@ class MessagesAdmin(admin.ModelAdmin):
             run_passed=F(run_current) - F(run_initial),
         ).annotate(
             procent=Case(
-                When(Q(passed_days__gt=0) & run, then=ExpressionWrapper(F(time_remained) / F('passed_days') * 100,
+                When(Q(passed_days__gt=0) & run, then=ExpressionWrapper(F('passed_days') / F(time_remained) * 100,
                                                                         output_field=FloatField())),
-                When(~Q(run_passed__lte=0), then=ExpressionWrapper(F('run_total') / F('run_passed') * 100,
+                When(~Q(run_passed__lte=0), then=ExpressionWrapper(F('run_passed') / F('run_total') * 100,
                                                                    output_field=FloatField())),
                 default=0.0,
             ),
