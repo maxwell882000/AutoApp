@@ -98,6 +98,9 @@ class Card(models.Model):
     change = models.ForeignKey(RecommendedChange, related_name='attach', on_delete=models.CASCADE, blank=True,
                                null=True)
 
+    def __str__(self):
+        return self.name_of_card
+
     def delete(self, *args, **kwargs):
         try:
             for e in self.expense.all():
