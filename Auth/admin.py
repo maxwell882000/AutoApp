@@ -197,7 +197,7 @@ class MessagesAdmin(admin.ModelAdmin):
     def send_message_to_all(self, request, queryset):
         for message in queryset:
             array = []
-            for card in message.type_cards.name:
+            for card in message.type_cards.all():
                 array.append(card.name)
             devices = self.calculate_procent(FCMDevice.objects.all().select_related('user')).filter(
                 Q(procent__gte=80) & self.get_cards(card=array))
