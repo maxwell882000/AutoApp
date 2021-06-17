@@ -176,6 +176,8 @@ class TransportUnits(APIView):
     def put(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
         data = request.data
+        print("SELECT DATA")
+        print(data)
         serializer = TransportUnitsSerializer(data=data)
         serializer.is_valid()
         data = serializer.validated_data
