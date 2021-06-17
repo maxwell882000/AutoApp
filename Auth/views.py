@@ -178,9 +178,6 @@ class TransportUnits(APIView):
         data = request.data
         print("SELECT DATA")
         print(data)
-        serializer = TransportUnitsSerializer(data=data)
-        serializer.is_valid()
-        data = serializer.validated_data
         units = SelectedUnits.objects.create(
             distanseUnit=data['distanseUnit'],
             fuelConsumption=data['fuelConsumption'],
