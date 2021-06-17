@@ -491,7 +491,7 @@ class CardsStoreView(APIView):
             data = Cards.objects.get(id=kwargs['pk'])
             serializers = CardSerializer(data.storeCard, many=True)
             return Response(serializers.data, status=status.HTTP_200_OK)
-        except ValueError:
+        except (ValueError, Cards.DoesNotExist):
             return Response({}, status=status.HTTP_404_NOT_FOUND)
 
 
