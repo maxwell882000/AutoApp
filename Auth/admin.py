@@ -196,9 +196,10 @@ class MessagesAdmin(admin.ModelAdmin):
 
     def send_message_to_all(self, request, queryset):
 
-        for message in queryset.all():
-            devices = self.calculate_procent(FCMDevice.objects.select_related('user')).filter(
-                Q(procent__gte=80) & self.get_cards(card=message.type_cards))
+        for message in queryset:
+            devices = self.calculate_procent(FCMDevice.objects.all().select_related('user')).filter(
+                Q(procent__gte=80) & self.get_cards(card=message.type_cards.name))
+
             # FCMDevice.objects.filter(user_id__gt=)
             for device in devices:
                 response = device.send_data_message(data_message={
@@ -220,7 +221,7 @@ class MessagesAdmin(admin.ModelAdmin):
             return Q(user__cards__run__gt=200000)
 
     def get_cards(self, card):
-        return Q(user__cards__cards_user__card__in=card)
+        return Q(user__cards__cards_user__card__name_of_card__in=card)
 
     def calculate_procent(self, obj):
         run_current = "user__cards__run"

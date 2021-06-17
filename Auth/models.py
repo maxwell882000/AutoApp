@@ -353,7 +353,7 @@ class PaynetProPayment(models.Model):
 class Message(models.Model):
     title = models.CharField(max_length=10, verbose_name="Заглавние")
     body = models.CharField(max_length=50, verbose_name="Содержание")
-    type_cards = models.ManyToManyField(Card, verbose_name="Для каких карточек")
+    type_cards = models.ManyToManyField(RecommendCards, verbose_name="Для каких карточек")
     type_car = models.IntegerField(choices=ChoiceCarType, default=0, verbose_name="Тип машины")
 
     class Meta:
