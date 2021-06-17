@@ -533,9 +533,12 @@ class CardsViews(APIView):
         location.save()
         attach.location = location
         attach.save()
+        comments = ""
+        if 'comments' in data:
+            comments = data['comments']
         card = Card.objects.create(
             name_of_card=data['name_of_card'],
-            comments=data['comments'],
+            comments=comments,
             date=data['date'],
             attach=attach,
             change=change
