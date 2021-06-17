@@ -557,7 +557,7 @@ class CardsViews(APIView):
         temp = Temporary.objects.get(user_id=data['user_id'])
         if 'id_attach' in data:
             attach = Attach.objects.get(id=data['id_attach'])
-            attach.image.set(temp.image.all())
+            attach.image.add(*temp.image.all())
             if 'location' in data:
                 attach.location.latitude = data['location']['latitude']
                 attach.location.longitude = data['location']['longitude']
@@ -580,21 +580,15 @@ class CardsViews(APIView):
                 change.run = 0
                 change.time = data['time']
             change.save()
-        card.expense.set(temp.expenses.all())
+        card.expense.add(*temp.expenses.all())
         card.save()
         temp.clean_operation()
-        # serializer = CardSerializer(card)
         return Response({}, status=status.HTTP_200_OK)
 
     def delete(self, request, pk, format=None):
         id_cards = request.query_params.get('id_cards')
         card = Card.objects.get(id=pk)
         cards = Cards.objects.get(id=id_cards)
-        # detail = TransportDetail.objects.get(cards_user_id=cards.id)
-        # card.change.run = detail.run
-        # card.change.initial_run = detail.run
-        # card.change.save()
-        # card.save()
         cards.storeCard.add(card)
         cards.card.remove(card)
 
