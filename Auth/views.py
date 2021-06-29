@@ -518,7 +518,7 @@ class CardsViews(APIView):
 
         if 'run' in data:
             change.run = data['run']
-                change.initial_run = data['initial_run']
+            change.initial_run = data['initial_run']
             change.time = 0
         else:
             change.run = 0
