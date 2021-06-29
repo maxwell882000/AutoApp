@@ -375,7 +375,9 @@ class TransportViews(APIView):
             )
             if 'tech_passport' in data:
                 detail.tech_passport = data['tech_passport']
-                detail.save()
+            if 'initial_run' in data:
+                detail.initial_run = data['initial_run']
+            detail.save()
             self.add_default_cards(detail)
             user.cards.add(detail)
             user.last_account = detail.id
@@ -516,7 +518,7 @@ class CardsViews(APIView):
 
         if 'run' in data:
             change.run = data['run']
-            change.initial_run = data['initial_run']
+                change.initial_run = data['initial_run']
             change.time = 0
         else:
             change.run = 0
