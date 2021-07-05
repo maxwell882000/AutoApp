@@ -328,7 +328,7 @@ class AmountProAccount(models.Model):
 
 
 class PaymeProPayment(models.Model):
-    token = models.CharField(max_length=100, blank=True, null=True)
+    token = models.CharField(max_length=500, blank=True, null=True)
     id = models.BigIntegerField(default=create_new_ref_number, primary_key=True, unique=True)
     hashed_id = models.CharField(max_length=50)
     user = models.ForeignKey(UserTransport, related_name='client_payme', on_delete=models.CASCADE, blank=True,
