@@ -47,10 +47,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['autoapp.elite-house.uz', 'machina.uz', '127.0.0.1', '185.74.5.208', 'localhost']
 
 PAYME = {
-    'url': "https://checkout.test.paycom.uz/api",
+    'url': "https://checkout.paycom.uz/api",
     'headers': {
-        'X-Auth': '{id}:{password}'.format(id="5e730e8e0b852a417aa49ceb",
-                                           password="#MWnwHNYATJo%W@XvO5nISiY&mG7PEuzDX18")
+        'X-Auth': '{id}:{password}'.format(id="60c056c00d44ad63647a92cc",
+                                           password="q3VHsvea299Efa4dpDknPfGXx&3Prh&gQhQD")
     },
 }
 PAYNET = {
