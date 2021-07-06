@@ -189,8 +189,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 AUTHLIB_OAUTH_CLIENTS = {
     'google': {
-        'client_id': "219394069897-s12bejr6ha34br64bvq6r4988uot20rv.apps.googleusercontent.com",
-        'client_secret': "3QYhiuwg2VWxFc0nah5ZqOp3",
+        'client_id': "482012990737-8av5d26d4eae2hhoiclird2bkh00t7bk.apps.googleusercontent.com",
+        'client_secret': "gp-Wbdjbe1nhIfNdlAOzBM0_",
     },
     'facebook': {
         'client_id': "899459834226658",
@@ -205,7 +205,7 @@ FCM_DJANGO_SETTINGS = {
     # default: _('FCM Django')
     "APP_VERBOSE_NAME": "Уведомления",
     # Your firebase API KEY
-    "FCM_SERVER_KEY": "AAAAMxTn1Yk:APA91bFERur1Q6hNlFzg7-XW-4L3qhTNpCnNyd3o6RSZvDUI4pgSpheNwPqEvdO2u45q9tCvx45rAdKzDjknTyRARVzZuCgRWEJgbmsciB-gWd10KtkZgsgSoviQlQ0RSkVZH_Q3fQOn",
+    "FCM_SERVER_KEY": "AAAALD0ZIj0:APA91bEJBjjytIwa3A0Wc1AAs5k9wqxJhJx-CLbUZSZf_oLe-FOzjRKL_2P7oXfnF0295eKbhi5yfQTky83n0NrPuEfcc36A7uvGMR-jT3Z9h7sm58Qu3jew3dxD-mEwYhlukU1hESJU",
 
     # true if you want to have only one active device per registered user at a time
     # default: False
