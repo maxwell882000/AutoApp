@@ -128,7 +128,9 @@ class Cards(models.Model):
 
 
 class RecommendCards(models.Model):
-    name = models.CharField(default="", max_length=30, verbose_name="Название карточки")
+    name = models.CharField(default="", max_length=30, verbose_name="Название карточки(Русский)")
+    name_uzb = models.CharField(default="", max_length=30, verbose_name="Название карточки(Узбекский)")
+    name_eng = models.CharField(default="", max_length=30, verbose_name="Название карточки(Английский)")
     recommend_run = models.FloatField(default=0, verbose_name="пробег в километрах 0 - 100000")
     recommend_run_avarage = models.FloatField(default=0, verbose_name="пробег в километрах 100000 - 200000")
     recommend_run_old = models.FloatField(default=0, verbose_name="пробег в километрах 200000 и больше")
@@ -150,8 +152,12 @@ class RecommendCards(models.Model):
 
 
 class SingleRecomendation(models.Model):
-    main_name = models.CharField(max_length=70, verbose_name="Название для рекомендации")
-    description = models.TextField(verbose_name="Описание рекомендации")
+    main_name = models.CharField(max_length=70, verbose_name="Название для рекомендации(Русский)")
+    main_name_uzb = models.CharField(max_length=70, verbose_name="Название для рекомендации(Узбекский)")
+    main_name_eng = models.CharField(max_length=70, verbose_name="Название для рекомендации(Английский)")
+    description = models.TextField(verbose_name="Описание рекомендации(Русский)")
+    description_uzb = models.TextField(verbose_name="Описание рекомендации(Узбекский)")
+    description_eng = models.TextField(verbose_name="Описание рекомендации(Английский)")
     recomended_probeg = models.FloatField(default=0, verbose_name="Рекомендованный пробег в километрах")
 
     class Meta:
@@ -162,11 +168,15 @@ class SingleRecomendation(models.Model):
 
 
 class ModelRegister(models.Model):
-    name_of_model = models.CharField(max_length=50, verbose_name="Название модели", unique=True)
+    name_of_model = models.CharField(max_length=50, verbose_name="Название модели(Русский)", unique=True)
+    name_of_model_uzb = models.CharField(max_length=50, verbose_name="Название модели(Узбекский)", unique=True)
+    name_of_model_eng = models.CharField(max_length=50, verbose_name="Название модели(Английский)", unique=True)
     recomendations = models.ManyToManyField(SingleRecomendation, verbose_name="Рекомендации для модели")
     recommend_card = models.ManyToManyField(RecommendCards, verbose_name="Рекомендованные карточки")
     image_above = models.ImageField(upload_to='admin/', verbose_name="Фото для модели")
-    text_above = models.TextField(verbose_name="Описание модели")
+    text_above = models.TextField(verbose_name="Описание модели(Русский)")
+    text_above_eng = models.TextField(verbose_name="Описание модели(Английский)")
+    text_above_uzb = models.TextField(verbose_name="Описание модели(Узбекский)")
 
     class Meta:
         verbose_name_plural = 'Модель'
@@ -182,7 +192,9 @@ class ModelRegister(models.Model):
 
 
 class MarkaRegister(models.Model):
-    name_of_marka = models.CharField(max_length=50, default=0, verbose_name="Название марки", unique=True)
+    name_of_marka = models.CharField(max_length=50, default=0, verbose_name="Название марки(Русский)", unique=True)
+    name_of_marka_uzb = models.CharField(max_length=50, default=0, verbose_name="Название марки(Узбекский)", unique=True)
+    name_of_marka_eng = models.CharField(max_length=50, default=0, verbose_name="Название марки(Английский)", unique=True)
     model = models.ManyToManyField(ModelRegister, verbose_name="Модель")
 
     def delete(self, *args, **kwargs):

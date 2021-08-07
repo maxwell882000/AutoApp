@@ -246,7 +246,7 @@ class AddsView(APIView):
 
 
 class RecomendationViews(APIView):
-
+    # show image for model
     def get(self, request, *args, **kwargs):
         data = ModelRegister.objects.get(id=kwargs['pk'])
         f = open(data.image_above.path, 'rb')
@@ -254,7 +254,7 @@ class RecomendationViews(APIView):
         response = HttpResponse(f.read())
         response['Content-Disposition'] = "attachment; filename=%s" % filename
         return response
-
+    # send recommendations
     def post(self, request, *args, **kwargs):
         data = request.data
         model = get_model(data)

@@ -5,6 +5,31 @@ from django.contrib import auth
 from rest_framework.exceptions import AuthenticationFailed
 
 
+# create own serializer which will change keys
+# namely response with correct language
+# for this you have to itterate over the array
+# using list comprehension so
+# at first you will have array of maps
+# then you will itterate over map
+# finding the key which satisifies  (if key.split("_")[-1] == lang
+# change to correct lang | data[key.split("_")[0]] = value
+# send this data
+class ModelLanguageSerializer(serializers.ModelSerializer):
+
+    def data_correct_lang(self, lang):
+        self.correct_language(self.data, lang)
+        return self.data
+
+    def correct_language(self, data, lang: int):  # changes language of object
+        if lang == 0:
+            return
+        for maps in data:
+            for key, value in maps:
+                split = key.split('_')
+                if split[-1] == lang:
+                    maps[split[0]] = value
+
+
 class AmountProAccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = AmountProAccount
