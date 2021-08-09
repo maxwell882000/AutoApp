@@ -290,7 +290,8 @@ class MarkaAdmin(admin.ModelAdmin):
 
 
 class ModelRecommendationAdmin(admin.ModelAdmin):
-    fields = ('name_of_model', 'recomendations', 'recommend_card', 'image_above', 'text_above')
+    fields = ('name_of_model', 'recomendations', 'recommend_card', 'image_above', 'text_above', 'text_above_uzb',
+              'text_above_eng')
     filter_horizontal = ['recomendations', 'recommend_card']
 
     # def get_model_perms(self, request):
