@@ -133,7 +133,7 @@ class AmountProAccountView(APIView):
     def get(self, request, *args, **kwargs):
         service = AmountProAccount.objects.filter(type=request.query_params['type'])
         serializer = AmountProAccountSerializer(service, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.data_correct_lang(lang=request.query_params['lang']), status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
         data = request.data
@@ -254,16 +254,18 @@ class RecomendationViews(APIView):
         response = HttpResponse(f.read())
         response['Content-Disposition'] = "attachment; filename=%s" % filename
         return response
+
     # send recommendations
     def post(self, request, *args, **kwargs):
         data = request.data
         model = get_model(data)
         serializer = SingleRecomendationSerializer(model.recomendations, many=True)
-        return Response({'id_model': model.id, 'recomendations': serializer.data, 'text_above': model.text_above,
+        return Response({'id_model': model.id, 'recomendations': serializer.data_correct_lang(data.lang),
+                         'text_above': model.text_above(lang=data.lang),
                          'image_name': model.image_above.name})
 
 
-def get_model(data):
+def get_model(data) -> ModelRegister:
     marka = MarkaRegister.objects.get(name_of_marka=data['name_of_marka'])
     return marka.model.get(name_of_model=data['name_of_model'])
 
@@ -272,7 +274,7 @@ class RecomendationCardsView(APIView):
     def get(self, request, *args, **kwargs):
         model = get_model(request.data)
         serializer = RecommendCardsSerializer(model.recommend_card, many=True)
-        return Response(serializer, status=status.HTTP_200_OK)
+        return Response(serializer.data_correct_lang, status=status.HTTP_200_OK)
 
 
 class MarkaRegisterViews(APIView):
@@ -309,7 +311,7 @@ class TransportViews(APIView):
                     user.save()
                 else:
                     if user.last_account == 0:
-                        index = user.cards.first().illd
+                        index = user.cards.first().id
                     else:
                         index = user.last_account
                 cards = user.cards.get(id=index)
@@ -323,16 +325,14 @@ class TransportViews(APIView):
                 response['cards'] = detail.data
             return Response(response)
 
-    def add_default_cards(self, detail: TransportDetail):
+    def add_default_cards(self, detail: TransportDetail, lang: int = 1):
         model = ModelRegister.objects.get(name_of_model=detail.model)
         try:
             for card in model.recommend_card.all():
-                print("TYPE CAR")
-                print(card.type_car == 0 or detail.type_car == card.type_car)
                 if card.type_car == 0 or detail.type_car == card.type_car:
                     attach = Attach.objects.create()
                     new_card = Card.objects.create(
-                        name_of_card=card.name,
+                        name_of_card=card.name(lang),
                         change=RecommendedChange.objects.create(
                             initial_run=detail.run,
                             run=card.select_recommend_run(detail.run)
@@ -378,7 +378,7 @@ class TransportViews(APIView):
             if 'initial_run' in data:
                 detail.initial_run = data['initial_run']
             detail.save()
-            self.add_default_cards(detail)
+            self.add_default_cards(detail, data.lang)
             user.cards.add(detail)
             user.last_account = detail.id
             user.save()

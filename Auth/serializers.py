@@ -20,17 +20,24 @@ class ModelLanguageSerializer(serializers.ModelSerializer):
         self.correct_language(self.data, lang)
         return self.data
 
+    def cnvt_lang_to_str(self, lang: int) -> str:
+        if lang == 1:
+            return "uzb"
+        elif lang == 3:
+            return "eng"
+
     def correct_language(self, data, lang: int):  # changes language of object
         if lang == 0:
             return
+        lang_str = self.cnvt_lang_to_str(lang)
         for maps in data:
             for key, value in maps:
                 split = key.split('_')
-                if split[-1] == lang:
+                if split[-1] == lang_str:
                     maps[split[0]] = value
 
 
-class AmountProAccountSerializer(serializers.ModelSerializer):
+class AmountProAccountSerializer(ModelLanguageSerializer):
     class Meta:
         model = AmountProAccount
         fields = ("__all__")
@@ -42,7 +49,7 @@ class LocationSerializer(serializers.ModelSerializer):
         fields = ("__all__")
 
 
-class RecommendCardsSerializer(serializers.ModelSerializer):
+class RecommendCardsSerializer(ModelLanguageSerializer):
     class Meta:
         model = RecommendCards
         fields = ("__all__")
@@ -185,7 +192,7 @@ class MarkaSerializer(serializers.ModelSerializer):
         depth = 1
 
 
-class SingleRecomendationSerializer(serializers.ModelSerializer):
+class SingleRecomendationSerializer(ModelLanguageSerializer):
     class Meta:
         model = SingleRecomendation
         fields = ('__all__')

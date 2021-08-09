@@ -1,5 +1,7 @@
 import random
 
+from django.core.files.storage import default_storage
+
 
 def create_new_ref_number():
     return random.randint(1000000000, 372036854775807)
@@ -21,3 +23,10 @@ ChoiceRun = (
     (2, 'пробег в километрах 100000 - 200000'),
     (3, 'пробег в километрах 200000 и больше')
 )
+
+
+def delete_obj(o):
+    try:
+        default_storage.delete(o.path)
+    except:
+        pass

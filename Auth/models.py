@@ -9,6 +9,7 @@ from .utils import *
 # from payments.models import BasePayment
 
 
+
 class ClickModel(models.Model):
     pay = models.IntegerField(default=0)
 
@@ -49,7 +50,7 @@ class ImagesForAttached(models.Model):
     image = models.ImageField(upload_to='images/')
 
     def delete(self, *args, **kwargs):
-        default_storage.delete(self.image.path)
+        delete_obj(self.image)
         super(ImagesForAttached, self).delete(*args, **kwargs)
 
 
@@ -136,6 +137,14 @@ class RecommendCards(models.Model):
     recommend_run_old = models.FloatField(default=0, verbose_name="пробег в километрах 200000 и больше")
     type_car = models.IntegerField(choices=ChoiceCarType)
 
+    def name(self, lang):
+        if lang == 2:
+            return self.name
+        elif lang == 3:
+            return self.name_eng
+        else:
+            return self.name_uzb
+
     def select_recommend_run(self, run):
         if run < 100000:
             return run + self.recommend_run
@@ -168,9 +177,7 @@ class SingleRecomendation(models.Model):
 
 
 class ModelRegister(models.Model):
-    name_of_model = models.CharField(max_length=50, verbose_name="Название модели(Русский)", unique=True)
-    name_of_model_uzb = models.CharField(max_length=50, verbose_name="Название модели(Узбекский)", unique=True)
-    name_of_model_eng = models.CharField(max_length=50, verbose_name="Название модели(Английский)", unique=True)
+    name_of_model = models.CharField(max_length=50, verbose_name="Название модели", unique=True)
     recomendations = models.ManyToManyField(SingleRecomendation, verbose_name="Рекомендации для модели")
     recommend_card = models.ManyToManyField(RecommendCards, verbose_name="Рекомендованные карточки")
     image_above = models.ImageField(upload_to='admin/', verbose_name="Фото для модели")
@@ -181,10 +188,18 @@ class ModelRegister(models.Model):
     class Meta:
         verbose_name_plural = 'Модель'
 
+    def text_above(self, lang: int):
+        if lang == 2:
+            return self.text_above
+        elif lang == 3:
+            return self.text_above_eng
+        else:
+            return self.text_above_uzb
+
     def delete(self, *args, **kwargs):
         for recommendation in self.recomendations.all():
             recommendation.delete()
-        default_storage.delete(self.image_above.path)
+        delete_obj(self.image_above)
         super(ModelRegister, self).delete(*args, **kwargs)
 
     def __str__(self):
@@ -192,9 +207,7 @@ class ModelRegister(models.Model):
 
 
 class MarkaRegister(models.Model):
-    name_of_marka = models.CharField(max_length=50, default=0, verbose_name="Название марки(Русский)", unique=True)
-    name_of_marka_uzb = models.CharField(max_length=50, default=0, verbose_name="Название марки(Узбекский)", unique=True)
-    name_of_marka_eng = models.CharField(max_length=50, default=0, verbose_name="Название марки(Английский)", unique=True)
+    name_of_marka = models.CharField(max_length=50, default=0, verbose_name="Название марки", unique=True)
     model = models.ManyToManyField(ModelRegister, verbose_name="Модель")
 
     def delete(self, *args, **kwargs):
@@ -278,7 +291,7 @@ class Temporary(models.Model):
 
     def delete_operation(self):
         for image in self.image.all():
-            default_storage.delete(image.image.path())
+            delete_obj(image.image)
             image.delete()
         for expense in self.expenses.all():
             expense.delete()
@@ -294,7 +307,7 @@ class Adds(models.Model):
     links = models.CharField(max_length=200, verbose_name="Линк для перехода")
 
     def delete(self, *args, **kwargs):
-        default_storage.delete(self.file.path)
+        delete_obj(self.file)
         self.file.delete()
         super(Adds, self).delete(*args, **kwargs)
 
@@ -328,6 +341,8 @@ class Orders(models.Model):
 
 class AmountProAccount(models.Model):
     name_subscribe = models.CharField(max_length=50, verbose_name="Название подписки")
+    name_subscribe_uzb = models.CharField(max_length=50, verbose_name="Название подписки")
+    name_subscribe_eng = models.CharField(max_length=50, verbose_name="Название подписки")
     price = models.IntegerField(verbose_name="Цена подписки в суммах", default=0)
     duration = models.IntegerField(verbose_name="Длительность подписки в днях", default=0)
     type = models.IntegerField(choices=ChoicesForSubscribe, default=0, verbose_name="Тип подписки")
