@@ -181,7 +181,7 @@ class ModelRegister(models.Model):
     recomendations = models.ManyToManyField(SingleRecomendation, verbose_name="Рекомендации для модели")
     recommend_card = models.ManyToManyField(RecommendCards, verbose_name="Рекомендованные карточки")
     image_above = models.ImageField(upload_to='admin/', verbose_name="Фото для модели")
-    text_above_ru = models.TextField(verbose_name="Описание модели(Русский)")
+    text_above = models.TextField(verbose_name="Описание модели(Русский)")
     text_above_eng = models.TextField(verbose_name="Описание модели(Английский)")
     text_above_uzb = models.TextField(verbose_name="Описание модели(Узбекский)")
 
