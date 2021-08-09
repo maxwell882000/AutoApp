@@ -261,7 +261,7 @@ class RecomendationViews(APIView):
         model = get_model(data)
         serializer = SingleRecomendationSerializer(model.recomendations, many=True)
         return Response({'id_model': model.id, 'recomendations': serializer.data_correct_lang(data.lang),
-                         'text_above': model.text_above(lang=data.lang),
+                         'text_above': model.text_above_lang(lang=data.lang),
                          'image_name': model.image_above.name})
 
 
@@ -332,7 +332,7 @@ class TransportViews(APIView):
                 if card.type_car == 0 or detail.type_car == card.type_car:
                     attach = Attach.objects.create()
                     new_card = Card.objects.create(
-                        name_of_card=card.name(lang),
+                        name_of_card=card.name_lang(lang),
                         change=RecommendedChange.objects.create(
                             initial_run=detail.run,
                             run=card.select_recommend_run(detail.run)

@@ -137,7 +137,7 @@ class RecommendCards(models.Model):
     recommend_run_old = models.FloatField(default=0, verbose_name="пробег в километрах 200000 и больше")
     type_car = models.IntegerField(choices=ChoiceCarType)
 
-    def name(self, lang):
+    def name_lang(self, lang):
         if lang == 2:
             return self.name
         elif lang == 3:
@@ -188,7 +188,7 @@ class ModelRegister(models.Model):
     class Meta:
         verbose_name_plural = 'Модель'
 
-    def text_above(self, lang: int):
+    def text_above_lang(self, lang: int):
         if lang == 2:
             return self.text_above
         elif lang == 3:
