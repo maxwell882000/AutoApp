@@ -260,8 +260,8 @@ class RecomendationViews(APIView):
         data = request.data
         model = get_model(data)
         serializer = SingleRecomendationSerializer(model.recomendations, many=True)
-        return Response({'id_model': model.id, 'recomendations': serializer.data_correct_lang(data.lang),
-                         'text_above': model.text_above_lang(lang=data.lang),
+        return Response({'id_model': model.id, 'recomendations': serializer.data_correct_lang(data['lang']),
+                         'text_above': model.text_above_lang(lang=data['lang']),
                          'image_name': model.image_above.name})
 
 
@@ -378,7 +378,7 @@ class TransportViews(APIView):
             if 'initial_run' in data:
                 detail.initial_run = data['initial_run']
             detail.save()
-            self.add_default_cards(detail, data.lang)
+            self.add_default_cards(detail, data['lang'])
             user.cards.add(detail)
             user.last_account = detail.id
             user.save()
