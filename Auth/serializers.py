@@ -15,7 +15,7 @@ from rest_framework.exceptions import AuthenticationFailed
 # change to correct lang | data[key.split("_")[0]] = value
 # send this data
 class ListNewSerializer(serializers.ListSerializer):
-    def data_correct_lang(self, lang):
+    def data_correct_lang(self, lang: int):
         return self.correct_language(self.data, lang)
 
     def cnvt_lang_to_str(self, lang: int) -> str:
@@ -25,7 +25,7 @@ class ListNewSerializer(serializers.ListSerializer):
             return "eng"
 
     def correct_language(self, data, lang: int):  # changes language of object
-        if lang == 0:
+        if lang == 2:
             return
         lang_str = self.cnvt_lang_to_str(lang)
         new_array = []
@@ -37,7 +37,7 @@ class ListNewSerializer(serializers.ListSerializer):
                 split = key.split('_')
                 if split[-1] == lang_str:
                     dict[split[0]] = value
-        return  new_array
+        return new_array
 
 
 class ModelLanguageSerializer(serializers.ModelSerializer):

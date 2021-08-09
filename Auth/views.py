@@ -133,7 +133,7 @@ class AmountProAccountView(APIView):
     def get(self, request, *args, **kwargs):
         service = AmountProAccount.objects.filter(type=request.query_params['type'])
         serializer = AmountProAccountSerializer(service, many=True)
-        return Response(serializer.data_correct_lang(lang=request.query_params['lang']), status=status.HTTP_200_OK)
+        return Response(serializer.data_correct_lang(lang=int(request.query_params['lang'])), status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
         data = request.data
