@@ -23,10 +23,10 @@ class ListNewSerializer(serializers.ListSerializer):
             return "uzb"
         elif lang == 3:
             return "eng"
+        elif lang == 2:
+            return "ru"
 
     def correct_language(self, data, lang: int):  # changes language of object
-        if lang == 2:
-            return self.data
         lang_str = self.cnvt_lang_to_str(lang)
         new_array = []
         for maps in data:

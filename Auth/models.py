@@ -161,7 +161,7 @@ class RecommendCards(models.Model):
 
 
 class SingleRecomendation(models.Model):
-    main_name = models.CharField(max_length=70, verbose_name="Название для рекомендации(Русский)")
+    main_name_ru = models.CharField(max_length=70, verbose_name="Название для рекомендации(Русский)")
     main_name_uzb = models.CharField(max_length=70, verbose_name="Название для рекомендации(Узбекский)")
     main_name_eng = models.CharField(max_length=70, verbose_name="Название для рекомендации(Английский)")
     description = models.TextField(verbose_name="Описание рекомендации(Русский)")
@@ -181,7 +181,7 @@ class ModelRegister(models.Model):
     recomendations = models.ManyToManyField(SingleRecomendation, verbose_name="Рекомендации для модели")
     recommend_card = models.ManyToManyField(RecommendCards, verbose_name="Рекомендованные карточки")
     image_above = models.ImageField(upload_to='admin/', verbose_name="Фото для модели")
-    text_above = models.TextField(verbose_name="Описание модели(Русский)")
+    text_above_ru = models.TextField(verbose_name="Описание модели(Русский)")
     text_above_eng = models.TextField(verbose_name="Описание модели(Английский)")
     text_above_uzb = models.TextField(verbose_name="Описание модели(Узбекский)")
 
@@ -340,7 +340,7 @@ class Orders(models.Model):
 
 
 class AmountProAccount(models.Model):
-    name_subscribe = models.CharField(max_length=50, verbose_name="Название подписки(Русский)")
+    name_subscribe_ru = models.CharField(max_length=50, verbose_name="Название подписки(Русский)")
     name_subscribe_uzb = models.CharField(max_length=50, verbose_name="Название подписки(Узбекский)")
     name_subscribe_eng = models.CharField(max_length=50, verbose_name="Название подписки(Английский)")
     price = models.IntegerField(verbose_name="Цена подписки в суммах", default=0)
