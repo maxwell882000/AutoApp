@@ -14,8 +14,7 @@ from rest_framework.exceptions import AuthenticationFailed
 # finding the key which satisifies  (if key.split("_")[-1] == lang
 # change to correct lang | data[key.split("_")[0]] = value
 # send this data
-class ModelLanguageSerializer(serializers.ModelSerializer):
-
+class ListNewSerializer(serializers.ListSerializer):
     def data_correct_lang(self, lang):
         self.correct_language(self.data, lang)
         return self.data
@@ -35,6 +34,41 @@ class ModelLanguageSerializer(serializers.ModelSerializer):
                 split = key.split('_')
                 if split[-1] == lang_str:
                     maps[split[0]] = value
+
+
+class ModelLanguageSerializer(serializers.ModelSerializer):
+
+    @classmethod
+    def many_init(cls, *args, **kwargs):
+        """
+        This method implements the creation of a `ListSerializer` parent
+        class when `many=True` is used. You can customize it if you need to
+        control which keyword arguments are passed to the parent, and
+        which are passed to the child.
+
+        Note that we're over-cautious in passing most arguments to both parent
+        and child classes in order to try to cover the general case. If you're
+        overriding this method you'll probably want something much simpler, eg:
+
+        @classmethod
+        def many_init(cls, *args, **kwargs):
+            kwargs['child'] = cls()
+            return CustomListSerializer(*args, **kwargs)
+        """
+        allow_empty = kwargs.pop('allow_empty', None)
+        child_serializer = cls(*args, **kwargs)
+        list_kwargs = {
+            'child': child_serializer,
+        }
+        if allow_empty is not None:
+            list_kwargs['allow_empty'] = allow_empty
+        list_kwargs.update({
+            key: value for key, value in kwargs.items()
+            if key in serializers.LIST_SERIALIZER_KWARGS
+        })
+        meta = getattr(cls, 'Meta', None)
+        list_serializer_class = getattr(meta, 'list_serializer_class', ListNewSerializer)
+        return list_serializer_class(*args, **list_kwargs)
 
 
 class AmountProAccountSerializer(ModelLanguageSerializer):
