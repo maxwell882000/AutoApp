@@ -30,7 +30,7 @@ class ListNewSerializer(serializers.ListSerializer):
             return
         lang_str = self.cnvt_lang_to_str(lang)
         for maps in data:
-            for key, value in maps:
+            for key, value in maps.items():
                 split = key.split('_')
                 if split[-1] == lang_str:
                     maps[split[0]] = value
