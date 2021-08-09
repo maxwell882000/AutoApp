@@ -340,9 +340,9 @@ class Orders(models.Model):
 
 
 class AmountProAccount(models.Model):
-    name_subscribe = models.CharField(max_length=50, verbose_name="Название подписки")
-    name_subscribe_uzb = models.CharField(max_length=50, verbose_name="Название подписки")
-    name_subscribe_eng = models.CharField(max_length=50, verbose_name="Название подписки")
+    name_subscribe = models.CharField(max_length=50, verbose_name="Название подписки(Русский)")
+    name_subscribe_uzb = models.CharField(max_length=50, verbose_name="Название подписки(Узбекский)")
+    name_subscribe_eng = models.CharField(max_length=50, verbose_name="Название подписки(Английский)")
     price = models.IntegerField(verbose_name="Цена подписки в суммах", default=0)
     duration = models.IntegerField(verbose_name="Длительность подписки в днях", default=0)
     type = models.IntegerField(choices=ChoicesForSubscribe, default=0, verbose_name="Тип подписки")
