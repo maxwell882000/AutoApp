@@ -135,7 +135,7 @@ class RecommendCards(models.Model):
     recommend_run = models.FloatField(default=0, verbose_name="пробег в километрах 0 - 100000")
     recommend_run_avarage = models.FloatField(default=0, verbose_name="пробег в километрах 100000 - 200000")
     recommend_run_old = models.FloatField(default=0, verbose_name="пробег в километрах 200000 и больше")
-    type_car = models.IntegerField(choices=ChoiceCarType)
+    type_car = models.IntegerField(choices=ChoiceCarType , verbose_name="Тип машины")
 
     def name_lang(self, lang):
         if lang == 2:
