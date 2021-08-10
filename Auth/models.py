@@ -173,7 +173,7 @@ class SingleRecomendation(models.Model):
         verbose_name_plural = 'Рекоммендации'
 
     def __str__(self):
-        return self.main_name
+        return self.main_name_ru
 
 
 class ModelRegister(models.Model):
@@ -351,7 +351,7 @@ class AmountProAccount(models.Model):
         verbose_name_plural = 'Подписка'
 
     def __str__(self):
-        return self.name_subscribe
+        return self.name_subscribe_ru
 
 
 class PaymeProPayment(models.Model):
