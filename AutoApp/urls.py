@@ -20,7 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Auth.urls')),
     path('ws/', include('paynet_web_server.urls')),
-    path('payments/', include('payments.urls')),
-    path('payments/', include('click_payment.urls'))
+    # path('payments/', include('payments.urls')),
+    # path('payments/', include('click_payment.urls'))
     # path('social_auth/', include('social_auth.urls')),
 ]

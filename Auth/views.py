@@ -1,5 +1,5 @@
 from re import S
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from rest_framework import status
 from django.http import HttpResponse, FileResponse
 
@@ -686,3 +686,10 @@ def clean(request, pk=None):
         return Response({}, status=status.HTTP_200_OK)
     except Temporary.DoesNotExist:
         return Response({}, status=status.HTTP_404_NOT_FOUND)
+
+
+def term(request):
+    if( 'lang' in request.GET):
+        if int(request.GET['lang']) == 3:
+            return render(request, template_name="term-service/term-service.html")
+    return render(request, template_name="term-service/term-service-ru.html")
