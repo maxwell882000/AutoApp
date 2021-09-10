@@ -129,9 +129,9 @@ class Cards(models.Model):
 
 
 class RecommendCards(models.Model):
-    name = models.CharField(default="", max_length=30, verbose_name="Название карточки(Русский)")
-    name_uzb = models.CharField(default="", max_length=30, verbose_name="Название карточки(Узбекский)")
-    name_eng = models.CharField(default="", max_length=30, verbose_name="Название карточки(Английский)")
+    name = models.CharField(default="", max_length=60, verbose_name="Название карточки(Русский)")
+    name_uzb = models.CharField(default="", max_length=60, verbose_name="Название карточки(Узбекский)")
+    name_eng = models.CharField(default="", max_length=60, verbose_name="Название карточки(Английский)")
     recommend_run = models.FloatField(default=0, verbose_name="пробег в километрах 0 - 100000")
     recommend_run_avarage = models.FloatField(default=0, verbose_name="пробег в километрах 100000 - 200000")
     recommend_run_old = models.FloatField(default=0, verbose_name="пробег в километрах 200000 и больше")
