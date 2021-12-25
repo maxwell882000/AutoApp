@@ -176,8 +176,6 @@ class TransportUnits(APIView):
     def put(self, request, pk, format=None):
         user = UserTransport.objects.get(emailOrPhone=pk)
         data = request.data
-        print("SELECT DATA")
-        print(data)
         units = SelectedUnits.objects.create(
             distanseUnit=data['distanseUnit'],
             fuelConsumption=data['fuelConsumption'],
@@ -348,6 +346,8 @@ class TransportViews(APIView):
             pass
 
     def post(self, request, pk, format=None):
+        # add try except clause then if the error appears send the messages it is not available and store
+        # the log
         user = UserTransport.objects.get(emailOrPhone=pk)
         data = request.data
         if user.pro_account or user.cards.first() == None:
@@ -689,7 +689,7 @@ def clean(request, pk=None):
 
 
 def term(request):
-    if( 'lang' in request.GET):
+    if ('lang' in request.GET):
         if int(request.GET['lang']) == 3:
             return render(request, template_name="term-service/term-service.html")
     return render(request, template_name="term-service/term-service-ru.html")

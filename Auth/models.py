@@ -90,7 +90,7 @@ class Expense(models.Model):
 
 
 class Card(models.Model):
-    name_of_card = models.CharField(max_length=50)
+    name_of_card = models.CharField(max_length=60)
     date = models.DateTimeField(verbose_name="дата", auto_now_add=True)
     date_of_change = models.DateTimeField(blank=True, null=True)
     comments = models.CharField(max_length=100, default="")
@@ -231,8 +231,8 @@ class SelectedUnits(models.Model):
 
 class TransportDetail(models.Model):
     nameOfTransport = models.CharField(max_length=50)
-    marka = models.CharField(max_length=50)
-    model = models.CharField(max_length=50)
+    marka = models.CharField(max_length=60)
+    model = models.CharField(max_length=60)
     yearOfMade = models.CharField(max_length=4)
     yearOfPurchase = models.CharField(max_length=4)
     number = models.CharField(max_length=30)

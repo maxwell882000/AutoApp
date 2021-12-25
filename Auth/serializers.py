@@ -115,7 +115,7 @@ class CardsSerializer(serializers.ModelSerializer):
 class ImagesForAttachedSerializer(serializers.ModelSerializer):
     class Meta:
         model = ImagesForAttached
-        fields = ('__all__')
+        fields = '__all__'
 
 
 class AttachSerializer(serializers.ModelSerializer):
