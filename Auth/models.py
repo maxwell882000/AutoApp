@@ -57,7 +57,7 @@ class ImagesForAttached(models.Model):
 class Location(models.Model):
     latitude = models.FloatField(default=0)
     longitude = models.FloatField(default=0)
-    comment = models.CharField(max_length=50, blank=True, null=True)
+    comment = models.CharField(max_length=70, blank=True, null=True)
 
 
 class Attach(models.Model):
@@ -84,13 +84,13 @@ class RecommendedChange(models.Model):
 
 
 class Expense(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=70)
     sum = models.IntegerField(default=0)
     amount = models.IntegerField(default=1)
 
 
 class Card(models.Model):
-    name_of_card = models.CharField(max_length=60)
+    name_of_card = models.CharField(max_length=70)
     date = models.DateTimeField(verbose_name="дата", auto_now_add=True)
     date_of_change = models.DateTimeField(blank=True, null=True)
     comments = models.CharField(max_length=100, default="")
@@ -129,9 +129,9 @@ class Cards(models.Model):
 
 
 class RecommendCards(models.Model):
-    name = models.CharField(default="", max_length=60, verbose_name="Название карточки(Русский)")
-    name_uzb = models.CharField(default="", max_length=60, verbose_name="Название карточки(Узбекский)")
-    name_eng = models.CharField(default="", max_length=60, verbose_name="Название карточки(Английский)")
+    name = models.CharField(default="", max_length=70, verbose_name="Название карточки(Русский)")
+    name_uzb = models.CharField(default="", max_length=70, verbose_name="Название карточки(Узбекский)")
+    name_eng = models.CharField(default="", max_length=70, verbose_name="Название карточки(Английский)")
     recommend_run = models.FloatField(default=0, verbose_name="пробег в километрах 0 - 100000")
     recommend_run_avarage = models.FloatField(default=0, verbose_name="пробег в километрах 100000 - 200000")
     recommend_run_old = models.FloatField(default=0, verbose_name="пробег в километрах 200000 и больше")
@@ -177,7 +177,7 @@ class SingleRecomendation(models.Model):
 
 
 class ModelRegister(models.Model):
-    name_of_model = models.CharField(max_length=50, verbose_name="Название модели", unique=True)
+    name_of_model = models.CharField(max_length=70, verbose_name="Название модели", unique=True)
     recomendations = models.ManyToManyField(SingleRecomendation, verbose_name="Рекомендации для модели")
     recommend_card = models.ManyToManyField(RecommendCards, verbose_name="Рекомендованные карточки")
     image_above = models.ImageField(upload_to='admin/', verbose_name="Фото для модели")
@@ -207,7 +207,7 @@ class ModelRegister(models.Model):
 
 
 class MarkaRegister(models.Model):
-    name_of_marka = models.CharField(max_length=50, default=0, verbose_name="Название марки", unique=True)
+    name_of_marka = models.CharField(max_length=70, default=0, verbose_name="Название марки", unique=True)
     model = models.ManyToManyField(ModelRegister, verbose_name="Модель")
 
     def delete(self, *args, **kwargs):
@@ -223,27 +223,27 @@ class MarkaRegister(models.Model):
 
 
 class SelectedUnits(models.Model):
-    speedUnit = models.CharField(max_length=20, default="км/д")
-    distanseUnit = models.CharField(max_length=20, default="км")
-    fuelConsumption = models.CharField(max_length=20, default="км/л")
-    volume = models.CharField(max_length=20, default="UZS")
+    speedUnit = models.CharField(max_length=70, default="км/д")
+    distanseUnit = models.CharField(max_length=70, default="км")
+    fuelConsumption = models.CharField(max_length=70, default="км/л")
+    volume = models.CharField(max_length=70, default="UZS")
 
 
 class TransportDetail(models.Model):
-    nameOfTransport = models.CharField(max_length=50)
-    marka = models.CharField(max_length=60)
-    model = models.CharField(max_length=60)
+    nameOfTransport = models.CharField(max_length=70)
+    marka = models.CharField(max_length=70)
+    model = models.CharField(max_length=70)
     yearOfMade = models.CharField(max_length=4)
     yearOfPurchase = models.CharField(max_length=4)
-    number = models.CharField(max_length=30)
+    number = models.CharField(max_length=70)
     numberOfTank = models.IntegerField(default=0)
-    firstTankType = models.CharField(max_length=30)
+    firstTankType = models.CharField(max_length=70)
     firstTankVolume = models.IntegerField(default=0)
-    secondTankType = models.CharField(max_length=30, blank=True, null=True)
+    secondTankType = models.CharField(max_length=70, blank=True, null=True)
     secondTankVolume = models.IntegerField(default=0, blank=True, null=True)
     run = models.FloatField(default=0)
     initial_run = models.FloatField(default=0)
-    tech_passport = models.CharField(max_length=30)
+    tech_passport = models.CharField(max_length=70)
     cards_user = models.ForeignKey(Cards, related_name='cards_user', on_delete=models.CASCADE, blank=True, null=True)
     expenses = models.ForeignKey(Expenses, related_name='expenses', on_delete=models.CASCADE, blank=True, null=True)
     type_car = models.IntegerField(choices=ChoiceCarType, default=1)
@@ -259,7 +259,7 @@ class TransportDetail(models.Model):
 
 class UserTransport(models.Model):
     emailOrPhone = models.CharField(max_length=200, unique=True)
-    provider = models.CharField(max_length=30)
+    provider = models.CharField(max_length=70)
     cards = models.ManyToManyField(TransportDetail, null=True, blank=True)
     units = models.ForeignKey(SelectedUnits, related_name='units', on_delete=models.CASCADE, blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
@@ -340,9 +340,9 @@ class Orders(models.Model):
 
 
 class AmountProAccount(models.Model):
-    name_subscribe_ru = models.CharField(max_length=50, verbose_name="Название подписки(Русский)")
-    name_subscribe_uzb = models.CharField(max_length=50, verbose_name="Название подписки(Узбекский)")
-    name_subscribe_eng = models.CharField(max_length=50, verbose_name="Название подписки(Английский)")
+    name_subscribe_ru = models.CharField(max_length=70, verbose_name="Название подписки(Русский)")
+    name_subscribe_uzb = models.CharField(max_length=70, verbose_name="Название подписки(Узбекский)")
+    name_subscribe_eng = models.CharField(max_length=70, verbose_name="Название подписки(Английский)")
     price = models.IntegerField(verbose_name="Цена подписки в суммах", default=0)
     duration = models.IntegerField(verbose_name="Длительность подписки в днях", default=0)
     type = models.IntegerField(choices=ChoicesForSubscribe, default=0, verbose_name="Тип подписки")
@@ -378,8 +378,8 @@ class PaynetProPayment(models.Model):
 
 
 class Message(models.Model):
-    title = models.CharField(max_length=10, verbose_name="Заглавние")
-    body = models.CharField(max_length=50, verbose_name="Содержание")
+    title = models.CharField(max_length=70, verbose_name="Заглавние")
+    body = models.CharField(max_length=70, verbose_name="Содержание")
     type_cards = models.ManyToManyField(RecommendCards, verbose_name="Для каких карточек")
     type_car = models.IntegerField(choices=ChoiceCarType, default=1, verbose_name="Тип машины")
 
