@@ -6,7 +6,7 @@ from .models import UserTransport, MarkaRegister, ModelRegister, \
     SingleRecomendation, Adds, AmountProAccount, \
     Message, RecommendCards, PaynetProPayment, TransportDetail, Card
 
-from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import Group
 from django.db.models import Q, F, ExpressionWrapper, FloatField, Case, Value, When
 from django.db.models.functions import (
     ExtractDay, ExtractMonth, ExtractYear, Now)
@@ -22,7 +22,6 @@ AdminSite.site_title = "Админка"
 AdminSite.site_header = "Auto App"
 AdminSite.index_title = "Админка"
 admin.site.unregister(Group)
-admin.site.unregister(User)
 admin.site.register(Adds)
 admin.site.register(TransportDetail)
 

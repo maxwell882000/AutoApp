@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from .serializers import *
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from authlib.integrations.django_client import OAuth, DjangoRemoteApp
+from authlib.integrations.django_client import OAuth
 from django.urls import reverse
 from ._core import map_profile_fields
 from rest_framework.parsers import MultiPartParser, FormParser
@@ -54,8 +54,7 @@ OAUTH_CONFIG = {
 }
 
 
-class RemoteApp(DjangoRemoteApp):
-    OAUTH_APP_CONFIG = OAUTH_CONFIG
+
 
 
 # facebook_oauth = OAuth()
@@ -80,7 +79,6 @@ oauth.register(
     name='facebook',
     overwrite=True,
     fetch_token=lambda request: getattr(request, token_name, None),
-    client_cls=RemoteApp,
 )
 
 
@@ -663,7 +661,7 @@ class PushNotifications(APIView):
         device_id = id(datetime.now().timestamp())
         FCMDevice.objects.create(
             name=user.emailOrPhone,
-            user=user,
+            user_id=user.id,
             device_id=device_id,
             registration_id=data['token'],
             type=AbstractFCMDevice.DEVICE_TYPES[0][0] if data['type'] == 0 else AbstractFCMDevice.DEVICE_TYPES[1][0]

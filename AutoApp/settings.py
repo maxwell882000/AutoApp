@@ -44,8 +44,8 @@ SECRET_KEY = 't-#d-pe&d2v+s_n+vntjm+eu32s$kwg!io%@@zs05kad_b0&x8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['autoapp.elite-house.uz', 'machina.uz', '127.0.0.1', '185.74.5.208', 'localhost']
-
+# ALLOWED_HOSTS = ['autoapp.elite-house.uz', 'machina.uz', '127.0.0.1', '185.74.5.208', 'localhost']
+ALLOWED_HOSTS = ['192.168.1.2', '0.0.0.0']
 PAYME = {
     'url': "https://checkout.paycom.uz/api",
     'headers': {
@@ -204,7 +204,7 @@ CSRF_COOKIE_HTTPONLY = False
 ASGI_APPLICATION = "AutoApp.asgi.application"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 FCM_DJANGO_SETTINGS = {
-    # default: _('FCM Django')
+    # default: _('FCM Django')FCM_DJANGO_SETTINGS
     "APP_VERBOSE_NAME": "Уведомления",
     # Your firebase API KEY
     "FCM_SERVER_KEY": "AAAALD0ZIj0:APA91bEJBjjytIwa3A0Wc1AAs5k9wqxJhJx-CLbUZSZf_oLe-FOzjRKL_2P7oXfnF0295eKbhi5yfQTky83n0NrPuEfcc36A7uvGMR-jT3Z9h7sm58Qu3jew3dxD-mEwYhlukU1hESJU",
