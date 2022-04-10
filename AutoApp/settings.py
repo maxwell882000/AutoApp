@@ -45,7 +45,7 @@ SECRET_KEY = 't-#d-pe&d2v+s_n+vntjm+eu32s$kwg!io%@@zs05kad_b0&x8'
 DEBUG = True
 
 # ALLOWED_HOSTS = ['autoapp.elite-house.uz', 'machina.uz', '127.0.0.1', '185.74.5.208', 'localhost']
-ALLOWED_HOSTS = ['192.168.1.2', '0.0.0.0']
+ALLOWED_HOSTS = ['192.168.1.2', '0.0.0.0', '185.217.131.41']
 PAYME = {
     'url': "https://checkout.paycom.uz/api",
     'headers': {
